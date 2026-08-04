@@ -1,0 +1,5 @@
+1. Abrí .env y pegá tu Access Token de producción.
+2. No subas .env a GitHub.
+3. Ejecutá npm.cmd install y luego npm.cmd start.
+4. Abrí http://localhost:3000.
+5. En localhost se inicia el checkout real, pero el retorno automático requiere una URL HTTPS pública.

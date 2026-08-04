@@ -1,0 +1,42 @@
+ACTUALIZACIÓN DE MÍNIMOS DE COMPRA Y COLORES
+
+La cantidad mínima se calculó con:
+ceil(ARS 200.000 / precio actual de la tienda).
+
+PRODUCTOS ACTUALIZADOS:
+- Boinas Bordadas Unisex: precio ARS 74,224.80 · mínimo 3 unidades · total mínimo ARS 222,674.40
+- Boinas de Hilo Niños: precio ARS 61,921.60 · mínimo 4 unidades · total mínimo ARS 247,686.40
+- Boinas de paño Bordadas: precio ARS 110,864.00 · mínimo 2 unidades · total mínimo ARS 221,728.00
+- Boinas de paño Bordadas de Niños: precio ARS 71,520.80 · mínimo 3 unidades · total mínimo ARS 214,562.40
+- Bombacha de campo bordada unisex: precio ARS 79,632.80 · mínimo 3 unidades · total mínimo ARS 238,898.40
+- Bombacha de Corderoy: precio ARS 91,800.80 · mínimo 3 unidades · total mínimo ARS 275,402.40
+- Bombacha de Grafa: precio ARS 70,168.80 · mínimo 3 unidades · total mínimo ARS 210,506.40
+- Bombacha de Grafa Poplin Niños Varios Diseños: precio ARS 68,681.60 · mínimo 3 unidades · total mínimo ARS 206,044.80
+- Bombacha de mil rayas: precio ARS 71,520.80 · mínimo 3 unidades · total mínimo ARS 214,562.40
+- Bombacha de mil rayas niños: precio ARS 71,520.80 · mínimo 3 unidades · total mínimo ARS 214,562.40
+- Bombacha de niños varios diseños: precio ARS 77,064.00 · mínimo 3 unidades · total mínimo ARS 231,192.00
+- Bombacha de Poplin: precio ARS 75,576.80 · mínimo 3 unidades · total mínimo ARS 226,730.40
+- Bombacha grafa unisex (56 60): precio ARS 75,576.80 · mínimo 3 unidades · total mínimo ARS 226,730.40
+- Bombacha tropical: precio ARS 74,224.80 · mínimo 3 unidades · total mínimo ARS 222,674.40
+- Bombacha tropical mil rayas de niño Varios Diseños: precio ARS 70,168.80 · mínimo 3 unidades · total mínimo ARS 210,506.40
+- Bombachas de Grafas: precio ARS 77,064.00 · mínimo 3 unidades · total mínimo ARS 231,192.00
+- Bombachas de Grafas Niños Varios Diseños: precio ARS 69,628.00 · mínimo 3 unidades · total mínimo ARS 208,884.00
+- Buzo Polar: precio ARS 78,416.00 · mínimo 3 unidades · total mínimo ARS 235,248.00
+- camisa de vestir hombre (38 44): precio ARS 82,336.80 · mínimo 3 unidades · total mínimo ARS 247,010.40
+- camisasdedamas: precio ARS 82,336.80 · mínimo 3 unidades · total mínimo ARS 247,010.40
+- CamisasH(46-50): precio ARS 86,392.80 · mínimo 3 unidades · total mínimo ARS 259,178.40
+- Fajas Varios Diseños: precio ARS 68,816.80 · mínimo 3 unidades · total mínimo ARS 206,450.40
+- Ponchos Hilo de Telar: precio ARS 117,624.00 · mínimo 2 unidades · total mínimo ARS 235,248.00
+- Ruana Hilo Telar: precio ARS 83,824.00 · mínimo 3 unidades · total mínimo ARS 251,472.00
+
+COLORES AGREGADOS A TODAS LAS CARDS/PRODUCTOS DE:
+- Boinas
+- Chalinas
+- Chombas
+- Buzos y Pullovers
+- Bombachas de Campo
+
+COLORES:
+Rojo, verde, azul, amarillo, marrón, violeta, negro, blanco, gris, rosa y naranja.
+
+La cantidad mínima se aplica en la página del producto y también en el carrito.

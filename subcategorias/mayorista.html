@@ -1,0 +1,84 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mayorista | Argentina World Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="../subcategoria.css">
+</head><body data-folder="Mayorista">
+
+<div class="announcement sub-announcement">
+  <div class="announcement-track">
+    <span>Hecho en Argentina</span><b>✦</b>
+    <span>Envíos nacionales e internacionales</span><b>✦</b>
+    <span>Productos por pedido</span><b>✦</b>
+    <span>Hecho en Argentina</span><b>✦</b>
+    <span>Envíos nacionales e internacionales</span><b>✦</b>
+    <span>Productos por pedido</span><b>✦</b>
+  </div>
+</div>
+<header class="site-header sub-site-header">
+  <div class="header-main">
+    <button class="icon-btn menu-btn" id="openSubMenu" aria-label="Abrir menú">☰</button>
+    <div class="header-search-area">
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="pageSearch" placeholder="Buscar productos..." autocomplete="off">
+      </div>
+    </div>
+    <a class="brand" href="../index.html">
+      <img class="brand-logo" src="../assets/logo-argentina-world-store.jpeg" alt="Argentina World Store">
+      <div class="brand-copy"><strong>ARGENTINA</strong><span>WORLD STORE</span></div>
+    </a>
+    <div class="header-actions">
+      <button class="header-link login-btn"><span>♙</span><span>Iniciar sesión</span></button>
+      <a class="header-link" href="../index.html"><span>◎</span><span>Países</span><span>⌄</span></a>
+      <button class="header-link cart-btn"><span>▢</span><span>Carrito</span><b id="cartCount">0</b></button>
+    </div>
+  </div>
+  <nav class="floating-nav">
+    <a href="../index.html">Inicio</a>
+    <a href="../index.html#destacados">Destacados</a>
+    <a href="../index.html#categorias">Categorías</a>
+    <a href="../index.html#subcategorias">Subcategorías</a>
+    <a href="#footer">Contacto</a>
+  </nav>
+</header>
+<div id="subMenuBackdrop" class="sidebar-backdrop"></div>
+<aside id="subMenu" class="shop-sidebar">
+  <div class="sidebar-head">
+    <div class="sidebar-brand"><img src="../assets/logo-argentina-world-store.jpeg" alt=""><div><strong>ARGENTINA</strong><span>WORLD STORE</span></div></div>
+    <button id="closeSubMenu">×</button>
+  </div>
+  <nav class="sidebar-nav">
+    <details open><summary>Comida</summary>
+      <a href="alfajores.html">Alfajores</a><a href="golosinas.html">Golosinas</a><a href="delicatessen.html">Delicatessen</a><a href="salado.html">Salados</a>
+    </details>
+    <details><summary>Vestimenta</summary>
+      <a href="alpargatas.html">Alpargatas</a><a href="camisas.html">Camisas</a><a href="chalecos.html">Chalecos</a><a href="chalinas.html">Chalinas</a><a href="cintos.html">Cintos</a><a href="ponchos-y-ruanas.html">Ponchos y Ruanas</a>
+    </details>
+    <details><summary>Bazar</summary>
+      <a href="billeteras.html">Billeteras</a><a href="bolsos.html">Bolsos</a><a href="bombillas-y-mates-de-alpaca-jady.html">Mates y Bombillas</a><a href="materas.html">Materas</a><a href="mochilas.html">Mochilas</a><a href="portacelular.html">Portacelulares</a>
+    </details>
+  </nav>
+</aside>
+
+<section class="sub-hero"><div class="breadcrumbs">Inicio / Subcategorías / Mayorista</div><h1>Mayorista</h1><p>Productos argentinos disponibles para compras minoristas y mayoristas. Pasá el mouse por una card para ver las fotografías de ese producto.</p></section>
+<div class="toolbar"><div class="count" id="count">0 productos</div><div class="toolbar-right"><select id="sort"><option value="default">Orden original</option><option value="az">A–Z</option><option value="za">Z–A</option></select></div></div>
+<main class="grid" id="productGrid"></main>
+
+<footer id="footer" class="footer main-footer-copy">
+  <div class="newsletter">
+    <div><p>Comunidad Argentina World Store</p><h2>Recibí novedades y nuevos productos</h2></div>
+    <form><input type="email" placeholder="Tu correo electrónico"><button type="submit">Suscribirme</button></form>
+  </div>
+  <div class="footer-grid">
+    <div><h3>Ayuda</h3><a href="#">Envíos y seguimiento</a><a href="#">Cambios y devoluciones</a><a href="#">Preguntas frecuentes</a><a href="#">Términos y condiciones</a></div>
+    <div><h3>Categorías</h3><a href="../index.html#comida">Comida</a><a href="../index.html#vestimenta">Vestimenta</a><a href="../index.html#bazar">Bazar</a><a href="../index.html#destacados">Destacados</a></div>
+    <div><h3>Nosotros</h3><a href="#">Sobre nosotros</a><a href="#">Trabajá con nosotros</a><a href="#">Fabricantes argentinos</a><a href="#">Mayoristas</a></div>
+    <div><h3>Contacto</h3><a href="mailto:argentinaworldstore@gmail.com">argentinaworldstore@gmail.com</a><a href="https://wa.me/549292615405465" target="_blank">WhatsApp</a><p>Argentina</p><div class="socials"><a href="#">IG</a><a href="#">FB</a><a href="#">TT</a></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Argentina World Store</span><span>Hecho en Argentina · Para el mundo</span></div>
+</footer>
+
+<div class="modal" id="modal"><button class="close" onclick="closeModal()">×</button><div class="modal-box"><div class="gallery"><img id="modalMain" alt=""><div class="thumbs" id="thumbs"></div></div><div class="modal-info"><p>Argentina World Store</p><h2 id="modalTitle"></h2><p>Venta minorista y mayorista.</p><p>Precio, stock, peso y variantes a completar.</p><button class="view" onclick="addCart(event)">Agregar al carrito</button></div></div></div>
+<script src="../catalogo.js"></script><script src="../subcategoria.js"></script></body></html>

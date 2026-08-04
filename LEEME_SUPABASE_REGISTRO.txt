@@ -1,0 +1,44 @@
+SUPABASE — REGISTRO DE USUARIOS
+
+ARCHIVOS AGREGADOS
+- supabase-auth.js
+- supabase_setup.sql
+- Variables SUPABASE_URL y SUPABASE_PUBLISHABLE_KEY en .env.example
+- Endpoint público /api/auth-config
+- Formulario completo de registro en todas las páginas
+
+CAMPOS DEL REGISTRO
+- Nombre
+- Apellido
+- Mail
+- Contraseña
+- País
+- Provincia / Estado
+- Ciudad
+- Código postal
+- Calle y número
+- Teléfono / Celular
+- Documento
+
+PASOS EN SUPABASE
+1. Crear un proyecto.
+2. Abrir SQL Editor.
+3. Abrir supabase_setup.sql, copiarlo y ejecutarlo.
+4. Ir a Project Settings → API Settings.
+5. Copiar Project URL y Publishable key.
+6. Pegarlas en el .env:
+   SUPABASE_URL=https://proyecto.supabase.co
+   SUPABASE_PUBLISHABLE_KEY=...
+7. Authentication → URL Configuration:
+   Site URL: http://localhost:3000
+   Redirect URLs: http://localhost:3000/**
+8. Reiniciar:
+   Ctrl + C
+   npm.cmd start
+
+SEGURIDAD
+- No usar SUPABASE_SERVICE_ROLE_KEY en el navegador.
+- La Publishable/Anon key puede estar en el frontend porque la tabla profiles
+  tiene Row Level Security.
+- Cada usuario solo puede leer o modificar su propio perfil.
+- El documento es un dato personal: mantené RLS activado y no lo publiques.

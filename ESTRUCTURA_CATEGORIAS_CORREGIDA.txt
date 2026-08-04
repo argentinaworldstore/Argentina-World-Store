@@ -1,0 +1,23 @@
+
+ESTRUCTURA CORREGIDA SEGÚN EL ÚLTIMO MENSAJE
+=============================================
+Comida:
+- Alfajores
+
+Vestimenta:
+- Alpargatas
+- Camisas
+- Chalecos
+- Chalinas
+- Cintos
+- Ponchos y Ruanas
+- Portacelular
+
+Bazar:
+- Billeteras
+- Bolsos
+- Bombillas y Mates de alpaca Jady
+- Materas
+- Mochilas
+
+Las 3 cards principales cambian cada 4 segundos usando 4 o 5 fotos de las subcategorías correctas.

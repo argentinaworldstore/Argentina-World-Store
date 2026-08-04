@@ -1,0 +1,5 @@
+CORRECCIONES
+- Cada página individual ahora carga el producto correspondiente.
+- Se corrigió el error que mostraba Mate Yorkie en todos los productos.
+- Se eliminó la subcategoría Buzos Polar.
+- Sus productos/fotos se integraron en Buzos y Pullovers sin duplicarlos.

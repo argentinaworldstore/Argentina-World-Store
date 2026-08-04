@@ -1,0 +1,5 @@
+ACTUALIZACIÓN
+- Mates y Bombillas reemplaza el nombre anterior.
+- Se agregó Cuchillos y Tablas con 12 productos.
+- Se eliminó el primer producto Bombacha rayas (36 54).
+- Selector de idioma independiente del país y disponible en 17 idiomas en páginas de producto.

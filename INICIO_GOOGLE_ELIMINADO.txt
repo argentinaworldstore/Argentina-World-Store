@@ -1,0 +1,8 @@
+Se eliminó completamente la opción de iniciar sesión con Google.
+
+El acceso ahora funciona únicamente con:
+- Registro mediante email y contraseña.
+- Inicio de sesión mediante email y contraseña.
+- Recuperación de contraseña por email.
+
+Mercado Pago, PayPal y Supabase no fueron modificados.

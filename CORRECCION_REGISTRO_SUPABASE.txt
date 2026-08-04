@@ -1,0 +1,12 @@
+Se corrigió el error: Cannot read properties of undefined (reading 'trim').
+
+Causa:
+- El formulario deshabilitaba los inputs antes de crear FormData.
+- Los inputs deshabilitados no se incluyen en FormData.
+
+Corrección:
+- Ahora solo se deshabilitan los botones mientras se procesa.
+- Los valores se limpian de forma segura antes de enviarlos a Supabase.
+
+Antes de subir a GitHub, probar un registro completo y confirmar que aparezca
+un usuario en Authentication > Users y una fila en Table Editor > profiles.

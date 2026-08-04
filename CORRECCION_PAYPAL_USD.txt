@@ -1,0 +1,9 @@
+CORRECCIÓN REALIZADA
+
+- Los compradores fuera de Argentina ven el carrito en USD.
+- El total se calcula con foreignPriceARS / ARS_PER_USD.
+- El frontend comprueba si ARS_PER_USD está configurado.
+- El frontend comprueba si las credenciales Live de PayPal están cargadas.
+- Los secretos nunca se exponen al navegador.
+
+Para funcionar, completar .env y reiniciar con npm.cmd start.

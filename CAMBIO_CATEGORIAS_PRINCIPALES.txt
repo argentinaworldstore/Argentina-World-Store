@@ -1,0 +1,8 @@
+CATEGORÍAS PRINCIPALES ACTUALIZADAS
+
+Las categorías principales ahora se llaman:
+- Productos Regionales
+- Indumentaria
+- Bazar y Accesorios
+
+Se actualizaron menús, cards, filtros y referencias internas en la tienda.

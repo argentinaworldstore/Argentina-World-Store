@@ -1,0 +1,15 @@
+ACTUALIZACIÓN REALIZADA
+
+- Billeteras: puntos para elegir beige, violeta, azul, gris o marrón.
+- Camisa de vestir hombre 38-44: colores solicitados y talles 38, 40, 42 y 44.
+- CamisasH 46-50: colores solicitados y talles 46, 48 y 50.
+- Camisas de damas: colores solicitados.
+- Alpargatas restantes: talles 34 a 45.
+- Eliminada la card de Camisas con imagen incorrecta de mochila.
+- Chalecos: medidas, talles y campo libre para pedir talle en dos modelos.
+- Chalina Marrón con Azul: eliminada la primera foto.
+- Eliminadas Chalina Bordo con Marrón y Chalina Tricolor0.
+- Buscador sincronizado con la primera foto real del producto.
+- Favicon del logo agregado en todas las páginas.
+- Panel de países ajustado.
+- Carrito guarda y muestra color y talle.

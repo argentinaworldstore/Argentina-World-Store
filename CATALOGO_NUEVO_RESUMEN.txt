@@ -1,0 +1,17 @@
+CATÁLOGO AMPLIADO
+Total de subcategorías: 22
+Total de productos: 213
+
+Subcategorías nuevas:
+- Boinas: 7 productos
+- Bombachas de Campo: 18 productos
+- Buzos Polar: 1 productos
+- Chombas: 1 productos
+- Chops: 12 productos
+- Fajas y Pañuelos: 4 productos
+- Buzos y Pullovers: 3 productos
+- Remeras: 1 productos
+- Vasos: 13 productos
+
+Regla aplicada: un número final = otra foto del mismo producto; dos números = producto diferente.
+No se duplicaron productos ya existentes según nombre normalizado e imágenes existentes.

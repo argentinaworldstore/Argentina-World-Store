@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Simulación de pago | Argentina World Store</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#f5f5f5;color:#222;font-family:Arial,sans-serif}
+    main{width:min(720px,calc(100% - 30px));margin:45px auto}
+    .card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(0,0,0,.10)}
+    .brand{display:flex;align-items:center;gap:15px;margin-bottom:20px}
+    .brand img{width:70px;height:70px;border-radius:50%;object-fit:cover}
+    h1{margin:0;font-size:28px}
+    .notice{background:#fff7d9;border:1px solid #ead27d;padding:13px;border-radius:10px;margin:18px 0}
+    .item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #eee}
+    .total{display:flex;justify-content:space-between;font-size:22px;padding:20px 0;font-weight:700}
+    .actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    button,a{border:0;border-radius:10px;padding:14px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none}
+    .approved{background:#009ee3;color:#fff}
+    .pending{background:#f2c94c;color:#222}
+    .rejected{background:#d94343;color:#fff}
+    #error{color:#a00000;margin-top:12px}
+    @media(max-width:620px){.actions{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand">
+      <img src="assets/logo-argentina-world-store.jpeg" alt="Argentina World Store">
+      <div>
+        <h1>Simulación local de Mercado Pago</h1>
+        <div>Argentina World Store</div>
+      </div>
+    </div>
+
+    <div class="notice">
+      Esta pantalla es una simulación local. No se cobra dinero ni se envían datos a Mercado Pago.
+    </div>
+
+    <div id="items">Cargando compra…</div>
+    <div class="total"><span>Total</span><span id="total">$0</span></div>
+
+    <div class="actions">
+      <button class="approved" data-status="approved">Simular aprobado</button>
+      <button class="pending" data-status="pending">Simular pendiente</button>
+      <button class="rejected" data-status="rejected">Simular rechazado</button>
+    </div>
+
+    <div id="error"></div>
+  </section>
+</main>
+
+<script>
+const params = new URLSearchParams(location.search);
+const orderId = params.get("orderId");
+const items = document.getElementById("items");
+const total = document.getElementById("total");
+const errorBox = document.getElementById("error");
+
+const money = value => new Intl.NumberFormat("es-AR", {
+  style: "currency",
+  currency: "ARS",
+  maximumFractionDigits: 0
+}).format(value);
+
+async function loadOrder() {
+  const response = await fetch(`/api/mock/orders/${encodeURIComponent(orderId || "")}`);
+  const order = await response.json();
+
+  if (!response.ok) {
+    throw new Error(order.error || "No se pudo cargar la compra.");
+  }
+
+  items.innerHTML = order.items.map(item => `
+    <div class="item">
+      <span>${item.name} × ${item.quantity}</span>
+      <strong>${money(item.unitPrice * item.quantity)}</strong>
+    </div>
+  `).join("");
+
+  total.textContent = money(order.total);
+}
+
+async function finish(status) {
+  errorBox.textContent = "";
+
+  try {
+    const response = await fetch(
+      `/api/mock/orders/${encodeURIComponent(orderId)}/complete`,
+      {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({status})
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "No se pudo completar la simulación.");
+    }
+
+    if (status === "approved") {
+      localStorage.removeItem("awsCart");
+      localStorage.setItem("awsCartCount", "0");
+    }
+
+    location.href =
+      `pago-resultado.html?provider=mercadopago&result=${encodeURIComponent(status)}&orderId=${encodeURIComponent(orderId)}`;
+  } catch (error) {
+    errorBox.textContent = error.message;
+  }
+}
+
+document.querySelectorAll("[data-status]").forEach(button => {
+  button.addEventListener("click", () => finish(button.dataset.status));
+});
+
+loadOrder().catch(error => {
+  errorBox.textContent = error.message;
+});
+</script>
+</body>
+</html>

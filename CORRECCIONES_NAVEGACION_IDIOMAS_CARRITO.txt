@@ -1,0 +1,18 @@
+CORRECCIONES REALIZADAS
+
+- Páginas HTML corregidas: 274
+- Los enlaces Inicio y el logo vuelven a la página principal desde cualquier página.
+- Selector de idiomas unificado en todas las páginas.
+- Selector de países ampliado y disponible en todas las páginas que tienen panel de países.
+- El carrito evita el contador NaN y normaliza las cantidades.
+- Al agregar un producto, el botón, el aviso y el contador muestran confirmación visual.
+- La tarjeta Bombachas de Campo usa esta imagen visible: no se encontró candidata.
+
+ACTUALIZACIÓN DE PRODUCTOS Y PRECIOS
+- Filas leídas del documento: 146
+- Productos enlazados/actualizados: 131
+- Productos únicos modificados: 113
+- Filas sin coincidencia automática: 15
+- Precio Argentina tomado de la columna final con 30% de ganancia y 4% adicional.
+- Precio exterior tomado de la columna Precio EXT.
+- Imagen visible usada para Bombachas de Campo: assets/Francia.jpeg

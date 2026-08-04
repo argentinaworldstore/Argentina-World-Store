@@ -1,0 +1,8 @@
+TRADICIÓN ARGENTINA - CORRECCIÓN
+
+- Nueva subcategoría: subcategorias/tradicion-argentina.html
+- Cards con los 10 nombres exactos del DOCX.
+- Cada card abre su página individual en productos/tradicion-combo-XX.html.
+- Las páginas usan el mismo diseño de galería, variantes, precio, país, idioma y carrito que el resto de la tienda.
+- Fotos organizadas en Fotos/Tradicion Argentina.
+- Precios Argentina y exterior tomados del DOCX aportado.

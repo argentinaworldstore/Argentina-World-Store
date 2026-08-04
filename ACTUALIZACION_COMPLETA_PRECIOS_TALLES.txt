@@ -1,0 +1,18 @@
+ACTUALIZACIÓN COMPLETA DE PRECIOS, DISPONIBILIDAD Y TALLES
+
+Filas leídas del documento: 146
+Productos/páginas actualizados: 139
+Filas del documento vinculadas: 145
+Filas pendientes por falta de precio: 1
+Filas sin coincidencia segura: 0
+
+PENDIENTES POR PRECIO NO INFORMADO:
+- Cuchilla parrillera + Vaina y chaira de regalo (Equipos)
+
+SIN COINCIDENCIA SEGURA:
+- Ninguno
+
+NOTA:
+Los productos con talles indicados en el documento tienen selector de talle mediante el campo sizes.
+Las medidas físicas, por ejemplo 1,30 x 1,90, fueron guardadas como medidas y añadidas a la descripción.
+Los productos marcados como no disponibles conservan sus precios, pero quedan con disponibilidad desactivada.

@@ -1,0 +1,6 @@
+listar_archivos.cmd
+nombres_archivos.txt
+Remeras Estampada.jpeg
+Remeras Estampada0.jpeg
+Remeras Estampada1.jpeg
+Remeras Estampada2.jpeg

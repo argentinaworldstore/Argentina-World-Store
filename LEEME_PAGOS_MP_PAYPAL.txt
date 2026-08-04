@@ -1,0 +1,23 @@
+ARGENTINA WORLD STORE — MERCADO PAGO + PAYPAL
+
+MÉTODOS DE PAGO
+- Argentina: Mercado Pago en ARS.
+- Exterior: PayPal Checkout Live en USD.
+
+CONFIGURACIÓN
+1. Abrí .env.
+2. Pegá el Access Token productivo de Mercado Pago.
+3. Pegá el Client ID Live y Client Secret Live de PayPal.
+4. Ajustá ARS_PER_USD según la cotización que quieras utilizar.
+5. Ejecutá:
+   npm.cmd install
+   npm.cmd start
+6. Abrí:
+   http://localhost:3000
+
+IMPORTANTE
+- Nunca subas .env a GitHub.
+- .env.example sí puede subirse.
+- En localhost puede probarse el inicio del checkout.
+- Para publicar, PUBLIC_URL debe ser la URL HTTPS pública del backend.
+- PayPal se confirma únicamente cuando la API devuelve COMPLETED.

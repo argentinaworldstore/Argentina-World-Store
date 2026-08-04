@@ -1,0 +1,23 @@
+ARGENTINA WORLD STORE — PRUEBA LOCAL
+
+1. Extraé todo el ZIP.
+2. Hacé doble clic en INICIAR_TIENDA_LOCAL.bat.
+3. Esperá a que se abra http://localhost:3000.
+4. Entrá a cualquier producto y presioná “Agregar al carrito”.
+5. Abrí el carrito y presioná “Continuar al pago”.
+6. Elegí aprobado, pendiente o rechazado.
+
+MODO INCLUIDO
+- MP_MOCK_MODE=true: simulación local, no cobra dinero y no necesita claves.
+- El carrito usa localStorage y permite agregar, cambiar cantidad y eliminar productos.
+
+SANDBOX REAL DE MERCADO PAGO
+1. Abrí el archivo .env.
+2. Cambiá MP_MOCK_MODE=false.
+3. Pegá un Access Token DE PRUEBA en MP_ACCESS_TOKEN.
+4. Reiniciá el servidor.
+
+IMPORTANTE
+- No uses credenciales de producción para estas pruebas.
+- No abras index.html haciendo doble clic: iniciá siempre con el archivo BAT o con npm.cmd start.
+- Para detener el servidor, cerrá la ventana o presioná Ctrl+C.

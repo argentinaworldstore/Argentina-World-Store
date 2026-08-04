@@ -1,0 +1,19 @@
+CAMBIOS REALIZADOS
+
+VASOS
+- Precio unitario Argentina: ARS 18.000
+- Precio unitario exterior: ARS 23.000 de referencia
+- Mínimo 6, máximo 20
+- Nueva primera card: Armá tu combo de Vasos
+- 13 modelos disponibles, una foto principal por modelo
+
+CHOPS
+- Precio unitario Argentina: ARS 17.000
+- Precio unitario exterior: ARS 20.000 de referencia
+- Mínimo 10, máximo 25
+- Nueva primera card: Armá tu combo de Chops
+
+LLAVEROS MUNDIAL
+- Precio unitario Argentina: ARS 2.160 (50 = ARS 108.000)
+- Precio unitario exterior: ARS 2.840 de referencia
+- Mínimo 50, máximo 80

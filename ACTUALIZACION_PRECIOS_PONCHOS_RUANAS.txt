@@ -1,0 +1,53 @@
+PRECIOS ACTUALIZADOS — PONCHOS Y RUANAS
+
+Argentina: valores de la lista con embalaje $4.000, envío $30.000 y ganancia 30%.
+Exterior: valores de la lista con embalaje $9.000, envío $30.000, comisión 8% y ganancia 30%.
+
+Productos actualizados: 39
+Productos conservados sin cambios: 3
+
+DETALLE:
+- Poncho Arcoiris | grupo poncho_jujeno | Argentina $200.200 | Exterior $219.420
+- Poncho Blanco Con guardapampa Bordo | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Blanco Con guardapampa Negro | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Blanco Con guardapampa negro | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Bordo Con guardapampa Marron | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Celeste con Guardapampa Blanco | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Celeste y Blanco | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Doble Tela Faz Azul y Dorado | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho Doble Tela Faz Azul y Marron | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho Doble Tela Faz Blanco y Negro | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho Doble Tela Faz Bordo y Marron | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho Doble Tela Faz Negro y Dorado | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho doble tela faz negro y marron | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho doble tela faz negro y marron0 | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho Doble Tela Faz Reversible Blanco y Negro | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho Doble Tela Faz Reversible Negro y Marron | grupo poncho_doble | Argentina $239.200 | Exterior $260.820
+- Poncho Gris con Colores | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Marron Claro con Guardapampa blanco | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Marron Claro | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Marron con colores | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Marron Con guarda pampa Blanco | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Marron con Guardapampa Marron | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Negro con Guardapampa Rojo | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Negro Con guardapampa tricolor | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Negro Guardapampa blanco | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Rojo Con guardapampa negro | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Verde Con guardapampa Marron | grupo poncho_liviano | Argentina $141.700 | Exterior $157.320
+- Poncho Whipala | grupo poncho_jujeno | Argentina $200.200 | Exterior $219.420
+- Poncho Wiphala | grupo poncho_jujeno | Argentina $200.200 | Exterior $219.420
+- Ruana Argentina | grupo ruana_argentina | Argentina $135.200 | Exterior $150.420
+- Ruana Bordo Pampa | grupo ruana | Argentina $141.700 | Exterior $157.320
+- Ruana Burberry | grupo ruana | Argentina $141.700 | Exterior $157.320
+- Ruana Corta | grupo ruana | Argentina $141.700 | Exterior $157.320
+- Ruana Crudo con Guarda | grupo ruana | Argentina $141.700 | Exterior $157.320
+- Ruana Escudo Argentina | grupo ruana_argentina | Argentina $135.200 | Exterior $150.420
+- Ruana Espiga Marron | grupo ruana | Argentina $141.700 | Exterior $157.320
+- RuanaCoral | grupo ruana | Argentina $141.700 | Exterior $157.320
+- RuanaEstrella | grupo ruana | Argentina $141.700 | Exterior $157.320
+- RuanaRombo | grupo ruana | Argentina $141.700 | Exterior $157.320
+
+SIN CAMBIOS (no figuran en los PDF nuevos):
+- Poncho Hilo Telar
+- Ponchos Hilo de Telar
+- Ruana Hilo Telar

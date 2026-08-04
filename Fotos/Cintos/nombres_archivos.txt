@@ -1,0 +1,6 @@
+Cintode Cuero.jpeg
+Cintode Cuero0.jpeg
+Cintode Cuero1.jpeg
+Cintode Cuero2.jpeg
+listar_archivos.cmd
+nombres_archivos.txt

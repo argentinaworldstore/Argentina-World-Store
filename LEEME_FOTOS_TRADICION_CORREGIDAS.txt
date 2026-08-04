@@ -1,0 +1,7 @@
+FOTOS TRADICIÓN ARGENTINA - CORRECCIÓN
+
+- Las 10 páginas de combos conservan las fotografías existentes.
+- Se aplicó recorte visual con CSS para ocultar bordes blancos, textos y precios de las láminas del catálogo.
+- Las imágenes se muestran a sangre, siguiendo el estilo de Cuchillos y Tablas.
+- Si un producto tiene una lámina con varias fotografías, se conserva la composición completa dentro de la galería.
+- El selector ahora muestra el nombre del producto cuando existe imageLabels.

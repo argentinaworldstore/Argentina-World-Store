@@ -1,0 +1,13 @@
+ACTUALIZACIÓN DE CUCHILLOS Y TABLAS / MATES Y BOMBILLAS
+
+Productos actualizados sobre cards existentes: 17
+Cards y páginas nuevas creadas: 25
+Total de productos procesados: 42
+
+Reglas de precio:
+- País Argentina: se muestra Final Argentina en ARS.
+- Cualquier otro país: se usa Final exterior y se convierte a la moneda local.
+- Si no hay Internet, el precio exterior se mantiene como referencia en ARS.
+- El producto con costo pendiente no fue publicado.
+
+Las fotos faltantes muestran temporalmente el logo de la tienda y podrán agregarse después.

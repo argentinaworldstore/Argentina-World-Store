@@ -1,0 +1,4 @@
+Corrección aplicada:
+- Combos Varios ahora está dentro de la grilla visual de Indumentaria.
+- La tarjeta usa la foto Combo Varios.
+- Los métodos de pago no fueron modificados.

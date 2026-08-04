@@ -1,0 +1,13 @@
+CAMBIOS REALIZADOS
+
+- Nueva categoría: La Tradición.
+- Página de categoría: la-tradicion.html.
+- Constructor de combos: armar-combo.html.
+- Diez combos prediseñados en productos/tradicion-combo-01.html a tradicion-combo-10.html.
+- Selector de variantes en panel lateral.
+- Precios Argentina y exterior calculados con el criterio de los documentos anteriores.
+- Compra mínima de referencia: ARS 500.000.
+- Idiomas: español, inglés, portugués, francés, alemán e italiano, sincronizados mediante awsLang en localStorage.
+- El nombre público del fabricante fue reemplazado por la colección La Tradición en estas páginas.
+
+Nota: para que el idioma cambie automáticamente según el país, primero se selecciona el país en la página principal. La selección queda guardada y las páginas de La Tradición leen ese idioma.

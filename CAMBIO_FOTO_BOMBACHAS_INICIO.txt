@@ -1,0 +1,2 @@
+La card de Bombachas de Campo ya no usa assets/Francia.jpeg.
+Ahora muestra un carrusel con las primeras fotos reales de los productos de esa subcategoría.

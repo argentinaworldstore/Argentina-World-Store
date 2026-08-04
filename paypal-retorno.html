@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Confirmando PayPal | Argentina World Store</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:#f4f1ea;
+      color:#13263f;
+      font-family:Arial,sans-serif;
+    }
+    .card{
+      width:min(560px,calc(100% - 32px));
+      padding:36px;
+      border-radius:18px;
+      background:#fff;
+      text-align:center;
+      box-shadow:0 15px 45px rgba(0,0,0,.12);
+    }
+    .spinner{
+      width:48px;
+      height:48px;
+      margin:0 auto 20px;
+      border:5px solid #d9e4f1;
+      border-top-color:#0070ba;
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    a{
+      display:inline-block;
+      margin-top:18px;
+      padding:12px 18px;
+      border-radius:9px;
+      background:#13263f;
+      color:#fff;
+      text-decoration:none;
+    }
+  </style>
+<link rel="icon" type="image/jpeg" href="assets/logo-argentina-world-store.jpeg"/>
+</head>
+<body>
+  <main class="card">
+    <div class="spinner" id="spinner"></div>
+    <h1 id="title">Confirmando tu pago con PayPal</h1>
+    <p id="message">
+      No cierres esta ventana mientras verificamos la operación.
+    </p>
+    <a href="carrito.html" id="back" hidden>
+      Volver al carrito
+    </a>
+  </main>
+
+  <script>
+    (async function () {
+      const params = new URLSearchParams(location.search);
+      const orderId = params.get("token");
+      const title = document.getElementById("title");
+      const message = document.getElementById("message");
+      const spinner = document.getElementById("spinner");
+      const back = document.getElementById("back");
+
+      try {
+        if (!orderId) {
+          throw new Error(
+            "PayPal no devolvió el número de orden."
+          );
+        }
+
+        const response = await fetch(
+          `/api/paypal/capture/${encodeURIComponent(orderId)}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || data.status !== "COMPLETED") {
+          throw new Error(
+            data.error ||
+            "PayPal no pudo completar el pago."
+          );
+        }
+
+        localStorage.removeItem("awsCart");
+        localStorage.setItem("awsCartCount", "0");
+
+        location.replace(
+          "pago-resultado.html?provider=paypal&result=success"
+        );
+      } catch (error) {
+        spinner.hidden = true;
+        title.textContent =
+          "No se pudo confirmar el pago";
+        message.textContent = error.message;
+        back.hidden = false;
+      }
+    })();
+  </script>
+<script src="universal-fixes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-auth.js"></script>
+</body>
+</html>

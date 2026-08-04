@@ -1,0 +1,119 @@
+
+/* ===== PÁGINAS INSTITUCIONALES, CARRITO Y ACCESO ===== */
+.clickable-cart{cursor:pointer}
+.auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;opacity:0;visibility:hidden;transition:.25s}
+.auth-overlay.open{opacity:1;visibility:visible}
+.auth-drawer{position:absolute;right:0;top:0;height:100%;width:min(680px,100%);background:#fff;padding:28px 38px;overflow:auto;transform:translateX(100%);transition:.3s}
+.auth-overlay.open .auth-drawer{transform:none}
+.auth-close{position:absolute;right:24px;top:22px;width:50px;height:50px;border:0;border-radius:50%;font-size:30px;background:#f6f4ef;cursor:pointer}
+.auth-drawer h2{font-size:30px;font-weight:500;margin:4px 0 18px;padding-bottom:20px;border-bottom:1px solid #ddd}
+.auth-drawer h3{font-size:18px;margin:22px 0}
+.auth-field{display:block;margin:17px 0}.auth-field span{display:block;margin-bottom:9px}
+.auth-field input{width:100%;padding:14px;border:1px solid #d7d7d7}
+.auth-password-row{display:flex;gap:10px;align-items:center;color:#777}
+.auth-primary,.auth-secondary{width:100%;padding:16px;border-radius:28px;font-weight:700;cursor:pointer;margin:14px 0}
+.auth-primary{background:#000;color:#fff;border:1px solid #000}.auth-secondary{background:#fff;border:1px solid #222}
+.auth-divider{height:1px;background:#ddd;margin:28px 0}
+.page-flag-bg{position:relative;min-height:720px;padding:240px 5% 90px;background:url('assets/bandera-argentina.png') center/cover fixed}
+.page-flag-bg::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.80)}
+.content-sheet{position:relative;z-index:1;max-width:1050px;margin:auto;background:rgba(255,255,255,.94);padding:58px 7%;box-shadow:0 20px 60px rgba(8,35,63,.14)}
+.content-sheet h1{font-family:"Cormorant Garamond";font-size:64px;margin:0 0 25px}
+.content-sheet h2{font-family:"Cormorant Garamond";font-size:34px;margin:36px 0 12px}
+.content-sheet p,.content-sheet li{font-size:16px;line-height:1.85;color:#33485a}
+.content-sheet a{text-decoration:underline}
+.cart-page{padding:210px 6% 90px;background:#fff;min-height:800px}
+.cart-layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(330px,.8fr);gap:32px;max-width:1480px;margin:auto}
+.cart-main h1,.cart-summary h2{font-size:25px;text-transform:uppercase}
+.cart-notice{border:1px solid #222;border-left:8px solid #111;padding:16px 20px;margin:15px 0 22px}
+.cart-item{display:grid;grid-template-columns:180px 1fr auto;gap:20px;border:1px solid #d8d8d8;padding:14px;margin-bottom:14px;align-items:center}
+.cart-item img{width:170px;height:180px;object-fit:cover}
+.cart-item h3{margin:0 0 16px;font-size:19px}.cart-item p{margin:7px 0;color:#78818a}
+.cart-item input{width:70px;border:0;border-bottom:1px solid #222;text-align:center;padding:6px}
+.cart-remove{border:0;background:none;font-size:30px;cursor:pointer}
+.cart-summary{background:#f6f5f2;padding:32px;box-shadow:0 10px 30px rgba(0,0,0,.06);height:max-content;position:sticky;top:190px}
+.summary-row{display:flex;justify-content:space-between;font-size:18px;margin:18px 0}.summary-total{font-size:23px;font-weight:700}
+.checkout-btn{width:100%;border:0;border-radius:32px;background:#000;color:#fff;padding:18px;font-size:17px;margin-top:20px;cursor:pointer}
+.empty-cart{text-align:center;padding:80px;border:1px solid #ddd}.empty-cart h2{font-family:"Cormorant Garamond";font-size:42px}
+@media(max-width:900px){.cart-layout{grid-template-columns:1fr}.cart-summary{position:relative;top:auto}.cart-item{grid-template-columns:110px 1fr auto}.cart-item img{width:105px;height:130px}.page-flag-bg{padding-top:190px}.content-sheet{padding:38px 24px}.content-sheet h1{font-size:46px}}
+
+.payment-provider-info{margin:18px 0 8px;color:#586674;font-size:14px}.checkout-error{margin-top:14px;padding:13px;background:#ffe8e8;color:#8d1111;border:1px solid #e8a0a0}.checkout-btn[disabled]{opacity:.55;cursor:not-allowed}
+
+
+/* Supabase Auth */
+.auth-view[hidden]{display:none!important}
+.auth-intro{margin:-6px 0 22px;color:#526174;line-height:1.5}
+.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.auth-full{grid-column:1/-1}
+.auth-field{display:grid;gap:7px;margin-bottom:14px}
+.auth-field span{font-weight:650;color:#092846}
+.auth-field input,.auth-field select{
+  width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #cfd6de;
+  border-radius:2px;background:#fff;color:#092846;font:inherit
+}
+.auth-field input:focus{outline:2px solid #d5b15f;outline-offset:1px}
+.auth-consent{display:flex;align-items:flex-start;gap:10px;margin:8px 0 18px;
+  color:#526174;font-size:14px;line-height:1.4}
+.auth-consent input{margin-top:3px}
+.auth-link{border:0;background:none;padding:0;margin:0 0 18px;color:#092846;
+  text-decoration:underline;font:inherit;cursor:pointer}
+.auth-message{position:sticky;bottom:0;margin:18px 0 0;padding:12px 14px;border-radius:4px;
+  background:#eef4fb;color:#092846;line-height:1.4}
+.auth-message.error{background:#fee9e9;color:#a11d24;border:1px solid #efb7b7}
+.auth-message.success{background:#e7f7ed;color:#176b3b;border:1px solid #acd8bd}
+.auth-account-card{display:grid;gap:5px;padding:18px;margin:15px 0 24px;
+  background:#f7f5ef;border:1px solid #e4ded0}
+.auth-account-card strong{font-size:22px}
+.login-btn.is-authenticated{font-weight:700}
+@media(max-width:620px){
+  .auth-drawer{padding:22px 18px}
+  .auth-grid{grid-template-columns:1fr}
+  .auth-full{grid-column:auto}
+}
+
+
+/* Opciones de color, talle y panel de países */
+.color-choice-wrap{display:flex;align-items:center;justify-content:flex-end;gap:14px;flex-wrap:wrap}
+.color-swatches{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.color-swatch{width:31px;height:31px;border-radius:50%;border:2px solid transparent;background:#fff;padding:3px;cursor:pointer;box-shadow:0 0 0 1px #aeb8c1}
+.color-swatch span{display:block;width:100%;height:100%;border-radius:50%;background:var(--swatch)}
+.color-swatch.selected{border-color:#08233f;box-shadow:0 0 0 2px #d4b25f}
+#selectedColorLabel{font-size:13px;min-width:115px;text-align:right}
+.size-text-input{width:min(310px,62%);border:0;border-bottom:1px solid #8895a1;padding:10px 4px;background:transparent;color:#08233f}
+.country-panel{max-height:calc(100vh - 150px)!important;overflow-y:auto!important;padding-bottom:20px!important}
+.country-list{align-items:start}
+.country-list button{min-height:38px}
+
+
+/* Compra mínima por producto */
+.minimum-quantity-control{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:7px;
+  max-width:70%;
+}
+.minimum-quantity-control select{
+  min-width:110px;
+}
+.minimum-order-message{
+  display:block;
+  color:#667382;
+  font-size:12px;
+  line-height:1.35;
+  text-align:right;
+}
+.card-minimum{
+  margin:4px 0 10px;
+  color:#6b7480;
+  font-size:13px;
+}
+.minimum-cart-note{
+  margin:7px 0 0;
+  color:#6b7480;
+  font-size:14px;
+}
+@media(max-width:700px){
+  .minimum-quantity-control{
+    max-width:100%;
+  }
+}

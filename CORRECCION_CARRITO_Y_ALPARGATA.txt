@@ -1,0 +1,6 @@
+Cambios realizados:
+- Se corrigió el contador fantasma del carrito.
+- Si el carrito está vacío, ahora muestra 0 y elimina el valor viejo guardado.
+- Se limpian automáticamente productos antiguos que ya no existen.
+- Se eliminó la última card de Alpargatas (alpargatas-4).
+- Mercado Pago, PayPal, Supabase e idiomas no fueron modificados.

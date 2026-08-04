@@ -1,0 +1,7 @@
+CAMBIOS
+- Selector de países corregido en todas las páginas de productos.
+- Header de productos mantiene la estructura de la página principal.
+- Etiquetas Mayorista/Minorista eliminadas de las fotos de subcategorías.
+- Filtro Mayorista/Minorista agregado; actualmente todos los productos son mayoristas.
+- Productos ordenados alfabéticamente.
+- Fotos de Productos destacados enlazan a la página individual correcta.

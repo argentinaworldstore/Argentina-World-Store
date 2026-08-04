@@ -1,0 +1,12 @@
+PAGOS
+- Mercado Pago: integrado en /api/checkout/mercadopago.
+- PayPal: integrado en /api/checkout/paypal y captura en /api/paypal/capture/:orderId.
+- Para usar cobros reales hay que completar .env con credenciales productivas.
+- La tienda debe iniciarse con npm.cmd start; no funciona el backend abriendo index.html con file://.
+- Para publicar pagos reales se necesita alojar el backend Node.js en una URL HTTPS.
+
+COMBOS
+- Tarjeta independiente en Bazar y Accesorios.
+- Fotos principales actualizadas en la grilla de inicio.
+- Tradición Argentina quedó separada de Combos.
+- Productos: Combo mil rayas, Combo tropical, Combo Varios, Conjunto corderoy, Conjunto clásico y Conjunto de vestir.

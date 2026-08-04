@@ -1,0 +1,6 @@
+FOTOS DE TRADICIÓN ARGENTINA RECORTADAS
+
+- Se eliminaron visualmente títulos, precios y bordes de las láminas.
+- Las nuevas imágenes están en: Fotos/Tradicion Argentina/Recortadas
+- Se actualizaron productos.js, catalogo.js, las 10 páginas de combos y la subcategoría.
+- Los productos con varias fotografías conservan todas las fotos juntas en una misma imagen.

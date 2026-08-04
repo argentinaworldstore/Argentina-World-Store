@@ -1,0 +1,13 @@
+IDIOMAS Y DETECCIÓN DE REGIÓN
+
+- Todas las páginas cargan universal-fixes.js.
+- Idiomas disponibles: Español, English, 中文, Português, Français, Deutsch, Italiano, 日本語, 한국어, Русский, العربية, हिन्दी, Nederlands, Polski, Ελληνικά, Türkçe y Bahasa Indonesia.
+- La región se detecta por IP mediante servicios públicos, con respaldo en el idioma del navegador.
+- Cuando se detecta un idioma compatible distinto del español, aparece una ventana ofreciendo traducir toda la tienda.
+- La preferencia se conserva al navegar entre páginas.
+- El selector superior permite cambiar el idioma manualmente en cualquier página.
+- La traducción completa se realiza mediante Google Website Translator.
+
+Para volver a mostrar la sugerencia de idioma, borrar el almacenamiento local del sitio o ejecutar en la consola:
+localStorage.removeItem("awsLanguageChosen");
+localStorage.removeItem("awsDetectedCountry");

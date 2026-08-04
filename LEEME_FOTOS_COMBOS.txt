@@ -1,0 +1,1 @@
+Cada combo muestra una foto real del catálogo por cada producto diferente incluido. Las etiquetas del selector indican el nombre del producto.

@@ -1,0 +1,7 @@
+PÁGINAS DE PRODUCTO DE TRADICIÓN ARGENTINA CORREGIDAS
+
+- Galería de imágenes reducida y ubicada a la izquierda.
+- Miniaturas verticales a la izquierda de la foto principal.
+- Opciones, precio y botón de compra ubicados a la derecha.
+- Se eliminó el aumento excesivo aplicado a las fotografías.
+- Se actualizaron las 10 páginas tradicion-combo-01.html a tradicion-combo-10.html.

@@ -1,0 +1,9 @@
+listar_archivos.cmd
+Mochila Beige Escudo.jpeg
+Mochila Beige Escudo0.jpeg
+Mochila Negra.jpeg
+Mochila Negra0.jpeg
+Mochila Negra1.jpeg
+Mochila Sol Beige.jpeg
+Mochila Sol Beige0.jpeg
+nombres_archivos.txt

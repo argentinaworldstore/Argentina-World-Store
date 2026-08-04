@@ -1,0 +1,59 @@
+
+PÁGINAS DE SUBCATEGORÍAS CREADAS
+================================
+
+Se generaron 17 páginas en la carpeta:
+subcategorias/
+
+Las fotos deben quedar exactamente así:
+index.html
+Fotos/
+  Alfajores/
+    AlfajorAVELLANA-RellenoPastadeAvellanas60gx6unidades.jpeg
+  Alpargatas/
+    AlpargataArgentina0.jpeg
+  Ponchos y Ruanas/
+    PonchoArcoiris.jpeg
+  etc.
+
+IMPORTANTE:
+- Este ZIP contiene la estructura y los nombres esperados, pero no las fotografías de productos porque no fueron adjuntadas al chat.
+- Pegá tu carpeta Fotos completa junto a index.html, reemplazando o combinando la carpeta Fotos incluida.
+- Si una foto todavía no existe, la página muestra el logo como imagen provisional.
+
+REGLA PARA AGRUPAR:
+- Nombre.jpeg, Nombre0.jpeg, Nombre1.jpeg: mismo producto, varias fotos.
+- Nombre0.jpeg y Nombre00.jpeg: productos diferentes.
+- Las cards abren una galería con todas las fotos agrupadas.
+
+PÁGINAS:
+- Alfajores: subcategorias/alfajores.html
+- Alpargatas: subcategorias/alpargatas.html
+- Billeteras: subcategorias/billeteras.html
+- Bolsos: subcategorias/bolsos.html
+- Bombillas y Mates de alpaca Jady: subcategorias/bombillas-y-mates-de-alpaca-jady.html
+- Camisas: subcategorias/camisas.html
+- Chalecos: subcategorias/chalecos.html
+- Chalinas: subcategorias/chalinas.html
+- Cintos: subcategorias/cintos.html
+- Materas: subcategorias/materas.html
+- Mochilas: subcategorias/mochilas.html
+- Ponchos y Ruanas: subcategorias/ponchos-y-ruanas.html
+- Portacelular: subcategorias/portacelular.html
+- Salado: subcategorias/salado.html
+- Mayorista: subcategorias/mayorista.html
+- Delicatessen: subcategorias/delicatessen.html
+- Golosinas: subcategorias/golosinas.html
+ACTUALIZACIÓN:
+- Header y barra de cantidad dejaron de ser fijos.
+- Todas las subcategorías usan el header y footer visual de la página principal.
+- Al pasar el mouse por un producto, sus fotos cambian automáticamente.
+- Las cards de subcategorías de la página principal cambian de fotografía cada 4 segundos.
+- Las rutas de las fotos continúan siendo Fotos/Nombre de subcategoría/archivo.
+
+ACTUALIZACIÓN HEADER:
+- Todas las páginas de subcategorías usan el mismo orden visual que la página principal.
+- El header vuelve a estar fijo.
+- Cuando no se pasa el mouse por encima, queda transparente.
+- Al pasar el mouse, aparece el fondo beige.
+- Se agregó el selector superior de idioma.

@@ -1,0 +1,11 @@
+Actualización de catálogo
+
+Esta copia conserva los seis productos agregados de Cuchillos y Tablas y suma cinco productos de Mates y Bombillas:
+- Mate Alpaca Equipos — ARS 96.000
+- Mate imperial Virola y Fleje de alpaca int. calabaza — ARS 34.000
+- Mate Imperial Virola, Fleje y base de Alpaca int Calabaza — ARS 56.000
+- Mate Roma — ARS 39.900
+- Mate Algarrobo Imperial — ARS 25.000
+
+El código interno 35SEG está asociado a Mate Algarrobo Imperial y no se muestra al cliente.
+Los precios internacionales se configuran al doble del precio local antes de su conversión por país.

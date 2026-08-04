@@ -1,0 +1,16 @@
+CARGA COMPLETA DEL DOCUMENTO DE 105 PRODUCTOS
+
+Productos del documento procesados: 105
+Productos nuevos/cards creadas: 3
+Productos existentes actualizados: 102
+Todos quedaron marcados como disponibles.
+Precio Argentina: campo basePriceARS.
+Precio exterior: campo foreignPriceARS, convertido por la tienda a la moneda del país elegido.
+
+PRODUCTOS CREADOS:
+- 47. [Ponchos y Ruanas] Ruana Crudo
+- 51. [Ponchos y Ruanas] Ruana Celeste con Guarda
+- 90. [Chalinas] Chalina Doble Tela Bordó/Camel
+
+PRECIO PENDIENTE EN EL DOCUMENTO:
+- 11. Cuchilla parrillera + Vaina y chaira de regalo (Equipos): se conservó precio existente Argentina 68000 / exterior 136000.

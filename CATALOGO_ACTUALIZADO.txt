@@ -1,0 +1,23 @@
+CATÁLOGO ACTUALIZADO
+
+Comida:
+- Alfajores: 14 productos, 43 fotos
+Vestimenta:
+- Alpargatas: 3 productos, 6 fotos
+- Camisas: 4 productos, 10 fotos
+- Chalecos: 5 productos, 22 fotos
+- Chalinas: 13 productos, 38 fotos
+- Cintos: 1 productos, 4 fotos
+- Ponchos y Ruanas: 39 productos, 174 fotos
+Bazar:
+- Billeteras: 1 productos, 1 fotos
+- Bolsos: 1 productos, 3 fotos
+- Bombillas y Mates de alpaca Jady: 60 productos, 65 fotos
+- Materas: 1 productos, 5 fotos
+- Mochilas: 3 productos, 7 fotos
+- Portacelular: 1 productos, 5 fotos
+
+Total productos: 146
+Total fotos referenciadas: 383
+
+Las imágenes reales deben copiarse dentro de Fotos/<Subcategoría>/ con estos nombres exactos.

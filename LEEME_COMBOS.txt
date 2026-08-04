@@ -1,0 +1,51 @@
+ACTUALIZACIÓN: 17 COMBOS (línea Cacique)
+=========================================
+
+Se organizó toda la línea Cacique (cuchillería + mates de Cacique) en 17 combos de reventa.
+
+QUÉ CAMBIÓ
+----------
+1. NUEVA CATEGORÍA "Combos" con 4 subcategorías:
+   - Cuchillería            (combos 01 a 06)
+   - Asado y Parrilla       (combos 07 a 10)
+   - Matería                (combos 11 a 15)
+   - Mixtos y Revendedor    (combos 16 y 17)
+
+2. Cada combo es un producto con:
+   - Foto (extraída del catálogo Cacique)
+   - Precio de reventa (ver lista abajo)
+   - Composición completa (productos y cantidades) en la descripción
+
+3. SE QUITARON los productos individuales de Cacique que ahora van dentro de los combos:
+   - Toda la subcategoría "Cuchillos y Tablas" (18 productos)
+   - 5 mates de Cacique dentro de "Mates y Bombillas":
+     Mate Alpaca Equipos, Mate imperial Virola y Fleje, Mate Imperial Virola Fleje y base,
+     Mate Roma, Mate Algarrobo Imperial.
+
+4. NO se tocó el resto de la tienda: alfajores, indumentaria (ponchos, boinas, bombachas,
+   camisas, chalinas, etc.), y los 60 mates artesanales (Jady) siguen igual.
+
+PRECIOS DE REVENTA POR COMBO (precio Argentina; el internacional se calcula al doble)
+--------------------------------------------------------------------------------------
+01 Cuchillería Gaucha .......... $519.000      10 Parrillero Móvil ........... $540.000
+02 Sets Dobles & Parrilleros ... $510.000      11 Mate Alpaca Premium ........ $533.000
+03 Cuchillos de Mango .......... $511.000      12 Mates & Torpedo ............ $518.000
+04 Bowies & Rústicos ........... $534.000      13 Matero Camionero PVC ....... $512.000
+05 Asta de Ciervo .............. $517.000      14 Kit Matero Regalo .......... $513.000
+06 Tenedores & Pinches ......... $510.000      15 Reventa Rápida Matera ...... $508.000
+07 Parrillero de Fierro ........ $584.000      16 Arranque Revendedor ........ $521.000
+08 Discos & Braseros ........... $536.000      17 Combo Regalería ............ $525.000
+09 Mesa de Asado ............... $525.000
+
+Fórmula usada: Precio de venta = (Costo de productos + $36.000 de envío y embalaje) x 1,30,
+redondeado hacia arriba al mil.
+
+CÓMO SE VE EN LA TIENDA
+-----------------------
+- Home (index.html): nueva tarjeta de categoría "Combos", su sección de subcategorías,
+  y 3 combos destacados. El menú (Categorías / Subcategorías) y el menú lateral incluyen "Combos".
+- Cada subcategoría de combos abre su página en subcategorias/combos-*.html
+- Cada combo abre su ficha en productos/combo-01.html ... productos/combo-17.html
+
+NOTA: las fotos viejas de "Cuchillos y Tablas" siguen en la carpeta Fotos por si las necesitás,
+pero ya no se muestran (esa subcategoría fue reemplazada por los combos).

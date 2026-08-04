@@ -1,0 +1,90 @@
+ARGENTINA WORLD STORE — PÁGINA PRINCIPAL
+
+1. Abrí index.html con Google Chrome.
+2. Para cambiar el logo:
+   - Reemplazá el bloque .logo-placeholder del index.html por:
+     <img src="assets/logo.png" alt="Argentina World Store">
+   - Copiá tu logo dentro de la carpeta assets.
+3. Las imágenes principales ya quedaron guardadas como:
+   - Africa.jpeg
+   - Asia.jpeg
+   - Inglaterra.jpeg
+   - Francia.jpeg
+   - Oceania.jpeg
+4. El selector incluye países de América, Europa, Asia y Oceanía.
+5. La traducción está integrada para varios idiomas. Los países sin traducción propia usan inglés.
+6. Las cards actualmente usan las imágenes proporcionadas como diseño provisional.
+7. Próximo paso recomendado: crear páginas individuales para cada subcategoría y conectar un carrito real.
+
+ARCHIVOS:
+- index.html
+- styles.css
+- script.js
+- assets/
+
+
+ACTUALIZACIÓN 2:
+- Logo real colocado en el header y sidebar.
+- Buscador movido a la izquierda del nombre.
+- Botón Iniciar sesión agregado a la derecha.
+- Menú lateral con categorías, subcategorías y selector Mayorista/Minorista.
+- Menús desplegables al pasar el mouse por Categorías y Subcategorías.
+- Sugerencias de búsqueda con foto, nombre y categoría.
+- Etiquetas Mayorista y Minorista en todas las cards de subcategoría.
+
+ACTUALIZACIÓN 3:
+- Traducción completa mejorada, especialmente para chino.
+- El selector de país cambia automáticamente el idioma.
+- Los nombres de países se muestran traducidos con Intl.DisplayNames.
+- Detección automática de país por IP mediante ipapi.co.
+- Respaldo con idioma/región configurados en el navegador.
+- Selector superior de idioma para cambiar manualmente.
+- Productos, categorías, buscador, sidebar, botones y footer se traducen.
+
+ACTUALIZACIÓN DEL HEADER PRINCIPAL:
+- El nombre ARGENTINA WORLD STORE vuelve a mostrarse junto al logo.
+- El conjunto del logo y nombre queda centrado.
+- Al bajar, el header permanece transparente mientras el mouse está fuera.
+- El fondo beige aparece únicamente al pasar el mouse sobre el header.
+
+
+PÁGINAS DE COMPRA:
+- Se generaron 146 páginas en productos/.
+- Precio Argentina: precio base.
+- Cualquier otro país: precio base x2 convertido a moneda local.
+- La conversión usa ExchangeRate-API cuando hay Internet y ARS como respaldo.
+
+
+ACTUALIZACIÓN FINAL:
+- Header de páginas de producto igual al index.
+- Cards de subcategorías 10% más altas.
+- Precios de alfajores tomados del Excel: Precio a la venta para Argentina y Precio Exterior para otros países.
+- El precio exterior se convierte a la moneda local mediante la cotización online.
+
+
+NUEVAS PÁGINAS:
+- carrito.html con resumen, cantidades, eliminación y total.
+- sobre-nosotros.html
+- preguntas-frecuentes.html
+- trabaja-con-nosotros.html
+- Modal de inicio de sesión/registro preparado para conectar con Supabase.
+
+INTEGRACIÓN DE PAGOS (MERCADO PAGO + PAYPAL)
+============================================
+- Argentina (código de país AR): Mercado Pago Checkout Pro en pesos argentinos.
+- Cualquier otro país: PayPal Business mediante Orders API v2.
+- Los secretos se guardan únicamente en el servidor, dentro del archivo .env.
+- No abras index.html con doble clic para cobrar. La tienda debe ejecutarse con Node.js.
+
+PASOS PARA PROBAR
+1. Instalá Node.js 18 o superior.
+2. Copiá .env.example como .env.
+3. Colocá tus credenciales de prueba de Mercado Pago y PayPal.
+4. Ejecutá: npm install
+5. Ejecutá: npm start
+6. Abrí http://localhost:3000
+
+PARA PRODUCCIÓN
+- Cambiá APP_BASE_URL por tu dominio HTTPS.
+- Usá credenciales de producción.
+- Configurá y validá webhooks antes de entregar productos.

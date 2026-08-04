@@ -1,0 +1,9 @@
+Ajustes realizados:
+- Favicon agregado.
+- Panel de países sin huecos.
+- Última alpargata eliminada: Alpargatas.
+- Talles 34 a 45 en alpargatas.
+- Camisa con mochila eliminada: CamisasH(38-44).
+- Chalecos actualizados: Chaleco Colores, Chaleco Jean, Chaleco Marron y Bordo, Chaleco Marron y Negro, Chaleco Tejido.
+- Chalinas eliminadas: Chalina Doble Tela Bordo con Marron, Chalina Doble Tela Bordo con Marron0, Chalina Doble Tela Tricolor0.
+- Primera foto retirada de Chalina Doble Tela Marrón con Azul.
