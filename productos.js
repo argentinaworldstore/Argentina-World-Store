@@ -204,9 +204,9 @@ window.PRODUCTOS = [
       "Alpargata Argentina0.jpeg"
     ],
     "subcategory": "Alpargatas",
-    "basePriceARS": 35000,
+    "basePriceARS": 27400,
     "page": "productos/alpargatas-1.html",
-    "foreignPriceARS": 70000,
+    "foreignPriceARS": 32000,
     "saleType": "mayorista",
     "sizes": [
       "34",
@@ -231,9 +231,9 @@ window.PRODUCTOS = [
       "Alpargata Argentina01.jpeg"
     ],
     "subcategory": "Alpargatas",
-    "basePriceARS": 38000,
+    "basePriceARS": 27400,
     "page": "productos/alpargatas-2.html",
-    "foreignPriceARS": 76000,
+    "foreignPriceARS": 32000,
     "saleType": "mayorista",
     "sizes": [
       "34",
@@ -258,9 +258,9 @@ window.PRODUCTOS = [
       "Alpargata Tricolor0.jpeg"
     ],
     "subcategory": "Alpargatas",
-    "basePriceARS": 41000,
+    "basePriceARS": 27400,
     "page": "productos/alpargatas-3.html",
-    "foreignPriceARS": 82000,
+    "foreignPriceARS": 32000,
     "saleType": "mayorista",
     "sizes": [
       "34",
@@ -416,7 +416,7 @@ window.PRODUCTOS = [
   },
   {
     "id": "camisas-6",
-    "name": "camisasdedamas",
+    "name": "Camisa de Damas",
     "images": [
       "camisasdedamas.jpeg",
       "camisasdedamas0.jpeg",
