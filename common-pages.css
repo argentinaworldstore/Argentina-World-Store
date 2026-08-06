@@ -166,3 +166,17 @@
   .site-header .header-link,.sub-site-header .header-link{min-width:38px!important;max-width:58px!important;font-size:8px!important}
   .site-header .header-link>span:nth-child(2),.sub-site-header .header-link>span:nth-child(2){font-size:8px!important}
 }
+
+
+/* Destino de envío en carrito */
+.shipping-destination{margin:22px 0;padding:22px;border:1px solid #d9d2c5;border-radius:16px;background:#fffdf8}
+.shipping-destination h2{margin:0 0 6px;font-family:"Cormorant Garamond",serif;font-size:30px}
+.shipping-intro,.shipping-privacy{color:#5d584f;font-size:14px}
+.shipping-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.shipping-field{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;letter-spacing:.02em}
+.shipping-field small{font-weight:400;color:#777;letter-spacing:0}
+.shipping-field input,.shipping-field select,.shipping-field textarea{width:100%;box-sizing:border-box;border:1px solid #bdb5a8;border-radius:9px;padding:12px;background:white;font:inherit;font-weight:400;letter-spacing:0}
+.shipping-field input:focus,.shipping-field select:focus,.shipping-field textarea:focus{outline:2px solid #b8954f;outline-offset:1px;border-color:#b8954f}
+.shipping-field.invalid input,.shipping-field.invalid select,.shipping-field.invalid textarea{border-color:#b42318;background:#fff6f5}
+.shipping-wide{grid-column:1/-1}
+@media(max-width:760px){.shipping-grid{grid-template-columns:1fr}.shipping-wide{grid-column:auto}.shipping-destination{padding:16px}}

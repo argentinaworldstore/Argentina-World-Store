@@ -122,10 +122,8 @@ function renderProductCountries(filter=""){
  }).join("");
  groups.querySelectorAll("button").forEach(btn=>btn.onclick=()=>{
    countryCode=btn.dataset.code;localStorage.setItem("awsCountryCode",countryCode);
-   const countryLanguage=countryCode==="AR"?"es":(T[btn.dataset.lang]?btn.dataset.lang:"en");
-   localStorage.setItem("awsLang",countryLanguage);
-   setLanguage(countryLanguage);
    const selected=document.getElementById("selectedCountry");if(selected)selected.textContent=localCountryName(countryCode,countryCode);
+   // El país cambia moneda y ubicación, pero conserva el idioma elegido por el usuario.
    document.getElementById("countryPanel")?.classList.remove("open");renderPrice();renderRecommendations();
  });
 }

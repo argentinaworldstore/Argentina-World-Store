@@ -1,0 +1,8 @@
+CAMBIOS REALIZADOS
+
+- Se eliminó el inicio de sesión y la creación de cuentas.
+- Se eliminó la integración con Supabase.
+- El carrito ahora solicita todos los datos del destino antes de pagar.
+- El país indicado en el formulario determina Mercado Pago (Argentina) o PayPal (exterior).
+- La dirección se envía al backend junto con el pedido.
+- Los datos quedan guardados localmente en el navegador para facilitar futuras compras.

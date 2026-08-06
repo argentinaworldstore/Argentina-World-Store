@@ -32,9 +32,6 @@
 </div>
 </a>
 <div class="header-actions">
-<button class="header-link login-btn" type="button">
-<span>♙</span><span data-i18n="login">Iniciar sesión</span>
-</button>
 <div class="country-wrap">
 <button class="header-link" id="countryButton" type="button">
 <span>◎</span><span data-i18n="countries" id="selectedCountry">Elige tu país</span><span>⌄</span>
@@ -148,26 +145,6 @@
 </div>
 <div class="footer-bottom"><span>© 2026 Argentina World Store</span><span data-i18n="madeArgentina">Hecho en Argentina · Para el mundo</span></div>
 </footer>
-<div class="auth-overlay" id="authOverlay">
-<aside class="auth-drawer">
-<button aria-label="Cerrar" class="auth-close">×</button>
-<h2>Iniciar sesión</h2>
-<h3>Ingresá con tu email y contraseña</h3>
-<form class="auth-form">
-<label class="auth-field"><span>Ingresá tu email</span><input placeholder="Ingresa tu email" required="" type="email"/></label>
-<label class="auth-field"><span>Contraseña</span><input id="loginPassword" placeholder="Ingresa tu contraseña" required="" type="password"/></label>
-<label class="auth-password-row"><input id="showPassword" type="checkbox"/> Mostrar contraseña</label>
-<p><a href="#">¿Olvidaste tu contraseña?</a></p>
-<button class="auth-primary" type="submit">Ingresar</button>
-<button class="auth-secondary" type="button">Continuar con Google</button>
-</form>
-<div class="auth-divider"></div>
-<h2>¿Todavía no tenés usuario?</h2>
-<p>Registrate y completá tus datos para facilitar el proceso de compra.</p>
-<form class="register-form"><button class="auth-secondary" type="submit">Registrarme</button></form>
-</aside>
-</div>
+
 <script src="script.js"></script><script src="common-pages.js"></script><script src="universal-fixes.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-auth.js"></script>
 </body></html>

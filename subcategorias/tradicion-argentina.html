@@ -61,7 +61,6 @@ body[data-folder="Tradicion Argentina"] .product:hover .card-main-image{transfor
 <div class="brand-copy"><strong>ARGENTINA</strong><span>WORLD STORE</span></div>
 </a>
 <div class="header-actions">
-<button class="header-link login-btn"><span>♙</span><span>Iniciar sesión</span></button>
 <a class="header-link" href="../index.html"><span>◎</span><span>Países</span><span>⌄</span></a>
 <button class="header-link cart-btn"><span>▢</span><span>Carrito</span><b id="cartCount">0</b></button>
 </div>
@@ -124,25 +123,5 @@ body[data-folder="Tradicion Argentina"] .product:hover .card-main-image{transfor
 </footer>
 <div class="modal" id="modal"><button class="close" onclick="closeModal()">×</button><div class="modal-box"><div class="gallery"><img alt="" id="modalMain"/><div class="thumbs" id="thumbs"></div></div><div class="modal-info"><p>Argentina World Store</p><h2 id="modalTitle"></h2><p>Venta minorista y mayorista.</p><p>Precio, stock, peso y variantes a completar.</p><button class="view" onclick="addCart(event)">Agregar al carrito</button></div></div></div>
 <script src="../catalogo.js"></script><script src="../subcategoria.js"></script>
-<div class="auth-overlay" id="authOverlay">
-<aside class="auth-drawer">
-<button aria-label="Cerrar" class="auth-close">×</button>
-<h2>Iniciar sesión</h2>
-<h3>Ingresá con tu email y contraseña</h3>
-<form class="auth-form">
-<label class="auth-field"><span>Ingresá tu email</span><input placeholder="Ingresa tu email" required="" type="email"/></label>
-<label class="auth-field"><span>Contraseña</span><input id="loginPassword" placeholder="Ingresa tu contraseña" required="" type="password"/></label>
-<label class="auth-password-row"><input id="showPassword" type="checkbox"/> Mostrar contraseña</label>
-<p><a href="#">¿Olvidaste tu contraseña?</a></p>
-<button class="auth-primary" type="submit">Ingresar</button>
-<button class="auth-secondary" type="button">Continuar con Google</button>
-</form>
-<div class="auth-divider"></div>
-<h2>¿Todavía no tenés usuario?</h2>
-<p>Registrate y completá tus datos para facilitar el proceso de compra.</p>
-<form class="register-form"><button class="auth-secondary" type="submit">Registrarme</button></form>
-</aside>
-</div><script src="../common-pages.js"></script><script src="../universal-fixes.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../supabase-auth.js"></script>
+<script src="../common-pages.js"></script><script src="../universal-fixes.js"></script>
 </body></html>

@@ -33,9 +33,6 @@
 </div>
 </a>
 <div class="header-actions">
-<button class="header-link login-btn" type="button">
-<span>♙</span><span data-i18n="login">Iniciar sesión</span>
-</button>
 <div class="country-wrap">
 <button class="header-link" id="countryButton" type="button">
 <span>◎</span><span data-i18n="countries" id="selectedCountry">Elige tu país</span><span>⌄</span>
@@ -136,6 +133,27 @@
 <aside class="cart-summary"><h2>Resumen de compra</h2><p>(<span id="summaryCount">0</span> productos)</p>
 <div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div><div class="summary-row"><span>Envío</span><strong id="cartShipping">$0</strong></div>
 <div class="summary-row summary-total"><span>Total</span><strong id="cartTotal">$0</strong></div>
+
+<section class="shipping-destination" id="shippingDestination">
+  <h2>Destino del envío</h2>
+  <p class="shipping-intro">Completá los datos del lugar donde querés recibir tu compra.</p>
+  <form id="shippingForm" novalidate>
+    <div class="shipping-grid">
+      <label class="shipping-field shipping-wide"><span>NOMBRE Y APELLIDO COMPLETOS</span><small>Tal como figura en su documento</small><input id="shipFullName" name="fullName" type="text" autocomplete="name" required></label>
+      <label class="shipping-field"><span>DOCUMENTO / ID FISCAL</span><small>Solo si el país de destino lo exige</small><input id="shipTaxId" name="taxId" type="text"></label>
+      <label class="shipping-field shipping-wide"><span>CALLE, NÚMERO, PISO, DEPARTAMENTO / UNIDAD</span><small>No abreviar datos importantes</small><input id="shipAddress1" name="address1" type="text" autocomplete="street-address" required></label>
+      <label class="shipping-field shipping-wide"><span>INFORMACIÓN ADICIONAL DEL DOMICILIO</span><small>Torre, bloque, unidad u otra información necesaria</small><input id="shipAddress2" name="address2" type="text"></label>
+      <label class="shipping-field"><span>CIUDAD / LOCALIDAD</span><input id="shipCity" name="city" type="text" autocomplete="address-level2" required></label>
+      <label class="shipping-field"><span>PROVINCIA / ESTADO / REGIÓN</span><input id="shipRegion" name="region" type="text" autocomplete="address-level1" required></label>
+      <label class="shipping-field"><span>CÓDIGO POSTAL</span><small>Incluí letras y guiones</small><input id="shipPostalCode" name="postalCode" type="text" autocomplete="postal-code" required></label>
+      <label class="shipping-field"><span>PAÍS DE DESTINO</span><select id="shipCountry" name="countryCode" required><option value="">Seleccionar país</option></select></label>
+      <label class="shipping-field shipping-wide"><span>REFERENCIA DE DOMICILIO</span><small>Barrio, edificio, entre calles u otra ayuda</small><textarea id="shipReference" name="reference" rows="3"></textarea></label>
+      <label class="shipping-field"><span>TELÉFONO CON CÓDIGO DE PAÍS</span><small>Ej.: +1…, +34…, +598…</small><input id="shipPhone" name="phone" type="tel" autocomplete="tel" required></label>
+      <label class="shipping-field"><span>CORREO ELECTRÓNICO</span><input id="shipEmail" name="email" type="email" autocomplete="email" required></label>
+    </div>
+    <p class="shipping-privacy">Usaremos estos datos únicamente para procesar el pago y realizar el envío.</p>
+  </form>
+</section>
 <p class="payment-provider-info" id="paymentProviderInfo">Argentina: Mercado Pago · Exterior: PayPal</p><p class="checkout-auth-note" id="checkoutAuthNote">Para comprar tenés que iniciar sesión o crear una cuenta.</p><button class="checkout-btn" id="startCheckout">Continuar al pago</button><div class="checkout-error" hidden="" id="checkoutError"></div></aside>
 </div></main><footer class="footer" id="footer">
 <div class="newsletter">
@@ -150,26 +168,7 @@
 </div>
 <div class="footer-bottom"><span>© 2026 Argentina World Store</span><span data-i18n="madeArgentina">Hecho en Argentina · Para el mundo</span></div>
 </footer>
-<div class="auth-overlay" id="authOverlay">
-<aside class="auth-drawer">
-<button aria-label="Cerrar" class="auth-close">×</button>
-<h2>Iniciar sesión</h2>
-<h3>Ingresá con tu email y contraseña</h3>
-<form class="auth-form">
-<label class="auth-field"><span>Ingresá tu email</span><input placeholder="Ingresa tu email" required="" type="email"/></label>
-<label class="auth-field"><span>Contraseña</span><input id="loginPassword" placeholder="Ingresa tu contraseña" required="" type="password"/></label>
-<label class="auth-password-row"><input id="showPassword" type="checkbox"/> Mostrar contraseña</label>
-<p><a href="#">¿Olvidaste tu contraseña?</a></p>
-<button class="auth-primary" type="submit">Ingresar</button>
-<button class="auth-secondary" type="button">Continuar con Google</button>
-</form>
-<div class="auth-divider"></div>
-<h2>¿Todavía no tenés usuario?</h2>
-<p>Registrate y completá tus datos para facilitar el proceso de compra.</p>
-<form class="register-form"><button class="auth-secondary" type="submit">Registrarme</button></form>
-</aside>
-</div>
+
 <script src="productos.js"></script><script src="shipping-config.js"></script><script src="script.js"></script><script src="common-pages.js"></script><script src="universal-fixes.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-auth.js"></script><script src="carrito.js"></script>
+<script src="carrito.js"></script>
 </body></html>

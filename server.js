@@ -122,8 +122,14 @@ function normalizeCountryCode(value){const raw=String(value||'').trim();if(/^[A-
 function shippingRegion(code){if(code==='AR')return 'argentina';if(LIMITROFES.has(code))return 'limitrofes';if(SOUTH_AMERICA.has(code))return 'sudamerica';if(AMERICAS.has(code))return 'america';if(EUROPE.has(code))return 'europa';return 'mundo';}
 function shippingCostARS(code,grams){const region=shippingRegion(code);if(region==='argentina')return 10000;const kg=Math.max(0.001,Number(grams||0)/1000);if(kg>20)throw new Error('El pedido supera los 20 kg. Contactanos para cotizar el envío.');const tier=SHIPPING_TIERS.find(r=>kg<=r[0])||SHIPPING_TIERS.at(-1);const col={limitrofes:1,sudamerica:2,america:3,europa:4,mundo:5}[region];return tier[col];}
 function cartWeightGrams(cart){return cart.reduce((sum,{product,quantity})=>sum+(Math.max(1,Number(product.weightGrams)||500)*quantity),0);}
-async function requireUser(request){const token=String(request.headers.authorization||'').replace(/^Bearer\s+/i,'').trim();if(!token)throw new Error('Tenés que iniciar sesión para comprar.');const url=String(process.env.SUPABASE_URL||'').trim();const key=String(process.env.SUPABASE_PUBLISHABLE_KEY||process.env.SUPABASE_ANON_KEY||'').trim();if(!url||!key)throw new Error('Supabase no está configurado.');const r=await fetch(`${url}/auth/v1/user`,{headers:{apikey:key,Authorization:`Bearer ${token}`}});const data=await r.json();if(!r.ok||!data?.id)throw new Error('La sesión venció. Iniciá sesión nuevamente.');return data;}
-function userCountryCode(user,requested){const meta=user?.user_metadata||{};const code=normalizeCountryCode(meta.country_code||meta.country||requested);if(!code)throw new Error('Tu cuenta no tiene un país válido.');return code;}
+function validateShippingAddress(raw){
+  const address=raw&&typeof raw==='object'?raw:{};
+  const required=['fullName','address1','city','region','postalCode','countryCode','phone','email'];
+  for(const key of required){if(!String(address[key]||'').trim())throw new Error('Faltan datos obligatorios del destino.');}
+  const countryCode=normalizeCountryCode(address.countryCode);
+  if(!countryCode)throw new Error('El país de destino no es válido.');
+  return {...address,countryCode};
+}
 
 async function getPayPalAccessToken() {
   const clientId = process.env.PAYPAL_CLIENT_ID;
@@ -173,28 +179,6 @@ async function getPayPalAccessToken() {
 
 
 
-app.get("/api/auth-config", (_request, response) => {
-  const supabaseUrl = String(process.env.SUPABASE_URL || "").trim();
-  const supabasePublishableKey = String(
-    process.env.SUPABASE_PUBLISHABLE_KEY ||
-    process.env.SUPABASE_ANON_KEY ||
-    ""
-  ).trim();
-
-  response.json({
-    supabaseUrl,
-    supabasePublishableKey,
-    configured: Boolean(
-      supabaseUrl &&
-      supabasePublishableKey &&
-      !supabaseUrl.includes("TU_") &&
-      !supabasePublishableKey.includes("TU_") &&
-      !supabaseUrl.includes("PEGAR_") &&
-      !supabasePublishableKey.includes("PEGAR_")
-    )
-  });
-});
-
 app.get("/api/store-config", (_request, response) => {
   const arsPerUsd = Number(process.env.ARS_PER_USD);
   const paypalConfigured = Boolean(
@@ -235,7 +219,6 @@ app.post(
   "/api/checkout/mercadopago",
   async (request, response) => {
     try {
-      const user = await requireUser(request);
       const token =
         process.env.MP_ACCESS_TOKEN ||
         process.env.MERCADOPAGO_ACCESS_TOKEN;
@@ -251,7 +234,8 @@ app.post(
         });
       }
 
-      const countryCode = userCountryCode(user, request.body?.countryCode);
+      const shippingAddress = validateShippingAddress(request.body?.shippingAddress);
+      const countryCode = shippingAddress.countryCode;
 
       if (countryCode !== "AR") {
         return response.status(400).json({
@@ -278,7 +262,23 @@ app.post(
           `AWS-MP-${Date.now()}-${crypto
             .randomBytes(3)
             .toString("hex")}`,
-        statement_descriptor: "ARG WORLD STORE"
+        statement_descriptor: "ARG WORLD STORE",
+        payer: {
+          name: shippingAddress.fullName,
+          email: shippingAddress.email,
+          phone: { number: shippingAddress.phone },
+          identification: shippingAddress.taxId ? { type: "DNI", number: shippingAddress.taxId } : undefined,
+          address: { zip_code: shippingAddress.postalCode, street_name: shippingAddress.address1 }
+        },
+        shipments: {
+          receiver_address: {
+            zip_code: shippingAddress.postalCode,
+            street_name: shippingAddress.address1,
+            city_name: shippingAddress.city,
+            state_name: shippingAddress.region
+          }
+        },
+        metadata: { shipping_address: shippingAddress }
       };
 
       /*
@@ -347,8 +347,8 @@ app.post(
   "/api/checkout/paypal",
   async (request, response) => {
     try {
-      const user = await requireUser(request);
-      const countryCode = userCountryCode(user, request.body?.countryCode);
+      const shippingAddress = validateShippingAddress(request.body?.shippingAddress);
+      const countryCode = shippingAddress.countryCode;
 
       if (countryCode === "AR") {
         return response.status(400).json({
