@@ -1,245 +1,26 @@
 (function(){
  const products=window.PRODUCTOS||[];
- let cart=[];
- try{cart=JSON.parse(localStorage.getItem("awsCart")||"[]")}catch{}
+ let cart=[]; try{cart=JSON.parse(localStorage.getItem("awsCart")||"[]")}catch{}
  if(!Array.isArray(cart))cart=[];
-
- // Eliminar artículos antiguos o inexistentes para evitar un contador fantasma.
- cart = cart.filter(item =>
-   products.some(product => String(product.id) === String(item.id))
- );
- localStorage.setItem("awsCart", JSON.stringify(cart));
- localStorage.setItem(
-   "awsCartCount",
-   String(cart.reduce((sum,item)=>sum+(Number(item.quantity)||1),0))
- );
-
- const countryCode=(localStorage.getItem("awsCountryCode")||"AR").toUpperCase();
- const foreign=countryCode!=="AR";
- let arsPerUsd=null;
- let paypalConfigured=false;
-
- function unitPriceARS(p){
-   return foreign
-     ? Number(p.foreignPriceARS||Number(p.basePriceARS||0)*2)
-     : Number(p.basePriceARS||0);
- }
-
- function moneyARS(value){
-   return new Intl.NumberFormat("es-AR",{
-     style:"currency",
-     currency:"ARS",
-     maximumFractionDigits:0
-   }).format(value);
- }
-
- function moneyUSD(value){
-   return new Intl.NumberFormat("en-US",{
-     style:"currency",
-     currency:"USD",
-     minimumFractionDigits:2,
-     maximumFractionDigits:2
-   }).format(value);
- }
-
- function displayMoney(arsValue){
-   if(foreign && Number.isFinite(arsPerUsd) && arsPerUsd>0){
-     return moneyUSD(arsValue/arsPerUsd);
-   }
-   return moneyARS(arsValue);
- }
-
- function save(){
-   cart=cart.map(item=>({
-     ...item,
-     quantity:Math.max(1,Number(item.quantity)||1)
-   }));
-   localStorage.setItem("awsCart",JSON.stringify(cart));
-   localStorage.setItem(
-     "awsCartCount",
-     String(cart.reduce((sum,item)=>sum+(Number(item.quantity)||1),0))
-   );
-   window.dispatchEvent(new Event("aws-cart-updated"));
-   render();
- }
-
- function render(){
-   const wrap=document.getElementById("cartItems");
-   const count=cart.reduce((sum,item)=>sum+(Number(item.quantity)||1),0);
-
-   document.getElementById("cartProductCount").textContent=count;
-   document.getElementById("summaryCount").textContent=count;
-   document.querySelectorAll("#cartCount").forEach(el=>el.textContent=count);
-
-   const info=document.getElementById("paymentProviderInfo");
-   if(info){
-     if(foreign){
-       info.textContent=Number.isFinite(arsPerUsd) && arsPerUsd>0
-         ? `Pago internacional con PayPal en USD · País: ${countryCode}`
-         : `Pago internacional con PayPal · Falta configurar ARS_PER_USD`;
-     }else{
-       info.textContent="Pago en Argentina con Mercado Pago";
-     }
-   }
-
-   if(!cart.length){
-     wrap.innerHTML=
-       '<div class="empty-cart">'+
-       '<h2>Tu carrito está vacío</h2>'+
-       '<p>Elegí productos de nuestras categorías para comenzar tu compra.</p>'+
-       '<a class="checkout-btn" href="index.html#destacados">Ver productos</a>'+
-       '</div>';
-     document.getElementById("cartSubtotal").textContent=displayMoney(0);
-     document.getElementById("cartTotal").textContent=displayMoney(0);
-     return;
-   }
-
-   let totalARS=0;
-
-   wrap.innerHTML=cart.map((item,index)=>{
-     const product=products.find(p=>String(p.id)===String(item.id));
-     if(!product)return "";
-
-     const minimum=Math.max(1,Number(product.minPurchaseQuantity)||1);
-     const quantity=Math.max(minimum,Number(item.quantity)||minimum);
-     const priceARS=unitPriceARS(product);
-     totalARS+=priceARS*quantity;
-
-     const foreignNote=foreign
-       ? (
-          Number.isFinite(arsPerUsd) && arsPerUsd>0
-            ? `<p>Precio internacional: ${moneyUSD(priceARS/arsPerUsd)} USD por unidad.</p>`
-            : '<p>Configurá ARS_PER_USD en .env para mostrar y cobrar en USD.</p>'
-         )
-       : "";
-
-     return `
-       <article class="cart-item">
-         <img
-           src="Fotos/${product.subcategory}/${product.images[0]}"
-           onerror="this.src='assets/logo-argentina-world-store.jpeg'"
-           alt="${product.name}"
-         >
-         <div>
-           <h3>${product.name}</h3>
-           <p>
-             CANTIDAD:
-             <input
-               data-index="${index}"
-               class="cart-qty"
-               type="number"
-               min="${minimum}"
-               value="${quantity}"
-             >
-           </p>
-           <strong>${displayMoney(priceARS)}</strong>
-           ${item.color ? `<p><b>Color:</b> ${item.color}</p>` : ""}
-           ${item.size ? `<p><b>Talle:</b> ${item.size}</p>` : ""}
-           ${minimum>1 ? `<p class="minimum-cart-note"><b>Compra mínima:</b> ${minimum} unidades</p>` : ""}
-           ${foreignNote}
-           ${Array.isArray(item.selections) && item.selections.length ? `<div class="cart-selections"><strong>Modelos elegidos:</strong><ul>${item.selections.map(s=>`<li>${s.name}: ${s.quantity}</li>`).join("")}</ul></div>` : ""}
-         </div>
-         <button class="cart-remove" data-index="${index}">×</button>
-       </article>
-     `;
-   }).join("");
-
-   document.getElementById("cartSubtotal").textContent=displayMoney(totalARS);
-   document.getElementById("cartTotal").textContent=displayMoney(totalARS);
-
-   document.querySelectorAll(".cart-qty").forEach(input=>{
-     input.onchange=()=>{
-       const index=Number(input.dataset.index);
-       const product=products.find(p=>String(p.id)===String(cart[index].id));
-       const minimum=Math.max(1,Number(product?.minPurchaseQuantity)||1);
-       cart[index].quantity=Math.max(minimum,Number(input.value)||minimum);
-       save();
-     };
-   });
-
-   document.querySelectorAll(".cart-remove").forEach(button=>{
-     button.onclick=()=>{
-       cart.splice(Number(button.dataset.index),1);
-       save();
-     };
-   });
- }
-
- async function checkout(){
-   const button=document.getElementById("startCheckout");
-   const errorBox=document.getElementById("checkoutError");
-
-   errorBox.hidden=true;
-   errorBox.textContent="";
-
-   if(!cart.length){
-     errorBox.textContent="El carrito está vacío.";
-     errorBox.hidden=false;
-     return;
-   }
-
-   if(foreign){
-     if(!Number.isFinite(arsPerUsd) || arsPerUsd<=0){
-       errorBox.textContent=
-         "Falta ARS_PER_USD en el archivo .env. Ejemplo: ARS_PER_USD=1400";
-       errorBox.hidden=false;
-       return;
-     }
-
-     if(!paypalConfigured){
-       errorBox.textContent=
-         "Faltan PAYPAL_CLIENT_ID y PAYPAL_CLIENT_SECRET Live en el archivo .env.";
-       errorBox.hidden=false;
-       return;
-     }
-   }
-
-   button.disabled=true;
-   button.textContent="Preparando pago…";
-
-   try{
-     const endpoint=foreign
-       ? "/api/checkout/paypal"
-       : "/api/checkout/mercadopago";
-
-     const response=await fetch(endpoint,{
-       method:"POST",
-       headers:{"Content-Type":"application/json"},
-       body:JSON.stringify({items:cart,countryCode})
-     });
-
-     const data=await response.json();
-
-     if(!response.ok){
-       throw new Error(data.error||"No se pudo iniciar el pago.");
-     }
-
-     location.href=data.checkoutUrl;
-   }catch(error){
-     errorBox.textContent=error.message;
-     errorBox.hidden=false;
-     button.disabled=false;
-     button.textContent="Continuar al pago";
-   }
- }
-
- async function init(){
-   if(foreign){
-     try{
-       const response=await fetch("/api/store-config",{cache:"no-store"});
-       const config=await response.json();
-
-       arsPerUsd=Number(config.arsPerUsd);
-       paypalConfigured=Boolean(config.paypalConfigured);
-     }catch(error){
-       arsPerUsd=null;
-       paypalConfigured=false;
-     }
-   }
-
-   document.getElementById("startCheckout").onclick=checkout;
-   render();
- }
-
+ cart=cart.filter(item=>products.some(p=>String(p.id)===String(item.id)));
+ localStorage.setItem("awsCart",JSON.stringify(cart));
+ const storedCode=()=>String(localStorage.getItem("awsCountryCode")||"AR").toUpperCase();
+ let countryCode=storedCode(), foreign=countryCode!=="AR", arsPerUsd=null, paypalConfigured=false;
+ function unitPriceARS(p){return foreign?Number(p.foreignPriceARS||Number(p.basePriceARS||0)*2):Number(p.basePriceARS||0)}
+ function moneyARS(v){return new Intl.NumberFormat("es-AR",{style:"currency",currency:"ARS",maximumFractionDigits:0}).format(v)}
+ function moneyUSD(v){return new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",minimumFractionDigits:2,maximumFractionDigits:2}).format(v)}
+ function displayMoney(v){return foreign&&Number.isFinite(arsPerUsd)&&arsPerUsd>0?moneyUSD(v/arsPerUsd):moneyARS(v)}
+ function totals(){let subtotal=0,grams=0;for(const item of cart){const p=products.find(x=>String(x.id)===String(item.id));if(!p)continue;const q=Math.max(1,Number(item.quantity)||1);subtotal+=unitPriceARS(p)*q;grams+=Math.max(1,Number(p.weightGrams)||500)*q}let shipping=0;try{shipping=cart.length?window.AWS_SHIPPING.shippingARS(countryCode,grams):0}catch(e){shipping=0}return{subtotal,shipping,total:subtotal+shipping,grams}}
+ function save(){cart=cart.map(i=>({...i,quantity:Math.max(1,Number(i.quantity)||1)}));localStorage.setItem("awsCart",JSON.stringify(cart));localStorage.setItem("awsCartCount",String(cart.reduce((s,i)=>s+(Number(i.quantity)||1),0)));window.dispatchEvent(new Event("aws-cart-updated"));render()}
+ function render(){countryCode=storedCode();foreign=countryCode!=="AR";const wrap=document.getElementById("cartItems"),count=cart.reduce((s,i)=>s+(Number(i.quantity)||1),0);document.getElementById("cartProductCount").textContent=count;document.getElementById("summaryCount").textContent=count;document.querySelectorAll("#cartCount").forEach(e=>e.textContent=count);const info=document.getElementById("paymentProviderInfo");if(info)info.textContent=foreign?`Pago internacional con PayPal · Envío calculado para ${countryCode}`:"Pago en Argentina con Mercado Pago · Envío fijo por pedido";
+ if(!cart.length){wrap.innerHTML='<div class="empty-cart"><h2>Tu carrito está vacío</h2><p>Elegí productos para comenzar.</p><a class="checkout-btn" href="index.html#destacados">Ver productos</a></div>';['cartSubtotal','cartShipping','cartTotal'].forEach(id=>document.getElementById(id).textContent=displayMoney(0));return}
+ wrap.innerHTML=cart.map((item,index)=>{const p=products.find(x=>String(x.id)===String(item.id));if(!p)return'';const minimum=Math.max(1,Number(p.minPurchaseQuantity)||1),q=Math.max(minimum,Number(item.quantity)||minimum),price=unitPriceARS(p);return `<article class="cart-item"><img src="Fotos/${p.subcategory}/${p.images[0]}" onerror="this.src='assets/logo-argentina-world-store.jpeg'" alt="${p.name}"><div><h3>${p.name}</h3><p>CANTIDAD: <input data-index="${index}" class="cart-qty" type="number" min="${minimum}" value="${q}"></p><strong>${displayMoney(price)}</strong>${item.color?`<p><b>Color:</b> ${item.color}</p>`:''}${item.size?`<p><b>Talle:</b> ${item.size}</p>`:''}</div><button class="cart-remove" data-index="${index}">×</button></article>`}).join('');
+ const t=totals();document.getElementById("cartSubtotal").textContent=displayMoney(t.subtotal);document.getElementById("cartShipping").textContent=displayMoney(t.shipping);document.getElementById("cartTotal").textContent=displayMoney(t.total);
+ document.querySelectorAll('.cart-qty').forEach(input=>input.onchange=()=>{const i=Number(input.dataset.index),p=products.find(x=>String(x.id)===String(cart[i].id)),m=Math.max(1,Number(p?.minPurchaseQuantity)||1);cart[i].quantity=Math.max(m,Number(input.value)||m);save()});document.querySelectorAll('.cart-remove').forEach(b=>b.onclick=()=>{cart.splice(Number(b.dataset.index),1);save()});}
+ async function checkout(){const button=document.getElementById('startCheckout'),errorBox=document.getElementById('checkoutError');errorBox.hidden=true;errorBox.textContent='';if(!cart.length){errorBox.textContent='El carrito está vacío.';errorBox.hidden=false;return}
+ await window.awsAuth?.ready;const user=window.awsAuth?.getUser?.();if(!user){errorBox.innerHTML='Para continuar tenés que <button type="button" class="inline-auth-login">iniciar sesión</button> o <button type="button" class="inline-auth-register">crear una cuenta</button>.';errorBox.hidden=false;errorBox.querySelector('.inline-auth-login').onclick=()=>window.awsAuth.openLogin();errorBox.querySelector('.inline-auth-register').onclick=()=>window.awsAuth.openRegister();return}
+ const meta=user.user_metadata||{},userCode=window.AWS_SHIPPING.normalizeCode(meta.country_code||meta.country);if(!userCode){errorBox.textContent='Tu cuenta no tiene un país válido. Cerrá sesión y registrate indicando tu país.';errorBox.hidden=false;return}countryCode=userCode;localStorage.setItem('awsCountryCode',countryCode);foreign=countryCode!=='AR';if(foreign&&(!Number.isFinite(arsPerUsd)||arsPerUsd<=0)){errorBox.textContent='Falta configurar ARS_PER_USD.';errorBox.hidden=false;return}if(foreign&&!paypalConfigured){errorBox.textContent='PayPal no está configurado.';errorBox.hidden=false;return}
+ button.disabled=true;button.textContent='Preparando pago…';try{const token=await window.awsAuth.getAccessToken();const endpoint=foreign?'/api/checkout/paypal':'/api/checkout/mercadopago';const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},body:JSON.stringify({items:cart,countryCode})});const data=await response.json();if(!response.ok)throw new Error(data.error||'No se pudo iniciar el pago.');location.href=data.checkoutUrl}catch(e){errorBox.textContent=e.message;errorBox.hidden=false;button.disabled=false;button.textContent='Continuar al pago'}}
+ async function init(){await window.awsAuth?.ready;try{const response=await fetch('/api/store-config',{cache:'no-store'});const config=await response.json();arsPerUsd=Number(config.arsPerUsd);paypalConfigured=Boolean(config.paypalConfigured)}catch{}document.getElementById('startCheckout').onclick=checkout;window.addEventListener('aws-auth-changed',render);render()}
  init();
 })();

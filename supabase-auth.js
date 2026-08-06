@@ -4,6 +4,26 @@
 
   let client = null;
   let currentUser = null;
+  let resolveReady;
+  const ready = new Promise((resolve) => { resolveReady = resolve; });
+
+  window.awsAuth = {
+    ready,
+    getUser: () => currentUser,
+    getAccessToken: async () => {
+      if (!client) return null;
+      const { data } = await client.auth.getSession();
+      return data.session?.access_token || null;
+    },
+    openLogin: () => {
+      document.getElementById("authOverlay")?.classList.add("open");
+      showView("login");
+    },
+    openRegister: () => {
+      document.getElementById("authOverlay")?.classList.add("open");
+      showView("register");
+    }
+  };
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -47,6 +67,14 @@
       submit.dataset.originalText ||= submit.textContent;
       submit.textContent = busy ? "Procesando…" : submit.dataset.originalText;
     }
+  }
+
+  function normalizeCountryCode(value) {
+    if (window.AWS_SHIPPING?.normalizeCode) return window.AWS_SHIPPING.normalizeCode(value);
+    const raw = String(value || "").trim();
+    if (/^[A-Za-z]{2}$/.test(raw)) return raw.toUpperCase();
+    const map = {argentina:"AR", bolivia:"BO", brasil:"BR", brazil:"BR", chile:"CL", paraguay:"PY", uruguay:"UY", colombia:"CO", ecuador:"EC", peru:"PE", "perú":"PE", venezuela:"VE", "estados unidos":"US", "united states":"US", usa:"US", canada:"CA", "canadá":"CA", mexico:"MX", "méxico":"MX", españa:"ES", spain:"ES", francia:"FR", france:"FR", italia:"IT", italy:"IT", alemania:"DE", germany:"DE", "reino unido":"GB", "united kingdom":"GB", china:"CN", japon:"JP", "japón":"JP", india:"IN", australia:"AU", "nueva zelanda":"NZ", "new zealand":"NZ"};
+    return map[raw.toLowerCase()] || "";
   }
 
   function registrationFields() {
@@ -201,6 +229,15 @@
     if ($("#accountEmail")) $("#accountEmail").textContent = user?.email || "";
   }
 
+  function syncCountryFromUser(user) {
+    const metadata = user?.user_metadata || {};
+    const code = normalizeCountryCode(metadata.country_code || metadata.country);
+    if (code) {
+      localStorage.setItem("awsCountryCode", code);
+      if (metadata.country) localStorage.setItem("awsCountry", metadata.country);
+    }
+  }
+
   function openAppropriateView() {
     showView(currentUser ? "account" : "login");
   }
@@ -215,6 +252,7 @@
           "Falta configurar SUPABASE_URL y SUPABASE_PUBLISHABLE_KEY en el archivo .env.",
           "error"
         );
+        resolveReady?.(null);
         return;
       }
 
@@ -237,10 +275,14 @@
       const { data } = await client.auth.getSession();
       currentUser = data.session?.user || null;
       updateLoginButtons(currentUser);
+      syncCountryFromUser(currentUser);
+      resolveReady?.(currentUser);
 
       client.auth.onAuthStateChange((_event, session) => {
         currentUser = session?.user || null;
         updateLoginButtons(currentUser);
+        syncCountryFromUser(currentUser);
+        window.dispatchEvent(new CustomEvent("aws-auth-changed", {detail:{user:currentUser}}));
         if (document.getElementById("authOverlay")?.classList.contains("open")) {
           openAppropriateView();
         }
@@ -248,6 +290,7 @@
     } catch (error) {
       console.error("Supabase:", error);
       setMessage(error.message || "No se pudo iniciar Supabase.", "error");
+      resolveReady?.(null);
     }
   }
 
@@ -266,6 +309,7 @@
       first_name: clean(values.first_name),
       last_name: clean(values.last_name),
       country: clean(values.country),
+      country_code: normalizeCountryCode(clean(values.country)) || localStorage.getItem("awsCountryCode") || "",
       province_state: clean(values.province_state),
       city: clean(values.city),
       postal_code: clean(values.postal_code),
@@ -317,10 +361,6 @@
     showView("account");
     setMessage("Sesión iniciada correctamente.", "success");
   }
-    });
-
-    if (error) throw error;
-  }
 
   async function forgotPassword() {
     if (!client) throw new Error("Supabase todavía no está configurado.");
@@ -360,9 +400,6 @@
 
     if (event.target.closest(".auth-switch-login")) {
       showView("login");
-    } catch (error) {
-        setMessage(error.message, "error");
-      }
     }
 
     if (event.target.closest(".auth-forgot")) {

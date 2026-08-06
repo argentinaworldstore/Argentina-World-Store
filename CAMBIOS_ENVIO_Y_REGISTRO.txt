@@ -1,0 +1,10 @@
+CAMBIOS REALIZADOS
+- Compra obligatoria con sesión iniciada en Supabase.
+- País tomado de los datos de registro del usuario.
+- Argentina: envío fijo de $10.000 por pedido.
+- Exterior: tarifa EMS según peso total y región de destino, hasta 20 kg.
+- El peso está guardado internamente como weightGrams en productos.js y no se muestra al cliente.
+- Vasos y chops también tienen peso interno.
+- Mercado Pago y PayPal reciben el total de productos más envío.
+
+IMPORTANTE: los pesos son aproximados; para facturación logística exacta conviene pesarlos físicamente y actualizar weightGrams.

@@ -109,6 +109,22 @@ function paypalMoney(value) {
   return (Math.round(value * 100) / 100).toFixed(2);
 }
 
+
+const SHIPPING_TIERS = [
+ [0.5,79500,111000,123300,142900,162700],[1,101800,142900,147400,153000,182900],[1.5,126300,157400,166600,183500,220000],[2,142900,173300,183500,220000,254700],[3,166600,204100,223700,244700,305200],[4,204100,223700,244700,285500,340900],[5,228200,244700,275000,321000,391800],[6,275700,330700,366200,483200,499200],[7,305200,383500,422900,545000,560700],[8,336000,401600,465100,570000,621900],[9,366200,443500,483200,621900,663000],[10,391800,473800,524700,663000,691800],[11,411600,514600,560700,691800,710800],[12,442700,535300,595000,710800,763100],[13,465100,560700,632700,742800,782600],[14,483200,584900,652500,774100,818700],[15,514600,606100,691800,798400,865500],[16,535300,632700,710800,825000,895200],[17,545000,640100,725400,844600,932500],[18,560700,650000,742800,860500,960700],[19,570000,656600,752100,870300,996700],[20,581400,681700,763100,880600,1024700]
+];
+const LIMITROFES=new Set(['BO','BR','CL','PY','UY']);
+const SOUTH_AMERICA=new Set(['CO','EC','PE','VE','GY','SR','GF']);
+const AMERICAS=new Set(['US','CA','MX','BZ','CR','SV','GT','HN','NI','PA','CU','DO','HT','JM','BS','BB','TT','AG','DM','GD','KN','LC','VC','PR']);
+const EUROPE=new Set(['AL','AD','AT','BE','BA','BG','BY','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MC','MD','ME','MK','MT','NL','NO','PL','PT','RO','RS','RU','SE','SI','SK','SM','UA','VA']);
+const COUNTRY_NAMES={argentina:'AR',bolivia:'BO',brasil:'BR',brazil:'BR',chile:'CL',paraguay:'PY',uruguay:'UY',colombia:'CO',ecuador:'EC',peru:'PE','perú':'PE',venezuela:'VE','estados unidos':'US','united states':'US',usa:'US',canada:'CA','canadá':'CA',mexico:'MX','méxico':'MX',españa:'ES',spain:'ES',francia:'FR',italia:'IT',alemania:'DE','reino unido':'GB',china:'CN',japon:'JP','japón':'JP',india:'IN',australia:'AU'};
+function normalizeCountryCode(value){const raw=String(value||'').trim();if(/^[A-Za-z]{2}$/.test(raw))return raw.toUpperCase();return COUNTRY_NAMES[raw.toLowerCase()]||'';}
+function shippingRegion(code){if(code==='AR')return 'argentina';if(LIMITROFES.has(code))return 'limitrofes';if(SOUTH_AMERICA.has(code))return 'sudamerica';if(AMERICAS.has(code))return 'america';if(EUROPE.has(code))return 'europa';return 'mundo';}
+function shippingCostARS(code,grams){const region=shippingRegion(code);if(region==='argentina')return 10000;const kg=Math.max(0.001,Number(grams||0)/1000);if(kg>20)throw new Error('El pedido supera los 20 kg. Contactanos para cotizar el envío.');const tier=SHIPPING_TIERS.find(r=>kg<=r[0])||SHIPPING_TIERS.at(-1);const col={limitrofes:1,sudamerica:2,america:3,europa:4,mundo:5}[region];return tier[col];}
+function cartWeightGrams(cart){return cart.reduce((sum,{product,quantity})=>sum+(Math.max(1,Number(product.weightGrams)||500)*quantity),0);}
+async function requireUser(request){const token=String(request.headers.authorization||'').replace(/^Bearer\s+/i,'').trim();if(!token)throw new Error('Tenés que iniciar sesión para comprar.');const url=String(process.env.SUPABASE_URL||'').trim();const key=String(process.env.SUPABASE_PUBLISHABLE_KEY||process.env.SUPABASE_ANON_KEY||'').trim();if(!url||!key)throw new Error('Supabase no está configurado.');const r=await fetch(`${url}/auth/v1/user`,{headers:{apikey:key,Authorization:`Bearer ${token}`}});const data=await r.json();if(!r.ok||!data?.id)throw new Error('La sesión venció. Iniciá sesión nuevamente.');return data;}
+function userCountryCode(user,requested){const meta=user?.user_metadata||{};const code=normalizeCountryCode(meta.country_code||meta.country||requested);if(!code)throw new Error('Tu cuenta no tiene un país válido.');return code;}
+
 async function getPayPalAccessToken() {
   const clientId = process.env.PAYPAL_CLIENT_ID;
   const secret = process.env.PAYPAL_CLIENT_SECRET;
@@ -219,6 +235,7 @@ app.post(
   "/api/checkout/mercadopago",
   async (request, response) => {
     try {
+      const user = await requireUser(request);
       const token =
         process.env.MP_ACCESS_TOKEN ||
         process.env.MERCADOPAGO_ACCESS_TOKEN;
@@ -234,9 +251,7 @@ app.post(
         });
       }
 
-      const countryCode = String(
-        request.body?.countryCode || "AR"
-      ).toUpperCase();
+      const countryCode = userCountryCode(user, request.body?.countryCode);
 
       if (countryCode !== "AR") {
         return response.status(400).json({
@@ -247,14 +262,18 @@ app.post(
 
       const cart = normalizeCart(request.body?.items);
 
+      const shippingARS = shippingCostARS(countryCode, cartWeightGrams(cart));
       const preference = {
-        items: cart.map(({ product, quantity }) => ({
-          id: String(product.id),
-          title: String(product.name),
-          quantity,
-          currency_id: "ARS",
-          unit_price: getArgentinaPrice(product)
-        })),
+        items: [
+          ...cart.map(({ product, quantity }) => ({
+            id: String(product.id),
+            title: String(product.name),
+            quantity,
+            currency_id: "ARS",
+            unit_price: getArgentinaPrice(product)
+          })),
+          { id: "shipping", title: "Envío", quantity: 1, currency_id: "ARS", unit_price: shippingARS }
+        ],
         external_reference:
           `AWS-MP-${Date.now()}-${crypto
             .randomBytes(3)
@@ -328,9 +347,8 @@ app.post(
   "/api/checkout/paypal",
   async (request, response) => {
     try {
-      const countryCode = String(
-        request.body?.countryCode || "US"
-      ).toUpperCase();
+      const user = await requireUser(request);
+      const countryCode = userCountryCode(user, request.body?.countryCode);
 
       if (countryCode === "AR") {
         return response.status(400).json({
@@ -350,7 +368,9 @@ app.post(
         0
       );
 
-      const amount = paypalMoney(itemTotalUsd);
+      const shippingARS = shippingCostARS(countryCode, cartWeightGrams(cart));
+      const shippingUsd = shippingARS / arsPerUsd;
+      const amount = paypalMoney(itemTotalUsd + shippingUsd);
 
       if (Number(amount) <= 0) {
         throw new Error(
@@ -381,7 +401,7 @@ app.post(
               {
                 reference_id: orderReference,
                 description:
-                  "Compra en Argentina World Store",
+                  `Compra en Argentina World Store (incluye envío a ${countryCode})`,
                 amount: {
                   currency_code: "USD",
                   value: amount

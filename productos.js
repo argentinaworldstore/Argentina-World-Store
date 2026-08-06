@@ -11,7 +11,8 @@ window.PRODUCTOS = [
     "basePriceARS": 22999,
     "page": "productos/alfajores-1.html",
     "foreignPriceARS": 44999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 440
   },
   {
     "id": "alfajores-2",
@@ -25,7 +26,8 @@ window.PRODUCTOS = [
     "basePriceARS": 37999,
     "page": "productos/alfajores-2.html",
     "foreignPriceARS": 65999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 1040
   },
   {
     "id": "alfajores-3",
@@ -39,7 +41,8 @@ window.PRODUCTOS = [
     "basePriceARS": 22999,
     "page": "productos/alfajores-3.html",
     "foreignPriceARS": 44999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 560
   },
   {
     "id": "alfajores-4",
@@ -53,7 +56,8 @@ window.PRODUCTOS = [
     "basePriceARS": 26999,
     "page": "productos/alfajores-4.html",
     "foreignPriceARS": 47999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "alfajores-5",
@@ -66,7 +70,8 @@ window.PRODUCTOS = [
     "basePriceARS": 32999,
     "page": "productos/alfajores-5.html",
     "foreignPriceARS": 59999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 1040
   },
   {
     "id": "alfajores-6",
@@ -80,7 +85,8 @@ window.PRODUCTOS = [
     "basePriceARS": 32999,
     "page": "productos/alfajores-6.html",
     "foreignPriceARS": 59999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 1040
   },
   {
     "id": "alfajores-7",
@@ -94,7 +100,8 @@ window.PRODUCTOS = [
     "basePriceARS": 16999,
     "page": "productos/alfajores-7.html",
     "foreignPriceARS": 41999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 560
   },
   {
     "id": "alfajores-8",
@@ -108,7 +115,8 @@ window.PRODUCTOS = [
     "basePriceARS": 37999,
     "page": "productos/alfajores-8.html",
     "foreignPriceARS": 65999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "alfajores-9",
@@ -122,7 +130,8 @@ window.PRODUCTOS = [
     "basePriceARS": 37999,
     "page": "productos/alfajores-9.html",
     "foreignPriceARS": 65999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 1040
   },
   {
     "id": "alfajores-10",
@@ -136,7 +145,8 @@ window.PRODUCTOS = [
     "basePriceARS": 16999,
     "page": "productos/alfajores-10.html",
     "foreignPriceARS": 41999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "alfajores-11",
@@ -151,7 +161,8 @@ window.PRODUCTOS = [
     "basePriceARS": 32999,
     "page": "productos/alfajores-11.html",
     "foreignPriceARS": 59999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "alfajores-12",
@@ -166,7 +177,8 @@ window.PRODUCTOS = [
     "basePriceARS": 32999,
     "page": "productos/alfajores-12.html",
     "foreignPriceARS": 59999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "alfajores-13",
@@ -180,7 +192,8 @@ window.PRODUCTOS = [
     "basePriceARS": 38000,
     "page": "productos/alfajores-13.html",
     "foreignPriceARS": 65999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "alfajores-14",
@@ -194,7 +207,8 @@ window.PRODUCTOS = [
     "basePriceARS": 22999,
     "page": "productos/alfajores-14.html",
     "foreignPriceARS": 44999,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "alpargatas-1",
@@ -221,7 +235,8 @@ window.PRODUCTOS = [
       "43",
       "44",
       "45"
-    ]
+    ],
+    "weightGrams": 550
   },
   {
     "id": "alpargatas-2",
@@ -248,7 +263,8 @@ window.PRODUCTOS = [
       "43",
       "44",
       "45"
-    ]
+    ],
+    "weightGrams": 550
   },
   {
     "id": "alpargatas-3",
@@ -275,7 +291,8 @@ window.PRODUCTOS = [
       "43",
       "44",
       "45"
-    ]
+    ],
+    "weightGrams": 550
   },
   {
     "id": "camisas-1",
@@ -299,7 +316,8 @@ window.PRODUCTOS = [
       "M"
     ],
     "measurements": "Talle M",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "camisas-2",
@@ -320,7 +338,8 @@ window.PRODUCTOS = [
       "M"
     ],
     "measurements": "Talle M",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "camisas-3",
@@ -341,7 +360,8 @@ window.PRODUCTOS = [
       "S"
     ],
     "measurements": "Talle S",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "camisas-5",
@@ -412,7 +432,8 @@ window.PRODUCTOS = [
       }
     ],
     "minPurchaseQuantity": 3,
-    "minimumOrderARS": 247010.4
+    "minimumOrderARS": 247010.4,
+    "weightGrams": 350
   },
   {
     "id": "camisas-6",
@@ -488,7 +509,8 @@ window.PRODUCTOS = [
       }
     ],
     "minPurchaseQuantity": 3,
-    "minimumOrderARS": 247010.4
+    "minimumOrderARS": 247010.4,
+    "weightGrams": 350
   },
   {
     "id": "camisas-7",
@@ -540,7 +562,8 @@ window.PRODUCTOS = [
       }
     ],
     "minPurchaseQuantity": 3,
-    "minimumOrderARS": 259178.4
+    "minimumOrderARS": 259178.4,
+    "weightGrams": 350
   },
   {
     "id": "chalecos-1",
@@ -565,7 +588,8 @@ window.PRODUCTOS = [
     ],
     "measurements": "Talle L",
     "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
-    "description": "Talle L. Medidas: hombro 34 cm, pecho 101 cm y largo 48,5 cm."
+    "description": "Talle L. Medidas: hombro 34 cm, pecho 101 cm y largo 48,5 cm.",
+    "weightGrams": 600
   },
   {
     "id": "chalecos-2",
@@ -584,7 +608,8 @@ window.PRODUCTOS = [
     "sizes": [
       "M"
     ],
-    "description": "Talle M. Medidas: hombro 35,5 cm, largo 46 cm y pecho 98 cm."
+    "description": "Talle M. Medidas: hombro 35,5 cm, largo 46 cm y pecho 98 cm.",
+    "weightGrams": 600
   },
   {
     "id": "chalecos-3",
@@ -603,7 +628,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "sizeMode": "text",
     "sizePlaceholder": "Escribí el talle que necesitás",
-    "description": "Producto por pedido. Escribí el talle solicitado antes de agregarlo al carrito."
+    "description": "Producto por pedido. Escribí el talle solicitado antes de agregarlo al carrito.",
+    "weightGrams": 600
   },
   {
     "id": "chalecos-4",
@@ -620,7 +646,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "sizeMode": "text",
     "sizePlaceholder": "Escribí el talle que necesitás",
-    "description": "Producto por pedido. Escribí el talle solicitado antes de agregarlo al carrito."
+    "description": "Producto por pedido. Escribí el talle solicitado antes de agregarlo al carrito.",
+    "weightGrams": 600
   },
   {
     "id": "chalecos-5",
@@ -645,7 +672,8 @@ window.PRODUCTOS = [
     ],
     "measurements": "Talle L",
     "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
-    "description": "Talle L. Medidas: hombro 37 cm, largo 41,3 cm y pecho 104 cm."
+    "description": "Talle L. Medidas: hombro 37 cm, largo 41,3 cm y pecho 104 cm.",
+    "weightGrams": 600
   },
   {
     "id": "chalinas-1",
@@ -720,7 +748,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "chalinas-2",
@@ -789,7 +818,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "chalinas-3",
@@ -857,7 +887,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "chalinas-5",
@@ -917,7 +948,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 1500
   },
   {
     "id": "chalinas-6",
@@ -984,7 +1016,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 1500
   },
   {
     "id": "chalinas-7",
@@ -1052,7 +1085,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 1500
   },
   {
     "id": "chalinas-8",
@@ -1120,7 +1154,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 1500
   },
   {
     "id": "chalinas-9",
@@ -1188,7 +1223,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 1500
   },
   {
     "id": "chalinas-11",
@@ -1257,7 +1293,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "chalinas-12",
@@ -1325,7 +1362,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "chalinas-13",
@@ -1395,7 +1433,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "cintos-1",
@@ -1414,7 +1453,8 @@ window.PRODUCTOS = [
     "costARS": 55000,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 260
   },
   {
     "id": "ponchos-y-ruanas-1",
@@ -1441,7 +1481,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-2",
@@ -1466,7 +1507,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-3",
@@ -1488,7 +1530,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-4",
@@ -1502,7 +1545,8 @@ window.PRODUCTOS = [
     "basePriceARS": 159000,
     "page": "productos/ponchos-y-ruanas-4.html",
     "foreignPriceARS": 318000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-5",
@@ -1528,7 +1572,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-6",
@@ -1553,7 +1598,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-7",
@@ -1580,7 +1626,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-8",
@@ -1610,7 +1657,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-9",
@@ -1629,7 +1677,8 @@ window.PRODUCTOS = [
     "basePriceARS": 159000,
     "page": "productos/ponchos-y-ruanas-9.html",
     "foreignPriceARS": 318000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-10",
@@ -1659,7 +1708,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-11",
@@ -1685,7 +1735,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-12",
@@ -1708,7 +1759,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-13",
@@ -1735,7 +1787,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-14",
@@ -1749,7 +1802,8 @@ window.PRODUCTOS = [
     "basePriceARS": 159000,
     "page": "productos/ponchos-y-ruanas-14.html",
     "foreignPriceARS": 318000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-15",
@@ -1775,7 +1829,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-16",
@@ -1804,7 +1859,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1500
   },
   {
     "id": "ponchos-y-ruanas-17",
@@ -1827,7 +1883,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-18",
@@ -1851,7 +1908,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-19",
@@ -1879,7 +1937,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-20",
@@ -1902,7 +1961,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-21",
@@ -1915,7 +1975,8 @@ window.PRODUCTOS = [
     "basePriceARS": 150000,
     "page": "productos/ponchos-y-ruanas-21.html",
     "foreignPriceARS": 300000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-22",
@@ -1940,7 +2001,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-23",
@@ -1965,7 +2027,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-24",
@@ -1989,7 +2052,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-25",
@@ -2003,7 +2067,8 @@ window.PRODUCTOS = [
     "basePriceARS": 162000,
     "page": "productos/ponchos-y-ruanas-25.html",
     "foreignPriceARS": 324000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-26",
@@ -2028,7 +2093,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-27",
@@ -2053,7 +2119,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-28",
@@ -2066,7 +2133,8 @@ window.PRODUCTOS = [
     "basePriceARS": 156000,
     "page": "productos/ponchos-y-ruanas-28.html",
     "foreignPriceARS": 312000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-29",
@@ -2078,7 +2146,8 @@ window.PRODUCTOS = [
     "basePriceARS": 159000,
     "page": "productos/ponchos-y-ruanas-29.html",
     "foreignPriceARS": 318000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-30",
@@ -2104,7 +2173,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-31",
@@ -2129,7 +2199,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-32",
@@ -2154,7 +2225,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-33",
@@ -2179,7 +2251,8 @@ window.PRODUCTOS = [
       "60"
     ],
     "measurements": "1,30 x 1,60",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-34",
@@ -2207,7 +2280,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-35",
@@ -2231,7 +2305,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-36",
@@ -2257,7 +2332,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-37",
@@ -2273,7 +2349,8 @@ window.PRODUCTOS = [
     "basePriceARS": 153000,
     "page": "productos/ponchos-y-ruanas-37.html",
     "foreignPriceARS": 306000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-38",
@@ -2290,7 +2367,8 @@ window.PRODUCTOS = [
     "basePriceARS": 156000,
     "page": "productos/ponchos-y-ruanas-38.html",
     "foreignPriceARS": 312000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-39",
@@ -2307,7 +2385,8 @@ window.PRODUCTOS = [
     "basePriceARS": 159000,
     "page": "productos/ponchos-y-ruanas-39.html",
     "foreignPriceARS": 318000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 800
   },
   {
     "id": "ponchos-y-ruanas-40",
@@ -2320,7 +2399,8 @@ window.PRODUCTOS = [
     "basePriceARS": 162000,
     "page": "productos/ponchos-y-ruanas-40.html",
     "foreignPriceARS": 324000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-41",
@@ -2339,7 +2419,8 @@ window.PRODUCTOS = [
     "manufacturer": "LALO",
     "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
     "minPurchaseQuantity": 2,
-    "minimumOrderARS": 235248.0
+    "minimumOrderARS": 235248.0,
+    "weightGrams": 950
   },
   {
     "id": "ponchos-y-ruanas-42",
@@ -2360,7 +2441,8 @@ window.PRODUCTOS = [
     "manufacturer": "LALO",
     "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
     "minPurchaseQuantity": 3,
-    "minimumOrderARS": 251472.0
+    "minimumOrderARS": 251472.0,
+    "weightGrams": 800
   },
   {
     "id": "billeteras-1",
@@ -2398,7 +2480,8 @@ window.PRODUCTOS = [
         "name": "Marrón",
         "swatch": "#71452f"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "bolsos-1",
@@ -2416,7 +2499,8 @@ window.PRODUCTOS = [
     "costARS": 35000,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 700
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-1",
@@ -2432,7 +2516,8 @@ window.PRODUCTOS = [
     "costARS": 20000,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-2",
@@ -2444,7 +2529,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-2.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-3",
@@ -2460,7 +2546,8 @@ window.PRODUCTOS = [
     "costARS": 38000,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-4",
@@ -2472,7 +2559,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-4.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-5",
@@ -2484,7 +2572,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-5.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-6",
@@ -2506,7 +2595,8 @@ window.PRODUCTOS = [
       "90"
     ],
     "measurements": "1,30 x 1,90",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-7",
@@ -2518,7 +2608,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-7.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-8",
@@ -2530,7 +2621,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-8.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-9",
@@ -2542,7 +2634,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-9.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-10",
@@ -2554,7 +2647,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-10.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-11",
@@ -2566,7 +2660,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-11.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-12",
@@ -2578,7 +2673,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-12.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-13",
@@ -2590,7 +2686,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-13.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-14",
@@ -2602,7 +2699,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-14.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-15",
@@ -2614,7 +2712,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-15.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-16",
@@ -2626,7 +2725,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-16.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-17",
@@ -2638,7 +2738,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-17.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-18",
@@ -2650,7 +2751,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-18.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-19",
@@ -2667,7 +2769,8 @@ window.PRODUCTOS = [
     "costARS": 84960,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-20",
@@ -2679,7 +2782,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-20.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-21",
@@ -2691,7 +2795,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-21.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-22",
@@ -2703,7 +2808,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-22.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-23",
@@ -2715,7 +2821,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-23.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-24",
@@ -2731,7 +2838,8 @@ window.PRODUCTOS = [
     "costARS": 29920,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-25",
@@ -2743,7 +2851,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-25.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-26",
@@ -2756,7 +2865,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-26.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-27",
@@ -2768,7 +2878,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-27.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-28",
@@ -2780,7 +2891,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-28.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-29",
@@ -2792,7 +2904,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-29.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-30",
@@ -2804,7 +2917,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-30.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-31",
@@ -2816,7 +2930,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-31.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-32",
@@ -2828,7 +2943,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-32.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-33",
@@ -2840,7 +2956,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-33.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-34",
@@ -2852,7 +2969,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-34.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-35",
@@ -2864,7 +2982,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-35.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-36",
@@ -2876,7 +2995,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-36.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-37",
@@ -2888,7 +3008,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-37.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-38",
@@ -2900,7 +3021,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-38.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-39",
@@ -2912,7 +3034,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-39.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-40",
@@ -2924,7 +3047,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-40.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-41",
@@ -2936,7 +3060,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-41.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-42",
@@ -2948,7 +3073,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-42.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-43",
@@ -2960,7 +3086,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-43.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-44",
@@ -2972,7 +3099,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-44.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-45",
@@ -2984,7 +3112,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-45.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-46",
@@ -2996,7 +3125,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-46.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-47",
@@ -3008,7 +3138,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-47.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-48",
@@ -3020,7 +3151,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-48.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-49",
@@ -3032,7 +3164,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-49.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-50",
@@ -3044,7 +3177,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-50.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-51",
@@ -3056,7 +3190,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-51.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-52",
@@ -3068,7 +3203,8 @@ window.PRODUCTOS = [
     "basePriceARS": 58000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-52.html",
     "foreignPriceARS": 116000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-53",
@@ -3080,7 +3216,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-53.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-54",
@@ -3092,7 +3229,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-54.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-55",
@@ -3104,7 +3242,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-55.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-56",
@@ -3118,7 +3257,8 @@ window.PRODUCTOS = [
     "basePriceARS": 55000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-56.html",
     "foreignPriceARS": 110000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-57",
@@ -3134,7 +3274,8 @@ window.PRODUCTOS = [
     "costARS": 54800,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-58",
@@ -3146,7 +3287,8 @@ window.PRODUCTOS = [
     "basePriceARS": 61000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-58.html",
     "foreignPriceARS": 122000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-59",
@@ -3158,7 +3300,8 @@ window.PRODUCTOS = [
     "basePriceARS": 64000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-59.html",
     "foreignPriceARS": 128000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-60",
@@ -3171,7 +3314,8 @@ window.PRODUCTOS = [
     "basePriceARS": 67000,
     "page": "productos/bombillas-y-mates-de-alpaca-jady-60.html",
     "foreignPriceARS": 134000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 120
   },
   {
     "id": "materas-1",
@@ -3191,7 +3335,8 @@ window.PRODUCTOS = [
     "costARS": 45000,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "mochilas-1",
@@ -3212,7 +3357,8 @@ window.PRODUCTOS = [
       "30 x 30"
     ],
     "measurements": "30 x 30",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 650
   },
   {
     "id": "mochilas-2",
@@ -3234,7 +3380,8 @@ window.PRODUCTOS = [
       "30 x 30"
     ],
     "measurements": "30 x 30",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 650
   },
   {
     "id": "mochilas-3",
@@ -3255,7 +3402,8 @@ window.PRODUCTOS = [
       "30 x 30"
     ],
     "measurements": "30 x 30",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 650
   },
   {
     "id": "portacelular-1",
@@ -3271,7 +3419,8 @@ window.PRODUCTOS = [
     "basePriceARS": 35000,
     "page": "productos/portacelular-1.html",
     "foreignPriceARS": 70000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 180
   },
   {
     "id": "boinas-1",
@@ -3345,7 +3494,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "boinas-2",
@@ -3410,7 +3560,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "boinas-3",
@@ -3474,7 +3625,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "boinas-4",
@@ -3542,7 +3694,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "boinas-5",
@@ -3608,7 +3761,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "boinas-6",
@@ -3677,7 +3831,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "boinas-7",
@@ -3746,7 +3901,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 180
   },
   {
     "id": "bombachas-de-campo-3",
@@ -3821,7 +3977,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 650
   },
   {
     "id": "bombachas-de-campo-4",
@@ -3904,7 +4061,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-5",
@@ -3983,7 +4141,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 650
   },
   {
     "id": "bombachas-de-campo-6",
@@ -4057,7 +4216,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "bombachas-de-campo-7",
@@ -4138,7 +4298,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-8",
@@ -4210,7 +4371,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "bombachas-de-campo-9",
@@ -4290,7 +4452,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-10",
@@ -4364,7 +4527,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "bombachas-de-campo-11",
@@ -4436,7 +4600,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-12",
@@ -4507,7 +4672,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-13",
@@ -4582,7 +4748,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "bombachas-de-campo-14",
@@ -4661,7 +4828,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-15",
@@ -4735,7 +4903,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "bombachas-de-campo-16",
@@ -4808,7 +4977,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-17",
@@ -4867,7 +5037,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 480
   },
   {
     "id": "bombachas-de-campo-18",
@@ -4932,7 +5103,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 280
   },
   {
     "id": "chombas-1",
@@ -5006,7 +5178,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 350
   },
   {
     "id": "chops-combo",
@@ -5035,7 +5208,8 @@ window.PRODUCTOS = [
       "chops-10",
       "chops-11"
     ],
-    "description": "Elegí entre todos los modelos de chops. Mínimo 10 y máximo 25 unidades."
+    "description": "Elegí entre todos los modelos de chops. Mínimo 10 y máximo 25 unidades.",
+    "weightGrams": 850
   },
   {
     "id": "chops-1",
@@ -5051,7 +5225,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-2",
@@ -5067,7 +5242,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-3",
@@ -5083,7 +5259,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-4",
@@ -5099,7 +5276,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-5",
@@ -5115,7 +5293,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-6",
@@ -5131,7 +5310,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-7",
@@ -5147,7 +5327,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-8",
@@ -5163,7 +5344,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-9",
@@ -5180,7 +5362,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-10",
@@ -5196,7 +5379,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-11",
@@ -5214,7 +5398,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 10,
     "maxOrder": 25,
-    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25"
+    "priceSource": "Precio mayorista por unidad; compra mínima 10, máxima 25",
+    "weightGrams": 850
   },
   {
     "id": "chops-12",
@@ -5229,7 +5414,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 50,
     "maxOrder": 80,
-    "priceSource": "Precio mayorista por unidad; compra mínima 50, máxima 80"
+    "priceSource": "Precio mayorista por unidad; compra mínima 50, máxima 80",
+    "weightGrams": 80
   },
   {
     "id": "fajas-y-panuelos-1",
@@ -5248,7 +5434,8 @@ window.PRODUCTOS = [
     "manufacturer": "LALO",
     "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
     "minPurchaseQuantity": 3,
-    "minimumOrderARS": 206450.4
+    "minimumOrderARS": 206450.4,
+    "weightGrams": 180
   },
   {
     "id": "fajas-y-panuelos-2",
@@ -5266,7 +5453,8 @@ window.PRODUCTOS = [
     "available": true,
     "status": "Disponible",
     "manufacturer": "LALO",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 180
   },
   {
     "id": "fajas-y-panuelos-3",
@@ -5285,7 +5473,8 @@ window.PRODUCTOS = [
     "available": true,
     "status": "Disponible",
     "manufacturer": "LALO",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 180
   },
   {
     "id": "fajas-y-panuelos-4",
@@ -5304,7 +5493,8 @@ window.PRODUCTOS = [
     "available": true,
     "status": "Disponible",
     "manufacturer": "LALO",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 180
   },
   {
     "id": "buzos-y-pullovers-1",
@@ -5380,7 +5570,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 650
   },
   {
     "id": "buzos-y-pullovers-2",
@@ -5453,7 +5644,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 650
   },
   {
     "id": "buzos-y-pullovers-3",
@@ -5511,7 +5703,8 @@ window.PRODUCTOS = [
         "name": "Naranja",
         "swatch": "#e47c2d"
       }
-    ]
+    ],
+    "weightGrams": 650
   },
   {
     "id": "remeras-1",
@@ -5543,7 +5736,8 @@ window.PRODUCTOS = [
       "6XL"
     ],
     "measurements": "Talles S, M, L, XL, XXL, XXXL, 4XL, 5XL, 6XL",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 280
   },
   {
     "id": "vasos-combo",
@@ -5574,7 +5768,8 @@ window.PRODUCTOS = [
       "vasos-12",
       "vasos-13"
     ],
-    "description": "Elegí entre todos los modelos de vasos. Mínimo 6 y máximo 20 unidades."
+    "description": "Elegí entre todos los modelos de vasos. Mínimo 6 y máximo 20 unidades.",
+    "weightGrams": 450
   },
   {
     "id": "vasos-1",
@@ -5589,7 +5784,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-2",
@@ -5604,7 +5800,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-3",
@@ -5619,7 +5816,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-4",
@@ -5634,7 +5832,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-5",
@@ -5649,7 +5848,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-6",
@@ -5664,7 +5864,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-7",
@@ -5679,7 +5880,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-8",
@@ -5694,7 +5896,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-9",
@@ -5710,7 +5913,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-10",
@@ -5726,7 +5930,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-11",
@@ -5741,7 +5946,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-12",
@@ -5757,7 +5963,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "vasos-13",
@@ -5772,7 +5979,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "minOrder": 6,
     "maxOrder": 20,
-    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20"
+    "priceSource": "Precio mayorista por unidad; compra mínima 6, máxima 20",
+    "weightGrams": 450
   },
   {
     "id": "cuchillos-y-tablas-1",
@@ -5789,7 +5997,8 @@ window.PRODUCTOS = [
     "costARS": 63920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1600
   },
   {
     "id": "cuchillos-y-tablas-2",
@@ -5806,7 +6015,8 @@ window.PRODUCTOS = [
     "costARS": 51920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 500
   },
   {
     "id": "cuchillos-y-tablas-3",
@@ -5819,7 +6029,8 @@ window.PRODUCTOS = [
     "basePriceARS": 74000,
     "page": "productos/cuchillos-y-tablas-3.html",
     "foreignPriceARS": 148000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 450
   },
   {
     "id": "cuchillos-y-tablas-4",
@@ -5836,7 +6047,8 @@ window.PRODUCTOS = [
     "costARS": 71920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 950
   },
   {
     "id": "cuchillos-y-tablas-5",
@@ -5850,13 +6062,13 @@ window.PRODUCTOS = [
     "basePriceARS": 65000,
     "page": "productos/cuchillos-y-tablas-5.html",
     "foreignPriceARS": 130000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 450
   },
   {
     "id": "cuchillos-y-tablas-6",
     "name": "Cuchilla parrillera + Vaina y chaira de regalo (Equipos)",
     "images": [
-      "Cuchilla parrillera + Vaina y chaira de regalo (Equipos).jpeg",
       "Cuchilla parrillera + Vaina y chaira de regalo (Equipos)0.jpeg"
     ],
     "subcategory": "Cuchillos y Tablas",
@@ -5870,7 +6082,8 @@ window.PRODUCTOS = [
       "Costo no informado"
     ],
     "measurements": "Costo no informado",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1800
   },
   {
     "id": "cuchillos-y-tablas-7",
@@ -5887,7 +6100,8 @@ window.PRODUCTOS = [
     "costARS": 69520,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 450
   },
   {
     "id": "cuchillos-y-tablas-8",
@@ -5904,7 +6118,8 @@ window.PRODUCTOS = [
     "costARS": 59920,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1800
   },
   {
     "id": "cuchillos-y-tablas-9",
@@ -5922,7 +6137,8 @@ window.PRODUCTOS = [
     "costARS": 104000,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1350
   },
   {
     "id": "cuchillos-y-tablas-10",
@@ -5934,7 +6150,8 @@ window.PRODUCTOS = [
     "basePriceARS": 65000,
     "page": "productos/cuchillos-y-tablas-10.html",
     "foreignPriceARS": 130000,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 500
   },
   {
     "id": "cuchillos-y-tablas-11",
@@ -5951,7 +6168,8 @@ window.PRODUCTOS = [
     "costARS": 51920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 450
   },
   {
     "id": "cuchillos-y-tablas-12",
@@ -5968,7 +6186,8 @@ window.PRODUCTOS = [
     "costARS": 55920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 700
   },
   {
     "id": "cuchillos-y-tablas-13",
@@ -5982,7 +6201,8 @@ window.PRODUCTOS = [
     "basePriceARS": 79900,
     "page": "productos/cuchillos-y-tablas-13.html",
     "foreignPriceARS": 159800,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 800
   },
   {
     "id": "cuchillos-y-tablas-14",
@@ -6000,7 +6220,8 @@ window.PRODUCTOS = [
     "costARS": 63920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1050
   },
   {
     "id": "cuchillos-y-tablas-15",
@@ -6017,7 +6238,8 @@ window.PRODUCTOS = [
     "costARS": 47920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 450
   },
   {
     "id": "cuchillos-y-tablas-16",
@@ -6034,7 +6256,8 @@ window.PRODUCTOS = [
     "costARS": 51920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 450
   },
   {
     "id": "cuchillos-y-tablas-17",
@@ -6052,7 +6275,8 @@ window.PRODUCTOS = [
     "costARS": 39920,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 1050
   },
   {
     "id": "cuchillos-y-tablas-18",
@@ -6065,7 +6289,8 @@ window.PRODUCTOS = [
     "basePriceARS": 74900,
     "page": "productos/cuchillos-y-tablas-18.html",
     "foreignPriceARS": 149800,
-    "saleType": "mayorista"
+    "saleType": "mayorista",
+    "weightGrams": 1800
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-61",
@@ -6084,7 +6309,8 @@ window.PRODUCTOS = [
     "costARS": 86800,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 470
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-62",
@@ -6101,7 +6327,8 @@ window.PRODUCTOS = [
     "costARS": 54800,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 470
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-63",
@@ -6119,7 +6346,8 @@ window.PRODUCTOS = [
     "costARS": 54800,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 470
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-64",
@@ -6135,7 +6363,8 @@ window.PRODUCTOS = [
     "costARS": 41920,
     "available": true,
     "status": "Disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 350
   },
   {
     "id": "bombillas-y-mates-de-alpaca-jady-65",
@@ -6152,7 +6381,8 @@ window.PRODUCTOS = [
     "costARS": 30000,
     "available": false,
     "status": "No disponible",
-    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina"
+    "priceSource": "Tabla actualizada con 30% de ganancia y 4% adicional para Argentina",
+    "weightGrams": 470
   },
   {
     "id": "combos-varios-1",
@@ -6168,7 +6398,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "available": true,
     "status": "Disponible",
-    "description": "Combo de bombachas de campo de mil rayas en colores surtidos."
+    "description": "Combo de bombachas de campo de mil rayas en colores surtidos.",
+    "weightGrams": 2200
   },
   {
     "id": "combos-varios-2",
@@ -6184,7 +6415,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "available": true,
     "status": "Disponible",
-    "description": "Combo de bombachas tropicales en colores surtidos."
+    "description": "Combo de bombachas tropicales en colores surtidos.",
+    "weightGrams": 2200
   },
   {
     "id": "combos-varios-3",
@@ -6200,7 +6432,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "available": true,
     "status": "Disponible",
-    "description": "Combo surtido de indumentaria y accesorios tradicionales."
+    "description": "Combo surtido de indumentaria y accesorios tradicionales.",
+    "weightGrams": 2200
   },
   {
     "id": "combos-varios-4",
@@ -6216,7 +6449,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "available": true,
     "status": "Disponible",
-    "description": "Conjunto de corderoy en colores surtidos."
+    "description": "Conjunto de corderoy en colores surtidos.",
+    "weightGrams": 2200
   },
   {
     "id": "combos-varios-5",
@@ -6232,7 +6466,8 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "available": true,
     "status": "Disponible",
-    "description": "Conjunto clásico con camisa, bombacha, boina, faja y alpargata."
+    "description": "Conjunto clásico con camisa, bombacha, boina, faja y alpargata.",
+    "weightGrams": 2200
   },
   {
     "id": "combos-varios-6",
@@ -6248,6 +6483,7 @@ window.PRODUCTOS = [
     "saleType": "mayorista",
     "available": true,
     "status": "Disponible",
-    "description": "Conjunto de vestir tradicional con prendas y accesorios combinados."
+    "description": "Conjunto de vestir tradicional con prendas y accesorios combinados.",
+    "weightGrams": 2200
   }
 ];

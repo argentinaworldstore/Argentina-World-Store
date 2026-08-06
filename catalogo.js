@@ -5986,7 +5986,6 @@ window.CATALOGO = {
       "id": "cuchillos-y-tablas-6",
       "name": "Cuchilla parrillera + Vaina y chaira de regalo (Equipos)",
       "images": [
-        "Cuchilla parrillera + Vaina y chaira de regalo (Equipos).jpeg",
         "Cuchilla parrillera + Vaina y chaira de regalo (Equipos)0.jpeg"
       ],
       "subcategory": "Cuchillos y Tablas",

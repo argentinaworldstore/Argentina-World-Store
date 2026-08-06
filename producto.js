@@ -16,10 +16,10 @@ Object.assign(T,{
  id:{...T.en,menu:"Menu",search:"Cari",signin:"Masuk",cart:"Keranjang",sale:"Produk Argentina",color:"Warna / Varian",size:"Ukuran",quantity:"Jumlah",buy:"Tambahkan ke keranjang",recommended:"Produk rekomendasi"}
 });
 const HEADER_T={
- es:{home:"Inicio",featured:"Destacados",categories:"Categorías",subcategories:"Subcategorías",contact:"Contacto",countries:"Países",login:"Iniciar sesión",food:"Productos Regionales",clothing:"Indumentaria",bazaar:"Bazar y Accesorios",mates:"Mates y Bombillas"},
+ es:{home:"Inicio",featured:"Destacados",categories:"Categorías",subcategories:"Subcategorías",contact:"Contacto",countries:"Elige tu país",login:"Iniciar sesión",food:"Productos Regionales",clothing:"Indumentaria",bazaar:"Bazar y Accesorios",mates:"Mates y Bombillas"},
  en:{home:"Home",featured:"Featured",categories:"Categories",subcategories:"Subcategories",contact:"Contact",countries:"Countries",login:"Sign in",food:"Food",clothing:"Clothing",bazaar:"Home goods",mates:"Mates & Bombillas"},
  zh:{home:"首页",featured:"精选",categories:"分类",subcategories:"子分类",contact:"联系",countries:"国家",login:"登录",food:"食品",clothing:"服装",bazaar:"家居用品",mates:"马黛茶与吸管"},
- pt:{home:"Início",featured:"Destaques",categories:"Categorias",subcategories:"Subcategorias",contact:"Contato",countries:"Países",login:"Entrar",food:"Alimentos",clothing:"Vestuário",bazaar:"Bazar y Accesorios",mates:"Mates e Bombillas"},
+ pt:{home:"Início",featured:"Destaques",categories:"Categorias",subcategories:"Subcategorias",contact:"Contato",countries:"Elige tu país",login:"Entrar",food:"Alimentos",clothing:"Vestuário",bazaar:"Bazar y Accesorios",mates:"Mates e Bombillas"},
  fr:{home:"Accueil",featured:"Sélection",categories:"Catégories",subcategories:"Sous-catégories",contact:"Contact",countries:"Pays",login:"Se connecter",food:"Alimentation",clothing:"Vêtements",bazaar:"Maison",mates:"Matés et bombillas"},
  de:{home:"Start",featured:"Empfohlen",categories:"Kategorien",subcategories:"Unterkategorien",contact:"Kontakt",countries:"Länder",login:"Anmelden",food:"Lebensmittel",clothing:"Kleidung",bazaar:"Haushalt",mates:"Mate und Bombillas"}
 };
@@ -122,8 +122,10 @@ function renderProductCountries(filter=""){
  }).join("");
  groups.querySelectorAll("button").forEach(btn=>btn.onclick=()=>{
    countryCode=btn.dataset.code;localStorage.setItem("awsCountryCode",countryCode);
+   const countryLanguage=countryCode==="AR"?"es":(T[btn.dataset.lang]?btn.dataset.lang:"en");
+   localStorage.setItem("awsLang",countryLanguage);
+   setLanguage(countryLanguage);
    const selected=document.getElementById("selectedCountry");if(selected)selected.textContent=localCountryName(countryCode,countryCode);
-   // El país cambia moneda y ubicación, pero conserva el idioma elegido por el usuario.
    document.getElementById("countryPanel")?.classList.remove("open");renderPrice();renderRecommendations();
  });
 }

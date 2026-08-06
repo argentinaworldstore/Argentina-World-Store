@@ -304,3 +304,51 @@ html[dir="rtl"] .shop-sidebar.open{transform:translateX(0)}
   .aws-mobile-account-actions button{border:1px solid #08233f;background:#fff;color:#08233f;padding:10px 6px;font-size:11px;font-weight:700;cursor:pointer;border-radius:0}
   .aws-mobile-account-actions button:first-child{grid-column:1/-1;background:#08233f;color:#fff}
 }
+
+
+/* ===== SELECTOR DE PAÍS RESALTADO PERMANENTE ===== */
+#countryButton.aws-country-focus,
+.country-wrap .header-link.aws-country-focus{
+  position:relative;
+  z-index:20;
+  border:2px solid #d2aa50!important;
+  background:#fff7df!important;
+  color:#08233f!important;
+  border-radius:6px!important;
+  box-shadow:0 3px 12px rgba(210,170,80,.28)!important;
+  animation:none!important;
+  transform:none!important;
+}
+#countryButton.aws-country-focus::after{
+  content:none!important;
+  display:none!important;
+}
+.site-header.aws-header-intro,
+.sub-site-header.aws-header-intro{
+  animation:none!important;
+  filter:none!important;
+}
+@media(max-width:700px){
+  #countryButton #selectedCountry{font-size:9px!important;font-weight:800!important}
+}
+
+/* ===== ELEGÍ TU PAÍS PERMANENTE EN TODAS LAS PÁGINAS ===== */
+.country-wrap,.header-actions{overflow:visible!important}
+.country-wrap{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important}
+.aws-country-prompt{
+  display:block!important;
+  margin-top:6px!important;
+  padding:8px 14px!important;
+  border-radius:4px!important;
+  background:#08233f!important;
+  color:#fff!important;
+  font:700 13px/1.1 Montserrat,sans-serif!important;
+  white-space:nowrap!important;
+  text-align:center!important;
+  box-shadow:0 4px 12px rgba(8,35,63,.25)!important;
+  pointer-events:none!important;
+}
+@media(max-width:700px){
+  .aws-country-prompt{font-size:9px!important;padding:5px 7px!important;margin-top:3px!important;max-width:74px!important;white-space:normal!important}
+  .country-wrap{min-width:62px!important}
+}

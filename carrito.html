@@ -38,7 +38,7 @@
 </button>
 <div class="country-wrap">
 <button class="header-link" id="countryButton" type="button">
-<span>◎</span><span data-i18n="countries" id="selectedCountry">Países</span><span>⌄</span>
+<span>◎</span><span data-i18n="countries" id="selectedCountry">Elige tu país</span><span>⌄</span>
 </button>
 <div class="country-panel" id="countryPanel">
 <div class="country-panel-head">
@@ -134,9 +134,9 @@
 <div class="cart-notice">ⓘ Los productos del carrito quedan guardados en este navegador hasta que los elimines.</div>
 <div id="cartItems"></div></section>
 <aside class="cart-summary"><h2>Resumen de compra</h2><p>(<span id="summaryCount">0</span> productos)</p>
-<div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+<div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div><div class="summary-row"><span>Envío</span><strong id="cartShipping">$0</strong></div>
 <div class="summary-row summary-total"><span>Total</span><strong id="cartTotal">$0</strong></div>
-<p class="payment-provider-info" id="paymentProviderInfo">Argentina: Mercado Pago · Exterior: PayPal</p><button class="checkout-btn" id="startCheckout">Continuar al pago</button><div class="checkout-error" hidden="" id="checkoutError"></div></aside>
+<p class="payment-provider-info" id="paymentProviderInfo">Argentina: Mercado Pago · Exterior: PayPal</p><p class="checkout-auth-note" id="checkoutAuthNote">Para comprar tenés que iniciar sesión o crear una cuenta.</p><button class="checkout-btn" id="startCheckout">Continuar al pago</button><div class="checkout-error" hidden="" id="checkoutError"></div></aside>
 </div></main><footer class="footer" id="footer">
 <div class="newsletter">
 <div><p data-i18n="community">Comunidad Argentina World Store</p><h2 data-i18n="newsletter">Recibí novedades y nuevos productos</h2></div>
@@ -169,7 +169,7 @@
 <form class="register-form"><button class="auth-secondary" type="submit">Registrarme</button></form>
 </aside>
 </div>
-<script src="productos.js"></script><script src="script.js"></script><script src="common-pages.js"></script><script src="carrito.js"></script><script src="universal-fixes.js"></script>
+<script src="productos.js"></script><script src="shipping-config.js"></script><script src="script.js"></script><script src="common-pages.js"></script><script src="universal-fixes.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-auth.js"></script>
+<script src="supabase-auth.js"></script><script src="carrito.js"></script>
 </body></html>

@@ -282,7 +282,7 @@
       if(sidebar.querySelector('.aws-mobile-account-actions'))return;
       const actions=document.createElement('div');
       actions.className='aws-mobile-account-actions';
-      actions.innerHTML='<button type="button" class="aws-mobile-login">Iniciar sesión</button><button type="button" class="aws-mobile-countries">Países</button><button type="button" class="aws-mobile-cart">Carrito</button>';
+      actions.innerHTML='<button type="button" class="aws-mobile-login">Iniciar sesión</button><button type="button" class="aws-mobile-countries">Elige tu país</button><button type="button" class="aws-mobile-cart">Carrito</button>';
       const search=sidebar.querySelector('.aws-sidebar-search');
       if(search)search.insertAdjacentElement('afterend',actions); else sidebar.querySelector('.sidebar-head')?.insertAdjacentElement('afterend',actions);
       actions.querySelector('.aws-mobile-login').onclick=()=>{
@@ -299,8 +299,115 @@
       actions.querySelector('.aws-mobile-cart').onclick=()=>location.href=prefix()+'carrito.html';
     });
     document.querySelectorAll('.country-wrap .header-link span:nth-child(2)').forEach(el=>{
-      if(matchMedia('(max-width:700px)').matches) el.textContent='Países';
+      if(matchMedia('(max-width:700px)').matches) el.textContent='Elige tu país';
     });
+  }
+  document.addEventListener('DOMContentLoaded',init);
+  window.addEventListener('load',()=>setTimeout(init,250));
+})();
+
+
+/* ===== Selector de país resaltado de forma permanente ===== */
+(function awsCountryPermanentFocus(){
+  'use strict';
+  function init(){
+    const button=document.getElementById('countryButton');
+    const label=document.getElementById('selectedCountry');
+    if(!button || !label) return;
+
+    const current=(label.textContent||'').trim().toLowerCase();
+    const generic=['países','paises','countries',''].includes(current);
+    if(generic) label.textContent='Elegí tu país';
+
+    button.setAttribute('aria-label','Elegí tu país');
+    button.classList.add('aws-country-focus');
+  }
+  document.addEventListener('DOMContentLoaded',init,{once:true});
+  window.addEventListener('load',init,{once:true});
+})();
+
+/* ===== Selector de país visible y acceso al idioma local en todas las páginas ===== */
+(function awsCountryPromptEveryPage(){
+  'use strict';
+  const LANGUAGES={
+    es:'Español',en:'English',pt:'Português',fr:'Français',de:'Deutsch',it:'Italiano',
+    zh:'中文',ja:'日本語',ko:'한국어',ru:'Русский',ar:'العربية',hi:'हिन्दी',
+    nl:'Nederlands',pl:'Polski',el:'Ελληνικά',tr:'Türkçe',id:'Bahasa Indonesia'
+  };
+  const normalize=lang=>{
+    const code=String(lang||'es').toLowerCase().split('-')[0];
+    return LANGUAGES[code]?code:'en';
+  };
+  const prefix=()=>location.pathname.includes('/productos/')||location.pathname.includes('/subcategorias/')?'../':'';
+
+  function configureLanguageSelector(){
+    document.querySelectorAll('.language-switcher select,.sub-language-switcher select,#languageSelect').forEach(select=>{
+      if(!select.id) select.id='languageSelect';
+      const saved=normalize(localStorage.getItem('awsLang')||navigator.language||'es');
+      const currentValues=[...select.options].map(o=>o.value);
+      if(Object.keys(LANGUAGES).some(code=>!currentValues.includes(code))){
+        select.innerHTML=Object.entries(LANGUAGES).map(([code,name])=>`<option value="${code}">${name}</option>`).join('');
+      }
+      select.value=saved;
+      if(!select.dataset.awsLanguageBound){
+        select.dataset.awsLanguageBound='1';
+        select.addEventListener('change',()=>{
+          localStorage.setItem('awsLang',normalize(select.value));
+          location.reload();
+        });
+      }
+    });
+  }
+
+  function findCountryControl(header){
+    return header.querySelector('#countryButton,.country-wrap .header-link') ||
+      [...header.querySelectorAll('.header-actions a,.header-actions button')].find(el=>/pa[ií]s|country|argentina|الدول|国|paese|land/i.test(el.textContent||''));
+  }
+
+  function addPrompt(header){
+    const control=findCountryControl(header);
+    if(!control)return;
+    control.classList.add('aws-country-focus');
+    control.setAttribute('aria-label','Elegí tu país');
+    let label=control.querySelector('#selectedCountry') || control.querySelector('span:nth-child(2)');
+    if(label && /^(pa[ií]ses?|countries|الدول|国|länder|paesi)$/i.test((label.textContent||'').trim())) label.textContent='Elegí tu país';
+
+    let holder=control.closest('.country-wrap');
+    if(!holder){
+      holder=document.createElement('div');
+      holder.className='country-wrap aws-country-wrap-generated';
+      control.parentNode?.insertBefore(holder,control);
+      holder.appendChild(control);
+    }
+    if(holder && !holder.querySelector('.aws-country-prompt')){
+      const prompt=document.createElement('span');
+      prompt.className='aws-country-prompt';
+      prompt.textContent='Elegí tu país';
+      holder.appendChild(prompt);
+    }
+
+    if(!document.getElementById('countryPanel')){
+      control.addEventListener('click',event=>{
+        event.preventDefault();
+        location.href=prefix()+'index.html?openCountry=1';
+      });
+    }
+  }
+
+  function openRequestedCountryPanel(){
+    const params=new URLSearchParams(location.search);
+    if(params.get('openCountry')!=='1')return;
+    setTimeout(()=>{
+      const panel=document.getElementById('countryPanel');
+      if(panel)panel.classList.add('open');
+      else document.getElementById('countryButton')?.click();
+    },350);
+  }
+
+  function init(){
+    configureLanguageSelector();
+    document.querySelectorAll('.site-header,.sub-site-header').forEach(addPrompt);
+    openRequestedCountryPanel();
   }
   document.addEventListener('DOMContentLoaded',init);
   window.addEventListener('load',()=>setTimeout(init,250));

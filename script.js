@@ -12,7 +12,7 @@ const es = {
 login:"Iniciar sesión", shoppingMode:"¿Cómo querés comprar?", retail:"Minorista", wholesaleOnly:"Mayorista",
 modeRetail:"Mostrando opciones minoristas", modeWholesale:"Mostrando opciones mayoristas",
 made:"Hecho en Argentina", shipping:"Envíos nacionales e internacionales", orders:"Productos por pedido",
-searchPlaceholder:"Buscar productos...", countries:"Países", chooseCountry:"Elegí tu país", countrySearch:"Buscar país...",
+searchPlaceholder:"Buscar productos...", countries:"Elige tu país", chooseCountry:"Elegí tu país", countrySearch:"Buscar país...",
 cart:"Carrito", home:"Inicio", featured:"Destacados", categories:"Categorías", subcategories:"Subcategorías", contact:"Contacto",
 heroEyebrow:"Argentina en cada rincón del mundo", heroTitle:"Productos argentinos con identidad",
 heroText:"Alimentos, indumentaria y bazar para compras minoristas y mayoristas.", explore:"Explorar tienda",
@@ -123,7 +123,7 @@ noResults:"未找到相关产品", detectedLanguage:"检测到的语言", change
 autoCountry:"已自动检测国家"
 };
 
-const pt = {...en,made:"Feito na Argentina",shipping:"Envios nacionais e internacionais",orders:"Produtos sob encomenda",searchPlaceholder:"Buscar produtos...",countries:"Países",chooseCountry:"Escolha seu país",countrySearch:"Buscar país...",cart:"Carrinho",home:"Início",featured:"Destaques",categories:"Categorias",subcategories:"Subcategorias",contact:"Contato",login:"Entrar",food:"Alimentos",clothing:"Vestuário",bazaar:"Bazar e acessórios",about:"Sobre nós",work:"Trabalhe conosco",featuredProducts:"Produtos em destaque",addCart:"Adicionar ao carrinho",detectedLanguage:"Idioma detectado",changeLanguage:"Mudar idioma"};
+const pt = {...en,made:"Feito na Argentina",shipping:"Envios nacionais e internacionais",orders:"Produtos sob encomenda",searchPlaceholder:"Buscar produtos...",countries:"Elige tu país",chooseCountry:"Escolha seu país",countrySearch:"Buscar país...",cart:"Carrinho",home:"Início",featured:"Destaques",categories:"Categorias",subcategories:"Subcategorias",contact:"Contato",login:"Entrar",food:"Alimentos",clothing:"Vestuário",bazaar:"Bazar e acessórios",about:"Sobre nós",work:"Trabalhe conosco",featuredProducts:"Produtos em destaque",addCart:"Adicionar ao carrinho",detectedLanguage:"Idioma detectado",changeLanguage:"Mudar idioma"};
 const fr = {...en,made:"Fabriqué en Argentine",shipping:"Livraisons nationales et internationales",orders:"Produits sur commande",searchPlaceholder:"Rechercher des produits...",countries:"Pays",chooseCountry:"Choisissez votre pays",countrySearch:"Rechercher un pays...",cart:"Panier",home:"Accueil",featured:"À la une",categories:"Catégories",subcategories:"Sous-catégories",contact:"Contact",login:"Se connecter",food:"Alimentation",clothing:"Vêtements",bazaar:"Maison et accessoires",about:"À propos",work:"Travaillez avec nous",featuredProducts:"Produits vedettes",addCart:"Ajouter au panier",detectedLanguage:"Langue détectée",changeLanguage:"Changer de langue"};
 const de = {...en,made:"Hergestellt in Argentinien",shipping:"Nationaler und internationaler Versand",orders:"Produkte auf Bestellung",searchPlaceholder:"Produkte suchen...",countries:"Länder",chooseCountry:"Land auswählen",countrySearch:"Land suchen...",cart:"Warenkorb",home:"Startseite",featured:"Highlights",categories:"Kategorien",subcategories:"Unterkategorien",contact:"Kontakt",login:"Anmelden",food:"Lebensmittel",clothing:"Kleidung",bazaar:"Haus und Accessoires",about:"Über uns",featuredProducts:"Ausgewählte Produkte",addCart:"In den Warenkorb",detectedLanguage:"Erkannte Sprache",changeLanguage:"Sprache ändern"};
 const it = {...en,made:"Prodotto in Argentina",shipping:"Spedizioni nazionali e internazionali",orders:"Prodotti su ordinazione",searchPlaceholder:"Cerca prodotti...",countries:"Paesi",chooseCountry:"Scegli il tuo paese",countrySearch:"Cerca paese...",cart:"Carrello",home:"Home",featured:"In evidenza",categories:"Categorie",subcategories:"Sottocategorie",contact:"Contatto",login:"Accedi",food:"Alimenti",clothing:"Abbigliamento",bazaar:"Casa e accessori",about:"Chi siamo",featuredProducts:"Prodotti in evidenza",addCart:"Aggiungi al carrello",detectedLanguage:"Lingua rilevata",changeLanguage:"Cambia lingua"};
@@ -276,10 +276,13 @@ function renderCountries(filter="") {
 
   groups.querySelectorAll("button").forEach(btn=>btn.onclick=()=>{
     currentCountryCode=btn.dataset.code||"AR";
-    const language=normalizedSupportedLanguage(btn.dataset.lang);
+    const language=currentCountryCode==="AR" ? "es" : normalizedSupportedLanguage(btn.dataset.lang);
     localStorage.setItem("awsCountryCode",currentCountryCode);
     localStorage.setItem("awsCountry",btn.dataset.country);
+    localStorage.setItem("awsLang",language);
     applyTranslations(language);
+    const selected=document.getElementById("selectedCountry");
+    if(selected && currentCountryCode==="AR") selected.textContent="Argentina";
     panel.classList.remove("open");
   });
 }
@@ -310,7 +313,9 @@ async function detectVisitorCountryAndLanguage() {
   if(savedCode) currentCountryCode=savedCode;
 
   if(savedLang) {
-    applyTranslations(savedLang,false);
+    const safeSavedLang=currentCountryCode==="AR" ? "es" : savedLang;
+    if(currentCountryCode==="AR") localStorage.setItem("awsLang","es");
+    applyTranslations(safeSavedLang,false);
     return;
   }
 
