@@ -123,24 +123,37 @@
   }
 
   async function detectRegion(){
-    // No usamos un país guardado permanentemente: una VPN puede cambiar la IP
-    // y queremos volver a detectar la región en cada nueva sesión/pestaña.
+    // Detectamos la ubicación real de la IP en cada sesión.
+    // Primero usamos Cloudflare en el MISMO dominio, evitando bloqueos CORS,
+    // AdBlock o extensiones de privacidad que pueden bloquear APIs externas.
     const cached=sessionStorage.getItem('awsDetectedCountry');
     if(cached && /^[A-Z]{2}$/.test(cached)) return cached;
 
-    const sources=[
-      'https://ipwho.is/',
-      'https://ipapi.co/json/',
-      'https://api.country.is/'
-    ];
+    async function fromCloudflare(){
+      try{
+        const r=await fetch('/cdn-cgi/trace?ts='+Date.now(),{
+          cache:'no-store',
+          credentials:'same-origin'
+        });
+        if(!r.ok)return '';
+        const body=await r.text();
+        const match=body.match(/^loc=([A-Z]{2})$/mi);
+        return match ? match[1].toUpperCase() : '';
+      }catch{
+        return '';
+      }
+    }
 
-    for(const url of sources){
+    async function fromJsonApi(url){
       try{
         const controller=new AbortController();
         const timer=setTimeout(()=>controller.abort(),4500);
-        const r=await fetch(url,{cache:'no-store',signal:controller.signal});
+        const r=await fetch(url,{
+          cache:'no-store',
+          signal:controller.signal
+        });
         clearTimeout(timer);
-        if(!r.ok)continue;
+        if(!r.ok)return '';
         const d=await r.json();
         const code=String(
           d.country_code ||
@@ -149,16 +162,32 @@
           d.countryCode ||
           ''
         ).toUpperCase();
-        if(/^[A-Z]{2}$/.test(code)){
-          sessionStorage.setItem('awsDetectedCountry',code);
-          localStorage.setItem('awsLastDetectedCountry',code);
-          return code;
-        }
-      }catch{}
+        return /^[A-Z]{2}$/.test(code) ? code : '';
+      }catch{
+        return '';
+      }
     }
 
-    // Si todas las APIs fallan, no forzamos Argentina: simplemente no mostramos
-    // el aviso hasta poder detectar una región real.
+    let code=await fromCloudflare();
+
+    if(!code){
+      const sources=[
+        'https://ipwho.is/',
+        'https://ipapi.co/json/',
+        'https://api.country.is/'
+      ];
+      for(const url of sources){
+        code=await fromJsonApi(url);
+        if(code)break;
+      }
+    }
+
+    if(code){
+      sessionStorage.setItem('awsDetectedCountry',code);
+      localStorage.setItem('awsLastDetectedCountry',code);
+      return code;
+    }
+
     return '';
   }
 
@@ -367,4 +396,20 @@
  };
  document.addEventListener('DOMContentLoaded',clean);
  window.addEventListener('load',clean);
+
+  window.awsRegionDiagnostic=async function(){
+    try{
+      const r=await fetch('/cdn-cgi/trace?ts='+Date.now(),{cache:'no-store'});
+      const t=await r.text();
+      const loc=(t.match(/^loc=([A-Z]{2})$/mi)||[])[1]||'';
+      console.log('[AWS] Cloudflare detectó país:',loc||'(sin dato)');
+      console.log('[AWS] País seleccionado:',localStorage.getItem('selectedCountry')||localStorage.getItem('awsSelectedCountry')||'(sin guardar)');
+      console.log('[AWS] Idioma navegador:',navigator.language);
+      return loc;
+    }catch(e){
+      console.warn('[AWS] No se pudo consultar /cdn-cgi/trace',e);
+      return '';
+    }
+  };
+
 })();
