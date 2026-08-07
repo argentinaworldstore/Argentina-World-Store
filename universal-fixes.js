@@ -22,6 +22,26 @@
     NL:"nl",PL:"pl",GR:"el",CY:"el",TR:"tr",ID:"id"
   };
 
+
+  const REGION_PROMPT = {
+    es:{title:"Región detectada",message:"Detectamos que no estás en Argentina. ¿Querés cambiar la tienda a tu región: {country}?",yes:"Sí, cambiar a mi región",no:"No, mantener Argentina"},
+    en:{title:"Region detected",message:"We detected that you are not in Argentina. Would you like to switch the store to your region: {country}?",yes:"Yes, switch to my region",no:"No, keep Argentina"},
+    pt:{title:"Região detectada",message:"Detectamos que você não está na Argentina. Deseja mudar a loja para sua região: {country}?",yes:"Sim, mudar para minha região",no:"Não, manter Argentina"},
+    fr:{title:"Région détectée",message:"Nous avons détecté que vous n'êtes pas en Argentine. Voulez-vous passer la boutique à votre région : {country} ?",yes:"Oui, changer de région",no:"Non, garder l'Argentine"},
+    de:{title:"Region erkannt",message:"Wir haben erkannt, dass Sie sich nicht in Argentinien befinden. Möchten Sie den Shop auf Ihre Region {country} umstellen?",yes:"Ja, Region wechseln",no:"Nein, Argentinien behalten"},
+    it:{title:"Regione rilevata",message:"Abbiamo rilevato che non ti trovi in Argentina. Vuoi impostare il negozio sulla tua regione: {country}?",yes:"Sì, cambia regione",no:"No, mantieni Argentina"},
+    zh:{title:"检测到地区",message:"我们检测到您不在阿根廷。是否将商店切换到您所在的地区：{country}？",yes:"是，切换到我的地区",no:"否，保持阿根廷"},
+    ja:{title:"地域を検出しました",message:"アルゼンチン国外からのアクセスを検出しました。ストアをお住まいの地域（{country}）に切り替えますか？",yes:"はい、地域を変更",no:"いいえ、アルゼンチンのまま"},
+    ko:{title:"지역 감지됨",message:"아르헨티나 외 지역에서 접속한 것으로 감지되었습니다. 스토어를 현재 지역({country})으로 변경하시겠습니까?",yes:"예, 내 지역으로 변경",no:"아니요, 아르헨티나 유지"},
+    ru:{title:"Регион определён",message:"Мы определили, что вы находитесь не в Аргентине. Переключить магазин на ваш регион: {country}?",yes:"Да, сменить регион",no:"Нет, оставить Аргентину"},
+    ar:{title:"تم اكتشاف المنطقة",message:"اكتشفنا أنك لست في الأرجنتين. هل تريد تغيير المتجر إلى منطقتك: {country}؟",yes:"نعم، غيّر إلى منطقتي",no:"لا، أبقِ الأرجنتين"},
+    hi:{title:"क्षेत्र पहचाना गया",message:"हमने पाया कि आप अर्जेंटीना में नहीं हैं। क्या आप स्टोर को अपने क्षेत्र {country} पर बदलना चाहते हैं?",yes:"हाँ, मेरा क्षेत्र चुनें",no:"नहीं, अर्जेंटीना रखें"},
+    nl:{title:"Regio gedetecteerd",message:"We hebben gedetecteerd dat je niet in Argentinië bent. Wil je de winkel wijzigen naar jouw regio: {country}?",yes:"Ja, wijzig mijn regio",no:"Nee, behoud Argentinië"},
+    pl:{title:"Wykryto region",message:"Wykryliśmy, że nie jesteś w Argentynie. Czy chcesz przełączyć sklep na swój region: {country}?",yes:"Tak, zmień region",no:"Nie, pozostaw Argentynę"},
+    el:{title:"Εντοπίστηκε περιοχή",message:"Εντοπίσαμε ότι δεν βρίσκεστε στην Αργεντινή. Θέλετε να αλλάξετε το κατάστημα στην περιοχή σας: {country};",yes:"Ναι, αλλαγή περιοχής",no:"Όχι, διατήρηση Αργεντινής"},
+    tr:{title:"Bölge algılandı",message:"Arjantin'de olmadığınızı algıladık. Mağazayı bölgenize geçirmek ister misiniz: {country}?",yes:"Evet, bölgeme geç",no:"Hayır, Arjantin kalsın"},
+    id:{title:"Wilayah terdeteksi",message:"Kami mendeteksi bahwa Anda tidak berada di Argentina. Ingin mengganti toko ke wilayah Anda: {country}?",yes:"Ya, ganti ke wilayah saya",no:"Tidak, tetap Argentina"}
+  };
   const ALL_COUNTRIES = {"América":[["Argentina","AR"],["Bolivia","BO"],["Brasil","BR"],["Canadá","CA"],["Chile","CL"],["Colombia","CO"],["Costa Rica","CR"],["Cuba","CU"],["Ecuador","EC"],["El Salvador","SV"],["Estados Unidos","US"],["Guatemala","GT"],["Haití","HT"],["Honduras","HN"],["Jamaica","JM"],["México","MX"],["Nicaragua","NI"],["Panamá","PA"],["Paraguay","PY"],["Perú","PE"],["República Dominicana","DO"],["Uruguay","UY"],["Venezuela","VE"]],"Europa":[["Alemania","DE"],["Austria","AT"],["Bélgica","BE"],["Bulgaria","BG"],["Croacia","HR"],["Dinamarca","DK"],["Eslovaquia","SK"],["Eslovenia","SI"],["España","ES"],["Estonia","EE"],["Finlandia","FI"],["Francia","FR"],["Grecia","GR"],["Hungría","HU"],["Irlanda","IE"],["Islandia","IS"],["Italia","IT"],["Letonia","LV"],["Lituania","LT"],["Luxemburgo","LU"],["Malta","MT"],["Noruega","NO"],["Países Bajos","NL"],["Polonia","PL"],["Portugal","PT"],["Reino Unido","GB"],["República Checa","CZ"],["Rumania","RO"],["Suecia","SE"],["Suiza","CH"],["Ucrania","UA"]],"Asia":[["Arabia Saudita","SA"],["Bangladés","BD"],["China","CN"],["Corea del Sur","KR"],["Emiratos Árabes Unidos","AE"],["Filipinas","PH"],["India","IN"],["Indonesia","ID"],["Israel","IL"],["Japón","JP"],["Jordania","JO"],["Kazajistán","KZ"],["Kuwait","KW"],["Malasia","MY"],["Nepal","NP"],["Omán","OM"],["Pakistán","PK"],["Qatar","QA"],["Singapur","SG"],["Sri Lanka","LK"],["Tailandia","TH"],["Turquía","TR"],["Vietnam","VN"]],"África":[["Argelia","DZ"],["Angola","AO"],["Camerún","CM"],["Costa de Marfil","CI"],["Egipto","EG"],["Etiopía","ET"],["Ghana","GH"],["Kenia","KE"],["Marruecos","MA"],["Mozambique","MZ"],["Namibia","NA"],["Nigeria","NG"],["Senegal","SN"],["Sudáfrica","ZA"],["Tanzania","TZ"],["Túnez","TN"],["Uganda","UG"],["Zambia","ZM"],["Zimbabue","ZW"]],"Oceanía":[["Australia","AU"],["Fiyi","FJ"],["Nueva Zelanda","NZ"],["Papúa Nueva Guinea","PG"],["Samoa","WS"],["Tonga","TO"],["Vanuatu","VU"]]};
 
   const UI = {
@@ -151,25 +171,35 @@
     return '';
   }
 
-  function showLanguageOffer(country,lang){
-    if(!ALL_LANGUAGES[lang]||lang==='es'||localStorage.getItem('awsLanguageChosen'))return;
-    const ui=UI[lang]||UI.en;
+  function showRegionOffer(country,lang){
+    if(!country||country==="AR")return;
+    const choice=localStorage.getItem('awsRegionChoice');
+    if(choice===`accepted:${country}`||choice===`declined:${country}`)return;
+    if(document.getElementById('aws-language-offer'))return;
+    const prompt=REGION_PROMPT[lang]||REGION_PROMPT.en;
     const overlay=document.createElement('div');overlay.id='aws-language-offer';
-    const msg=ui.offer.replace('{country}',regionName(country,lang)).replace('{language}',languageName(lang,lang));
-    overlay.innerHTML=`<div class="aws-lang-card" role="dialog" aria-modal="true"><h3>${languageName(lang,lang)}</h3><p>${msg}</p><div class="aws-lang-actions"><button class="aws-lang-primary" type="button">${ui.translate}</button><button class="aws-lang-secondary" type="button">${ui.keep}</button></div></div>`;
-    overlay.querySelector('.aws-lang-primary').onclick=()=>{localStorage.setItem('awsLanguageChosen','1');localStorage.setItem('awsCountryCode',country);applyLanguage(lang,true)};
-    overlay.querySelector('.aws-lang-secondary').onclick=()=>{localStorage.setItem('awsLanguageChosen','1');localStorage.setItem('awsCountryCode',country);overlay.remove()};
+    const msg=prompt.message.replace('{country}',regionName(country,lang));
+    overlay.innerHTML=`<div class="aws-lang-card" role="dialog" aria-modal="true" aria-labelledby="aws-region-title"><h3 id="aws-region-title">${prompt.title}</h3><p>${msg}</p><div class="aws-lang-actions"><button class="aws-lang-primary" type="button">${prompt.yes}</button><button class="aws-lang-secondary" type="button">${prompt.no}</button></div></div>`;
+    overlay.querySelector('.aws-lang-primary').onclick=()=>{
+      localStorage.setItem('awsRegionChoice',`accepted:${country}`);
+      localStorage.setItem('awsCountryCode',country);
+      localStorage.setItem('awsLanguageChosen','1');
+      applyLanguage(lang,true);
+    };
+    overlay.querySelector('.aws-lang-secondary').onclick=()=>{
+      localStorage.setItem('awsRegionChoice',`declined:${country}`);
+      localStorage.setItem('awsCountryCode','AR');
+      location.reload();
+    };
     document.body.appendChild(overlay);
   }
 
   async function initDetection(){
     const country=await detectRegion();
-    const browserLang=normalizedLanguage(navigator.languages?.[0]||navigator.language);
-    const regionLang=COUNTRY_LANGUAGE[country]||browserLang;
-    const detected=ALL_LANGUAGES[regionLang]?regionLang:browserLang;
-    if(country&&!localStorage.getItem('awsCountryCode'))localStorage.setItem('awsCountryCode',country);
+    let browserLang=normalizedLanguage(navigator.languages?.[0]||navigator.language);
+    const detected=ALL_LANGUAGES[browserLang]?browserLang:(COUNTRY_LANGUAGE[country]||'en');
     updateDetectedLabel(country,detected);
-    showLanguageOffer(country||'US',detected);
+    if(country&&country!=="AR")showRegionOffer(country,detected);
   }
 
   function init(){
