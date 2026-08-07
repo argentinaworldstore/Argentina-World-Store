@@ -129,14 +129,20 @@
 <main class="cart-page"><div class="cart-layout">
 <section class="cart-main"><h1>Resumen de compra (<span id="cartProductCount">0</span> productos)</h1>
 <div class="cart-notice">ⓘ Los productos del carrito quedan guardados en este navegador hasta que los elimines.</div>
-<div id="cartItems"></div></section>
-<aside class="cart-summary"><h2>Resumen de compra</h2><p>(<span id="summaryCount">0</span> productos)</p>
-<div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div><div class="summary-row"><span>Envío</span><strong id="cartShipping">$0</strong></div>
-<div class="summary-row summary-total"><span>Total</span><strong id="cartTotal">$0</strong></div>
-
-<section class="shipping-destination" id="shippingDestination">
-  <h2>Destino del envío</h2>
-  <p class="shipping-intro">Completá los datos del lugar donde querés recibir tu compra.</p>
+<div id="cartItems"></div><section class="shipping-destination" id="shippingDestination">
+  <div class="shipping-heading">
+    <div class="shipping-heading-mark">AWS</div>
+    <div>
+      <span class="shipping-eyebrow">ENTREGA SEGURA</span>
+      <h2>Detalles del envío</h2>
+      <p class="shipping-intro">Indicá el destino exacto donde querés recibir tu pedido. Revisaremos estos datos antes de despachar la compra.</p>
+    </div>
+  </div>
+  <div class="shipping-benefits" aria-label="Información del envío">
+    <div><strong>01</strong><span>Datos completos</span><small>Evitá abreviaturas para una entrega sin demoras.</small></div>
+    <div><strong>02</strong><span>Seguimiento</span><small>Usaremos tu correo y teléfono para mantenerte informado.</small></div>
+    <div><strong>03</strong><span>Destino internacional</span><small>El país elegido define el envío y el medio de pago disponible.</small></div>
+  </div>
   <form id="shippingForm" novalidate>
     <div class="shipping-grid">
       <label class="shipping-field shipping-wide"><span>NOMBRE Y APELLIDO COMPLETOS</span><small>Tal como figura en su documento</small><input id="shipFullName" name="fullName" type="text" autocomplete="name" required></label>
@@ -151,10 +157,15 @@
       <label class="shipping-field"><span>TELÉFONO CON CÓDIGO DE PAÍS</span><small>Ej.: +1…, +34…, +598…</small><input id="shipPhone" name="phone" type="tel" autocomplete="tel" required></label>
       <label class="shipping-field"><span>CORREO ELECTRÓNICO</span><input id="shipEmail" name="email" type="email" autocomplete="email" required></label>
     </div>
-    <p class="shipping-privacy">Usaremos estos datos únicamente para procesar el pago y realizar el envío.</p>
+    <p class="shipping-privacy">🔒 Tus datos se utilizan únicamente para procesar el pago, preparar la documentación y realizar el envío.</p>
   </form>
-</section>
-<p class="payment-provider-info" id="paymentProviderInfo">Argentina: Mercado Pago · Exterior: PayPal</p><p class="checkout-auth-note" id="checkoutAuthNote">Para comprar tenés que iniciar sesión o crear una cuenta.</p><button class="checkout-btn" id="startCheckout">Continuar al pago</button><div class="checkout-error" hidden="" id="checkoutError"></div></aside>
+</section></section>
+<aside class="cart-summary"><h2>Resumen de compra</h2><p>(<span id="summaryCount">0</span> productos)</p>
+<div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div><div class="summary-row"><span>Envío</span><strong id="cartShipping">$0</strong></div>
+<div class="summary-row summary-total"><span>Total</span><strong id="cartTotal">$0</strong></div>
+
+
+<p class="payment-provider-info" id="paymentProviderInfo">Argentina: Mercado Pago · Exterior: PayPal</p><button class="checkout-btn" id="startCheckout">Continuar al pago</button><div class="checkout-error" hidden="" id="checkoutError"></div></aside>
 </div></main><footer class="footer" id="footer">
 <div class="newsletter">
 <div><p data-i18n="community">Comunidad Argentina World Store</p><h2 data-i18n="newsletter">Recibí novedades y nuevos productos</h2></div>

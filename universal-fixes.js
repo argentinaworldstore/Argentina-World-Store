@@ -197,9 +197,12 @@
      if(q.length<2){box.classList.remove("show");box.innerHTML="";return;}
      const prefix=location.pathname.includes("/productos/")||location.pathname.includes("/subcategorias/")?"../":"";
      const hits=allProducts.filter(p=>p.name.toLowerCase().includes(q)).slice(0,8);
-     box.innerHTML=hits.map(p=>`<button type="button" data-href="${prefix}productos/${p.id}.html">
-       <img src="${prefix}Fotos/${p.subcategory}/${p.images[0]}" alt="">
-       <span>${p.name}</span>
+     const foreign=String(localStorage.getItem("awsCountryCode")||"AR").toUpperCase()!=="AR";
+     const formatPrice=value=>new Intl.NumberFormat(foreign?"en-US":"es-AR",{style:"currency",currency:foreign?"USD":"ARS",maximumFractionDigits:foreign?2:0}).format(foreign?Number(value||0)/Number(window.AWS_ARS_PER_USD||1200):Number(value||0));
+     box.innerHTML=hits.map(p=>`<button type="button" data-href="${prefix}${p.page||`productos/${p.id}.html`}">
+       <img src="${prefix}Fotos/${p.subcategory}/${p.images[0]}" alt="${String(p.name||'').replace(/"/g,'&quot;')}" onerror="this.src='${prefix}assets/logo-argentina-world-store.jpeg'">
+       <span class="aws-search-copy"><strong>${p.name}</strong><small>${p.subcategory||'Producto argentino'}</small></span>
+       <b class="aws-search-price">${formatPrice(foreign?(p.foreignPriceARS||p.basePriceARS):p.basePriceARS)}</b>
      </button>`).join("");
      box.classList.toggle("show",hits.length>0);
      box.querySelectorAll("button").forEach(btn=>btn.onclick=()=>location.href=btn.dataset.href);
@@ -253,7 +256,7 @@
         const products=window.PRODUCTOS||[];
         if(q.length<2){box.innerHTML='';box.classList.remove('show');return;}
         const hits=products.filter(p=>String(p.name||'').toLowerCase().includes(q)).slice(0,8);
-        box.innerHTML=hits.map(p=>`<button type="button" data-href="${pagePrefix()}productos/${p.id}.html"><img src="${pagePrefix()}Fotos/${p.subcategory}/${p.images[0]}" alt=""><span>${p.name}</span></button>`).join('');
+        box.innerHTML=hits.map(p=>`<button type="button" data-href="${pagePrefix()}${p.page||`productos/${p.id}.html`}"><img src="${pagePrefix()}Fotos/${p.subcategory}/${p.images[0]}" alt="" onerror="this.src='${pagePrefix()}assets/logo-argentina-world-store.jpeg'"><span class="aws-search-copy"><strong>${p.name}</strong><small>${p.subcategory||'Producto argentino'}</small></span></button>`).join('');
         box.classList.toggle('show',!!hits.length);
         box.querySelectorAll('button').forEach(b=>b.onclick=()=>location.href=b.dataset.href);
       });
@@ -325,4 +328,18 @@
   }
   document.addEventListener('DOMContentLoaded',init,{once:true});
   window.addEventListener('load',init,{once:true});
+})();
+
+
+/* Limpieza definitiva de cuentas/Supabase y presentación del selector de país. */
+(function awsCheckoutWithoutAccounts(){
+ const clean=()=>{
+   document.querySelectorAll('.login-btn,.auth-overlay,#authOverlay,.checkout-auth-note').forEach(el=>el.remove());
+   document.querySelectorAll('script[src*="supabase"],script[src*="supabase-auth"]').forEach(el=>el.remove());
+   const country=document.getElementById('selectedCountry');
+   const code=String(localStorage.getItem('awsCountryCode')||'').toUpperCase();
+   if(country && !code) country.textContent='Elegí tu país';
+ };
+ document.addEventListener('DOMContentLoaded',clean);
+ window.addEventListener('load',clean);
 })();

@@ -1,0 +1,10 @@
+ACTUALIZACIÓN - BUSCADOR, PAÍSES Y DETALLES DE ENVÍO
+
+- Buscador con sugerencias de productos reales, fotografías, categoría y precio.
+- Las sugerencias abren directamente la página del producto.
+- Selector de país destacado con la indicación “Elegí tu país”.
+- Sección “Detalles del envío” ampliada y ubicada debajo de los productos del carrito.
+- Diseño profesional relacionado con la identidad visual de Argentina World Store.
+- Se eliminó del carrito el mensaje que exigía iniciar sesión o crear una cuenta.
+- Se ocultan los accesos y paneles de cuenta/Supabase restantes.
+- Diseño adaptable a celulares.
