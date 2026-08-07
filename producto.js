@@ -26,8 +26,9 @@ const HEADER_T={
 const FALLBACK="../assets/logo-argentina-world-store.jpeg";
 let currentLang=(localStorage.getItem("awsLang")||navigator.language||"es").split("-")[0];
 if(!T[currentLang])currentLang="en";
-let countryCode=(localStorage.getItem("awsCountryCode")||((navigator.language||"es-AR").split("-")[1])||"AR").toUpperCase();
+let countryCode=(localStorage.getItem("awsCountryCode")||"AR").toUpperCase();
 let rates=null;
+let arsPerUsd=null;
 function tr(k){return (T[currentLang]||T.en)[k]||T.en[k]||k}
 function imagePath(file){return `../Fotos/${PRODUCT.subcategory}/${file}`;}
 function setLanguage(lang){
@@ -43,17 +44,53 @@ function formatMoney(value,currency){
  catch{return `${currency} ${Math.round(value).toLocaleString()}`}
 }
 async function loadRates(){
- try{const r=await fetch("https://open.er-api.com/v6/latest/ARS",{cache:"no-store"});const j=await r.json();if(j&&j.rates)rates=j.rates;}catch(e){console.info("Conversión online no disponible")}
+ try{
+   const configResponse=await fetch("/api/store-config",{cache:"no-store"});
+   if(configResponse.ok){const config=await configResponse.json();arsPerUsd=Number(config.arsPerUsd);}
+ }catch(e){}
+ const sources=[
+   "https://open.er-api.com/v6/latest/USD",
+   "https://api.exchangerate-api.com/v4/latest/USD"
+ ];
+ for(const url of sources){
+   try{
+     const r=await fetch(url,{cache:"no-store"});
+     if(!r.ok)continue;
+     const j=await r.json();
+     if(j&&j.rates&&j.rates.USD){rates=j.rates;break;}
+   }catch(e){}
+ }
  renderPrice();
+ renderRecommendations();
+}
+function convertedForeignValue(valueARS,currency){
+ const usdRate=Number(arsPerUsd);
+ if(!Number.isFinite(usdRate)||usdRate<=0)return null;
+ const usd=Number(valueARS||0)/usdRate;
+ if(currency==="USD")return usd;
+ const fx=Number(rates&&rates[currency]);
+ return Number.isFinite(fx)&&fx>0?usd*fx:null;
 }
 function renderPrice(){
  if(!PRODUCT)return;
- const currency=countryCode==="AR"?"ARS":(CURRENCY_BY_COUNTRY[countryCode]||"USD");
+ if(countryCode!=="AR"&&(!Number.isFinite(Number(arsPerUsd))||Number(arsPerUsd)<=0)){
+   const price=document.getElementById("price");if(price)price.textContent=currentLang==="es"?"Calculando precio…":"Calculating price…";
+   const type=document.getElementById("priceType");if(type)type.textContent=tr("foreign");
+   return;
+ }
+ let currency=countryCode==="AR"?"ARS":(CURRENCY_BY_COUNTRY[countryCode]||"USD");
  let value=basePrice();
- if(currency!=="ARS"&&rates&&rates[currency])value*=rates[currency];
- document.getElementById("price").textContent=formatMoney(value,currency);
- document.getElementById("priceType").textContent=countryCode==="AR"?tr("retail"):tr("foreign");
- document.getElementById("countryCode").textContent=countryCode+" · "+currency;
+ if(countryCode!=="AR"){
+   const converted=convertedForeignValue(value,currency);
+   if(converted===null){
+     currency="USD";
+     const usd=Number(arsPerUsd)>0?Number(value)/Number(arsPerUsd):null;
+     if(usd!==null)value=usd; else { currency="ARS"; value=Number(value); }
+   }else value=converted;
+ }
+ const price=document.getElementById("price");if(price)price.textContent=formatMoney(value,currency);
+ const type=document.getElementById("priceType");if(type)type.textContent=countryCode==="AR"?tr("retail"):`${tr("foreign")} · ${currency}`;
+ const code=document.getElementById("countryCode");if(code)code.textContent=countryCode+" · "+currency;
 }
 function initGallery(){
  const main=document.getElementById("mainImage"),thumbs=document.getElementById("thumbs");
@@ -63,7 +100,13 @@ function initGallery(){
 }
 function renderRecommendations(){
  let list=PRODUCTS.filter(p=>p.subcategory===PRODUCT.subcategory&&p.id!==PRODUCT.id).slice(0,4);if(list.length<4)list=list.concat(PRODUCTS.filter(p=>p.id!==PRODUCT.id&&!list.some(x=>x.id===p.id)).slice(0,4-list.length));
- document.getElementById("recommendGrid").innerHTML=list.map(p=>`<a class="rec-card" href="${p.id}.html"><img src="../Fotos/${p.subcategory}/${p.images[0]}" onerror="this.src='${FALLBACK}'"><div><h3>${p.name}</h3><p>${formatMoney((countryCode==="AR"?p.basePriceARS:(p.foreignPriceARS||p.basePriceARS*2))*((countryCode==="AR"||!rates)?1:(rates[CURRENCY_BY_COUNTRY[countryCode]||"USD"]||1)),countryCode==="AR"?"ARS":(CURRENCY_BY_COUNTRY[countryCode]||"USD"))}</p></div></a>`).join("");
+ document.getElementById("recommendGrid").innerHTML=list.map(p=>{
+   let currency=countryCode==="AR"?"ARS":(CURRENCY_BY_COUNTRY[countryCode]||"USD");
+   let raw=countryCode==="AR"?p.basePriceARS:(p.foreignPriceARS||p.basePriceARS*2);
+   let value=Number(raw||0);
+   if(countryCode!=="AR"){const converted=convertedForeignValue(value,currency);if(converted===null){currency="USD";value=Number(arsPerUsd)>0?value/Number(arsPerUsd):value;if(!(Number(arsPerUsd)>0))currency="ARS";}else value=converted;}
+   return `<a class="rec-card" href="${p.id}.html"><img src="../Fotos/${p.subcategory}/${p.images[0]}" onerror="this.src='${FALLBACK}'"><div><h3>${p.name}</h3><p>${formatMoney(value,currency)}</p></div></a>`;
+ }).join("");
 }
 function addCart(){
  let cart=[];try{cart=JSON.parse(localStorage.getItem("awsCart")||"[]")}catch{}
