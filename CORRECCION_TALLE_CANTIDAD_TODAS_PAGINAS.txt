@@ -1,0 +1,8 @@
+CORRECCIÓN TALLE / CANTIDAD
+
+- Se corrigió producto.js para que el talle seleccionado nunca se interprete como cantidad.
+- La cantidad ahora se obtiene únicamente desde #productQuantitySelect.
+- El talle continúa guardándose por separado en la propiedad size.
+- La corrección se aplica a todas las páginas de producto que utilizan producto.js.
+- Se incluye el carrito actualizado con el resumen superior fijo en su columna y los datos de envío debajo.
+- El archivo .env no está incluido por seguridad.

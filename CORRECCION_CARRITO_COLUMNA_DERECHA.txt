@@ -1,0 +1,9 @@
+CORRECCIÓN DEL CARRITO
+
+- Productos y aviso permanecen en la columna izquierda.
+- El Resumen de compra queda fijo en la parte superior de la columna derecha.
+- Detalles del envío aparece inmediatamente debajo del resumen, dentro de la misma columna.
+- La columna derecha tiene desplazamiento propio en escritorio para mantener el resumen visible.
+- En teléfonos y pantallas pequeñas, los bloques vuelven al flujo normal para evitar superposiciones.
+- Se conserva la corrección de talle y cantidad para todas las páginas de producto.
+- El ZIP no incluye .env, backend ni node_modules.

@@ -4,8 +4,99 @@
 <title>Carrito | Argentina World Store</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/><link href="common-pages.css" rel="stylesheet"/><link rel="icon" type="image/jpeg" href="assets/logo-argentina-world-store.jpeg"/>
-</head><body>
+<link href="styles.css" rel="stylesheet"/><link href="common-pages.css" rel="stylesheet"/><link href="assets/logo-argentina-world-store.jpeg" rel="icon" type="image/jpeg"/>
+<style>
+/* Carrito: productos a la izquierda; resumen fijo y detalles de envío debajo, en la columna derecha. */
+.cart-layout{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.65fr) minmax(430px,.85fr)!important;
+  align-items:start!important;
+  gap:42px!important;
+  max-width:1540px!important;
+}
+.cart-main{grid-column:1!important;grid-row:1!important;min-width:0!important}
+.aws-checkout-sidebar{
+  grid-column:2!important;
+  grid-row:1!important;
+  align-self:start!important;
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0 8px 0 0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:18px!important;
+  position:static!important;
+  top:auto!important;
+  max-height:none!important;
+  overflow:visible!important;
+  z-index:auto!important;
+}
+.aws-summary-card{
+  position:relative!important;
+  width:100%!important;
+  flex:0 0 auto!important;
+  background:linear-gradient(145deg,#fffdf8,#f8f3e9)!important;
+  border:1px solid #d9c9aa!important;
+  border-top:5px solid #c79535!important;
+  border-radius:10px!important;
+  padding:26px 30px!important;
+  box-shadow:0 12px 34px rgba(8,35,63,.09)!important;
+}
+.aws-summary-card h2{margin:0 0 12px!important;font-family:"Cormorant Garamond",serif!important;font-size:25px!important;letter-spacing:.04em;color:#08233f!important;border-bottom:1px solid #d9c9aa!important;padding-bottom:15px!important}
+.aws-summary-card>p:first-of-type{margin:0 0 18px!important;color:#637184!important}
+.aws-summary-card .summary-row{padding:8px 0!important;font-size:16px!important;color:#173552!important}
+.aws-summary-card .summary-total{margin-top:8px!important;padding-top:16px!important;border-top:1px solid #d9c9aa!important;font-size:20px!important}
+.aws-summary-card .payment-provider-info{margin:14px 0 12px!important;color:#67778a!important;font-size:14px!important;line-height:1.45!important}
+.aws-summary-card .checkout-btn{width:100%!important;min-height:52px!important;border:1px solid #c79535!important;border-radius:5px!important;background:#062847!important;color:white!important;font-weight:700!important;letter-spacing:.05em!important;text-transform:uppercase!important}
+.shipping-destination{
+  position:relative!important;
+  width:100%!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  border:1px solid #d9c9aa!important;
+  border-radius:10px!important;
+  background:linear-gradient(145deg,#fffdf8,#f8f3e9)!important;
+  box-shadow:0 12px 34px rgba(8,35,63,.08)!important;
+}
+.shipping-destination .shipping-heading{display:flex!important;align-items:center!important;gap:16px!important;background:linear-gradient(90deg,#062847,#0a355c)!important;color:white!important;padding:20px 24px!important;margin:0!important}
+.aws-shipping-icon{width:50px!important;height:50px!important;border:2px solid #c79535!important;color:#e4b552!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important;font-size:27px!important;font-family:serif!important;flex:0 0 50px!important}
+.shipping-destination .shipping-heading h2{margin:0!important;color:white!important;font-family:"Cormorant Garamond",serif!important;font-size:26px!important;letter-spacing:.07em!important}
+.shipping-destination .shipping-heading p{margin:3px 0 0!important;color:#fff!important;opacity:.92!important;font-size:13px!important}
+.shipping-destination form{padding:20px 24px 24px!important}
+.shipping-destination .shipping-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:14px 16px!important;margin:0!important}
+.shipping-wide{grid-column:1/-1!important}
+.aws-step-title{display:flex!important;align-items:center!important;gap:10px!important;margin:4px 0 0!important;padding-top:8px!important;color:#08233f!important}
+.aws-step-title:not(:first-child){border-top:1px solid #e0d5c2!important;margin-top:8px!important;padding-top:18px!important}
+.aws-step-title span{width:27px!important;height:27px!important;border-radius:50%!important;background:#082e52!important;color:white!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:13px!important;font-weight:700!important}
+.aws-step-title strong{font-size:15px!important}
+.shipping-field{gap:5px!important}
+.shipping-field>span{font-size:12px!important;color:#183a59!important;letter-spacing:0!important}
+.shipping-field small{font-size:10.5px!important;color:#7c7c79!important;min-height:13px!important}
+.shipping-field input,.shipping-field select,.shipping-field textarea{width:100%!important;background:white!important;border:1px solid #cfc5b4!important;border-radius:7px!important;padding:11px 12px!important;font-size:13px!important;min-height:43px!important}
+.shipping-field textarea{min-height:72px!important;resize:vertical!important}
+.shipping-field input:focus,.shipping-field select:focus,.shipping-field textarea:focus{outline:none!important;border-color:#c79535!important;box-shadow:0 0 0 3px rgba(199,149,53,.13)!important}
+.shipping-destination .checkout-btn{width:100%!important;min-height:54px!important;margin-top:18px!important;border:1px solid #c79535!important;border-radius:6px!important;background:#062847!important;color:#fff!important;font-weight:700!important;letter-spacing:.05em!important;text-transform:uppercase!important;cursor:pointer!important}
+.shipping-destination .checkout-btn:disabled{background:#c7c7c7!important;border-color:#b7b7b7!important;color:#f5f5f5!important;cursor:not-allowed!important;opacity:.9!important}
+.checkout-error{margin-top:12px!important;padding:11px 12px!important;border:1px solid #d99b91!important;background:#fff2ef!important;color:#9c2f24!important;border-radius:6px!important;font-size:12px!important;line-height:1.45!important}
+.shipping-privacy{margin:18px 0 0!important;text-align:center!important;color:#6f706f!important;font-size:12px!important;line-height:1.5!important}
+@media(max-width:1100px){
+  .cart-layout{grid-template-columns:minmax(0,1.25fr) minmax(390px,.9fr)!important;gap:24px!important}
+  .aws-summary-card{padding:22px!important}
+  .shipping-destination form{padding:18px!important}
+}
+@media(max-width:900px){
+  .cart-layout{grid-template-columns:1fr!important}
+  .cart-main,.aws-checkout-sidebar{grid-column:1!important;grid-row:auto!important}
+  .aws-checkout-sidebar{position:static!important;top:auto!important;max-height:none!important;overflow:visible!important;padding:0!important}
+  .shipping-destination .shipping-grid{grid-template-columns:1fr!important}
+  .shipping-wide{grid-column:1!important}
+}
+</style></head><body>
 <div aria-label="Información importante" class="announcement">
 <div class="announcement-track">
 <span data-i18n="made">Hecho en Argentina</span><b>✦</b>
@@ -111,8 +202,6 @@
 </details>
 <details>
 <summary data-i18n="bazaar">Bazar y Accesorios</summary>
-
-
 <a data-i18n="wallets" href="#bazar">Billeteras</a>
 <a data-i18n="bags" href="#bazar">Bolsos</a>
 <a data-i18n="mates" href="#bazar">Mates y Bombillas</a>
@@ -129,47 +218,23 @@
 <main class="cart-page"><div class="cart-layout">
 <section class="cart-main"><h1>Resumen de compra (<span id="cartProductCount">0</span> productos)</h1>
 <div class="cart-notice">ⓘ Los productos del carrito quedan guardados en este navegador hasta que los elimines.</div>
-<div id="cartItems"></div><section class="shipping-destination" id="shippingDestination">
-  <div class="shipping-heading">
-    <div class="shipping-heading-mark">AWS</div>
-    <div>
-      <span class="shipping-eyebrow">ENTREGA SEGURA</span>
-      <h2>Detalles del envío</h2>
-      <p class="shipping-intro">Indicá el destino exacto donde querés recibir tu pedido. Revisaremos estos datos antes de despachar la compra.</p>
-    </div>
-  </div>
-  <div class="shipping-benefits" aria-label="Información del envío">
-    <div><strong>01</strong><span>Datos completos</span><small>Evitá abreviaturas para una entrega sin demoras.</small></div>
-    <div><strong>02</strong><span>Seguimiento</span><small>Usaremos tu correo y teléfono para mantenerte informado.</small></div>
-    <div><strong>03</strong><span>Destino internacional</span><small>El país elegido define el envío y el medio de pago disponible.</small></div>
-  </div>
-  <form id="shippingForm" novalidate>
-    <div class="shipping-grid">
-      <label class="shipping-field shipping-wide"><span>NOMBRE Y APELLIDO COMPLETOS</span><small>Tal como figura en su documento</small><input id="shipFullName" name="fullName" type="text" autocomplete="name" required></label>
-      <label class="shipping-field"><span>DOCUMENTO / ID FISCAL</span><small>Solo si el país de destino lo exige</small><input id="shipTaxId" name="taxId" type="text"></label>
-      <label class="shipping-field shipping-wide"><span>CALLE, NÚMERO, PISO, DEPARTAMENTO / UNIDAD</span><small>No abreviar datos importantes</small><input id="shipAddress1" name="address1" type="text" autocomplete="street-address" required></label>
-      <label class="shipping-field shipping-wide"><span>INFORMACIÓN ADICIONAL DEL DOMICILIO</span><small>Torre, bloque, unidad u otra información necesaria</small><input id="shipAddress2" name="address2" type="text"></label>
-      <label class="shipping-field"><span>CIUDAD / LOCALIDAD</span><input id="shipCity" name="city" type="text" autocomplete="address-level2" required></label>
-      <label class="shipping-field"><span>PROVINCIA / ESTADO / REGIÓN</span><input id="shipRegion" name="region" type="text" autocomplete="address-level1" required></label>
-      <label class="shipping-field"><span>CÓDIGO POSTAL</span><small>Incluí letras y guiones</small><input id="shipPostalCode" name="postalCode" type="text" autocomplete="postal-code" required></label>
-      <label class="shipping-field"><span>PAÍS DE DESTINO</span><select id="shipCountry" name="countryCode" required><option value="">Seleccionar país</option></select></label>
-      <label class="shipping-field shipping-wide"><span>REFERENCIA DE DOMICILIO</span><small>Barrio, edificio, entre calles u otra ayuda</small><textarea id="shipReference" name="reference" rows="3"></textarea></label>
-      <label class="shipping-field"><span>TELÉFONO CON CÓDIGO DE PAÍS</span><small>Ej.: +1…, +34…, +598…</small><input id="shipPhone" name="phone" type="tel" autocomplete="tel" required></label>
-      <label class="shipping-field"><span>CORREO ELECTRÓNICO</span><input id="shipEmail" name="email" type="email" autocomplete="email" required></label>
-    </div>
-    <p class="shipping-privacy">🔒 Tus datos se utilizan únicamente para procesar el pago, preparar la documentación y realizar el envío.</p>
-  </form>
-</section></section>
-<aside class="cart-summary"><h2>Resumen de compra</h2><p>(<span id="summaryCount">0</span> productos)</p>
+<div id="cartItems"></div></section>
+<aside class="cart-summary cart-checkout-column aws-checkout-sidebar"><section class="aws-summary-card"><h2>Resumen de compra</h2><p>(<span id="summaryCount">0</span> productos)</p>
 <div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div><div class="summary-row"><span>Envío</span><strong id="cartShipping">$0</strong></div>
 <div class="summary-row summary-total"><span>Total</span><strong id="cartTotal">$0</strong></div>
+<p class="payment-provider-info" id="paymentProviderInfo">Argentina: Mercado Pago · Exterior: PayPal</p><button class="checkout-btn" id="startCheckout" type="button">Continuar al pago</button><div class="checkout-error" hidden="" id="checkoutError"></div></section><section class="shipping-destination" id="shippingDestination">
+<div class="shipping-heading"><div class="aws-shipping-icon">⌂</div><div><h2>DETALLES DEL ENVÍO</h2><p>Completá tus datos para calcular y coordinar la entrega</p></div></div>
 
+<form id="shippingForm" novalidate="">
+<div class="shipping-grid"><div class="aws-step-title shipping-wide"><span>1</span><strong>Datos personales</strong></div><label class="shipping-field"><span>NOMBRE</span><small>Tal como figura en su documento</small><input autocomplete="given-name" id="shipFirstName" name="firstName" required="" type="text"/></label><label class="shipping-field"><span>APELLIDO</span><small>Tal como figura en su documento</small><input autocomplete="family-name" id="shipLastName" name="lastName" required="" type="text"/></label><label class="shipping-field shipping-wide"><span>DOCUMENTO / ID FISCAL</span><small>Solo si el país de destino lo exige</small><input id="shipTaxId" name="taxId" type="text"/></label><div class="aws-step-title shipping-wide"><span>2</span><strong>Dirección de entrega</strong></div><label class="shipping-field shipping-wide"><span>CALLE, NÚMERO, PISO, DEPARTAMENTO / UNIDAD</span><small>No abreviar datos importantes</small><input autocomplete="street-address" id="shipAddress1" name="address1" type="text"/></label><label class="shipping-field shipping-wide"><span>INFORMACIÓN ADICIONAL DEL DOMICILIO</span><small>Torre, bloque, unidad u otra información necesaria</small><input id="shipAddress2" name="address2" type="text"/></label><label class="shipping-field"><span>CIUDAD / LOCALIDAD</span><input autocomplete="address-level2" id="shipCity" name="city" required="" type="text"/></label><label class="shipping-field"><span>PROVINCIA / ESTADO / REGIÓN</span><input autocomplete="address-level1" id="shipRegion" name="region" required="" type="text"/></label><label class="shipping-field"><span>CÓDIGO POSTAL</span><small>Incluí letras y guiones</small><input autocomplete="postal-code" id="shipPostalCode" name="postalCode" required="" type="text"/></label><label class="shipping-field"><span>PAÍS DE DESTINO</span><select id="shipCountry" name="countryCode" required=""><option value="">Seleccionar país</option></select></label><label class="shipping-field shipping-wide"><span>REFERENCIA DE DOMICILIO</span><small>Barrio, edificio, entre calles u otra ayuda</small><textarea id="shipReference" name="reference" rows="3"></textarea></label><div class="aws-step-title shipping-wide"><span>3</span><strong>Contacto</strong></div><label class="shipping-field"><span>TELÉFONO CON CÓDIGO DE PAÍS</span><small>Ej.: +1…, +34…, +598…</small><input autocomplete="tel" id="shipPhone" name="phone" type="tel"/></label><label class="shipping-field"><span>CORREO ELECTRÓNICO</span><input autocomplete="email" id="shipEmail" name="email" required="" type="email"/></label></div>
 
-<p class="payment-provider-info" id="paymentProviderInfo">Argentina: Mercado Pago · Exterior: PayPal</p><button class="checkout-btn" id="startCheckout">Continuar al pago</button><div class="checkout-error" hidden="" id="checkoutError"></div></aside>
+<p class="shipping-privacy">🔒 Tus datos se utilizan únicamente para procesar el pago, preparar la documentación y realizar el envío.</p>
+</form>
+</section></aside>
 </div></main><footer class="footer" id="footer">
 <div class="newsletter">
 <div><p data-i18n="community">Comunidad Argentina World Store</p><h2 data-i18n="newsletter">Recibí novedades y nuevos productos</h2></div>
-<form><input data-i18n-placeholder="email" placeholder="Tu correo electrónico" type="email"/><button data-i18n="subscribe" type="submit">Suscribirme</button></form>
+<form><input data-i18n-placeholder="email" placeholder="Tu correo electrónico" type="email"><button data-i18n="subscribe" type="submit">Suscribirme</button></input></form>
 </div>
 <div class="footer-grid">
 <div><h3 data-i18n="help">Ayuda</h3><a data-i18n="shippingTracking" href="#">Envíos y seguimiento</a><a data-i18n="changes" href="#">Cambios y devoluciones</a><a data-i18n="faq" href="preguntas-frecuentes.html">Preguntas frecuentes</a><a data-i18n="terms" href="#">Términos y condiciones</a></div>
@@ -179,7 +244,6 @@
 </div>
 <div class="footer-bottom"><span>© 2026 Argentina World Store</span><span data-i18n="madeArgentina">Hecho en Argentina · Para el mundo</span></div>
 </footer>
-
 <script src="productos.js"></script><script src="shipping-config.js"></script><script src="script.js"></script><script src="common-pages.js"></script><script src="universal-fixes.js"></script>
 <script src="carrito.js"></script>
 </body></html>

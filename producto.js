@@ -68,7 +68,9 @@ function renderRecommendations(){
 function addCart(){
  let cart=[];try{cart=JSON.parse(localStorage.getItem("awsCart")||"[]")}catch{}
  if(!Array.isArray(cart))cart=[];
- const minQty=Number(PRODUCT.minOrder)||1; const maxQty=Number(PRODUCT.maxOrder)||99; const qty=Math.min(maxQty,Math.max(minQty,Number(document.querySelector('.selector select:last-child')?.value)||minQty));
+ const minQty=Number(PRODUCT.minOrder)||1; const maxQty=Number(PRODUCT.maxOrder)||99;
+ const quantitySelect=document.getElementById('productQuantitySelect');
+ const qty=Math.min(maxQty,Math.max(minQty,Number(quantitySelect?.value)||minQty));
  if(((Array.isArray(PRODUCT.sizes)&&PRODUCT.sizes.length)||PRODUCT.sizeMode==="text")&&!selectedSize){
    alert("Seleccioná o escribí el talle antes de agregar el producto.");
    return;
@@ -265,7 +267,7 @@ function initProductPage(){
  const topLanguage=document.getElementById("languageSelect");
  if(topLanguage){buildLanguageSelector(topLanguage);topLanguage.value=currentLang;topLanguage.onchange=e=>setLanguage(e.target.value);}
 
- const qtySelect=document.querySelector('.selector select:last-child');
+ const qtySelect=document.getElementById('productQuantitySelect');
  if(qtySelect&&PRODUCT.minOrder){qtySelect.innerHTML=Array.from({length:(Number(PRODUCT.maxOrder)||Number(PRODUCT.minOrder))-Number(PRODUCT.minOrder)+1},(_,i)=>{const q=Number(PRODUCT.minOrder)+i;return `<option value="${q}">${q}</option>`}).join('');qtySelect.value=String(PRODUCT.minOrder);}
  document.getElementById("buyBtn").onclick=addCart;
  setLanguage(currentLang);
