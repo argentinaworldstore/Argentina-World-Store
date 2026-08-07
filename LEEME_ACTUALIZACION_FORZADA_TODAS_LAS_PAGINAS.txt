@@ -1,0 +1,19 @@
+ACTUALIZACIÓN FORZADA DE TODAS LAS PÁGINAS
+
+Este paquete fuerza un cambio real en las 275 páginas HTML del proyecto.
+De esta forma Git mostrará todas las páginas como modificadas al reemplazar el proyecto.
+
+Qué se hizo en cada página:
+- Se añadió una marca de build: AWS BUILD 2026-08-07 GLOBAL-I18N-ALL-PAGES
+- Se agregó versión al script universal-fixes.js para evitar caché vieja del navegador:
+  universal-fixes.js?v=20260807-all
+
+También conserva:
+- detección automática de región;
+- popup regional;
+- traducción global;
+- carrito actualizado;
+- monedas por país;
+- corrección de talle/cantidad.
+
+No se incluye .env, backend, node_modules ni .git.

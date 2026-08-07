@@ -340,7 +340,8 @@ async function detectVisitorCountryAndLanguage() {
 
 document.querySelector(".newsletter form").onsubmit=e=>{e.preventDefault();alert(currentLang==="es"?"¡Gracias por suscribirte!":"Thank you for subscribing!")};
 renderCountries();
-detectVisitorCountryAndLanguage();
+// La detección de región/idioma global la maneja universal-fixes.js
+// detectVisitorCountryAndLanguage();
 
 const savedMode=localStorage.getItem("awsShoppingMode");
 if(savedMode){const btn=document.querySelector(`.mode-btn[data-mode="${savedMode}"]`);if(btn)btn.click();}

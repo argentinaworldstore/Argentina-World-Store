@@ -1,0 +1,15 @@
+CORRECCIÓN DE DETECCIÓN DE REGIÓN / VPN
+
+- La región ya no queda cacheada permanentemente en localStorage.
+- Se vuelve a detectar por IP en cada nueva sesión/pestaña.
+- Se prueban varias fuentes de geolocalización por IP.
+- Brasil muestra el aviso en portugués aunque el navegador esté en español.
+- Si la IP detectada es Argentina, no aparece ningún aviso.
+- Al aceptar, cambia el país de la tienda y el idioma correspondiente.
+- Al rechazar, mantiene Argentina durante esa sesión.
+
+Archivos del ZIP:
+- universal-fixes.js
+- producto.js
+- carrito.js
+- carrito.html

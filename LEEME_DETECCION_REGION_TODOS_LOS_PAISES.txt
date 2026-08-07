@@ -1,0 +1,35 @@
+DETECCIÓN AUTOMÁTICA DE REGIÓN - TODOS LOS PAÍSES DE LA TIENDA
+
+Qué hace:
+1. Detecta el país por IP (sirve también con VPN).
+2. Si detecta Argentina, no muestra ningún cartel.
+3. Si detecta otro país, muestra el aviso en el idioma principal configurado para ese país.
+4. Si el cliente acepta:
+   - selecciona automáticamente su país;
+   - cambia el idioma de la tienda;
+   - conserva esa elección durante la navegación.
+5. Si rechaza, mantiene Argentina durante esa sesión.
+6. La detección vuelve a ejecutarse en una nueva sesión/pestaña para permitir probar VPN de otros países.
+
+Incluye idiomas para todos los países que actualmente aparecen en el selector de países de Argentina World Store.
+Cuando un país tiene varios idiomas oficiales, se usa un idioma principal predeterminado para la tienda.
+
+Ejemplos:
+Brasil -> Portugués
+México -> Español
+Estados Unidos -> Inglés
+Francia -> Francés
+Alemania -> Alemán
+Japón -> Japonés
+Corea del Sur -> Coreano
+China -> Chino
+Ucrania -> Ucraniano
+Tailandia -> Tailandés
+Vietnam -> Vietnamita
+Haití -> Criollo haitiano
+
+Archivos incluidos:
+- universal-fixes.js
+- producto.js
+- carrito.js
+- carrito.html

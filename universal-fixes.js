@@ -47,8 +47,71 @@
     localStorage.setItem('awsLang',lang);
     if(lang==='es') clearGoogleCookie(); else setGoogleCookie(lang);
     document.documentElement.lang=lang;
-    document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+    document.documentElement.dir=['ar','he','ur'].includes(lang)?'rtl':'ltr';
     if(reload) location.reload();
+  }
+
+
+  function hideGoogleTranslateChrome(){
+    const styleId='aws-hide-google-translate-ui';
+    if(!document.getElementById(styleId)){
+      const style=document.createElement('style');
+      style.id=styleId;
+      style.textContent=`
+        iframe.goog-te-banner-frame,
+        .goog-te-banner-frame,
+        .skiptranslate iframe,
+        #goog-gt-tt,
+        .goog-te-balloon-frame{display:none!important;visibility:hidden!important}
+        body{top:0!important}
+        html{margin-top:0!important}
+        .goog-text-highlight{background:transparent!important;box-shadow:none!important}
+        #google_translate_element{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+      `;
+      document.head.appendChild(style);
+    }
+    document.body.style.top='0px';
+  }
+
+  function forceGoogleLanguage(lang){
+    lang=normalizedLanguage(lang);
+    if(lang==='es'){
+      clearGoogleCookie();
+      return;
+    }
+
+    setGoogleCookie(lang);
+
+    // If Google's selector is already available, force the selected language.
+    const combo=document.querySelector('.goog-te-combo');
+    if(combo && combo.value!==lang){
+      combo.value=lang;
+      combo.dispatchEvent(new Event('change',{bubbles:true}));
+    }
+  }
+
+  function keepWholePageTranslated(){
+    const lang=currentLanguage();
+    hideGoogleTranslateChrome();
+    if(lang==='es')return;
+
+    forceGoogleLanguage(lang);
+
+    // Dynamic pages (products, cart, search results) insert text after initial load.
+    // Re-assert the selected language after those DOM updates without refreshing.
+    let timer=null;
+    const observer=new MutationObserver(()=>{
+      clearTimeout(timer);
+      timer=setTimeout(()=>{
+        hideGoogleTranslateChrome();
+        const combo=document.querySelector('.goog-te-combo');
+        if(combo && combo.value!==lang){
+          combo.value=lang;
+          combo.dispatchEvent(new Event('change',{bubbles:true}));
+        }
+      },180);
+    });
+    observer.observe(document.documentElement,{childList:true,subtree:true});
   }
 
   window.googleTranslateElementInit=function(){
@@ -59,6 +122,10 @@
       autoDisplay:false,
       multilanguagePage:true
     },'google_translate_element');
+    setTimeout(()=>{
+      forceGoogleLanguage(currentLanguage());
+      hideGoogleTranslateChrome();
+    },250);
   };
 
   function loadGoogleTranslate(){
@@ -117,117 +184,179 @@
     const style=document.createElement('style');style.id='aws-universal-styles';style.textContent=`
       .added-success{background:#15803d!important;color:#fff!important}.cart-count-pulse{animation:awsPulse .65s ease}@keyframes awsPulse{0%{transform:scale(1)}50%{transform:scale(1.6);background:#1ba7e1;color:#fff}100%{transform:scale(1)}}#cartCount{min-width:22px;height:22px;display:inline-grid;place-items:center;border-radius:999px}
       #aws-language-offer{position:fixed;inset:0;z-index:2147483000;background:rgba(4,20,38,.62);display:grid;place-items:center;padding:20px}
-      #aws-language-offer[hidden]{display:none!important}.aws-lang-card{max-width:540px;background:#fff;color:#082746;padding:28px;border-radius:14px;box-shadow:0 20px 70px rgba(0,0,0,.3)}.aws-lang-card h3{margin:0 0 12px;font-size:26px}.aws-lang-card p{font-size:17px;line-height:1.5}.aws-lang-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.aws-lang-actions button{border:1px solid #082746;padding:12px 18px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer}.aws-lang-primary{background:#082746;color:#fff}.aws-lang-secondary{background:#fff;color:#082746}
+      #aws-language-offer[hidden]{display:none!important}.aws-lang-card{max-width:540px;background:#fff;color:#082746;padding:28px;border-radius:14px;box-shadow:0 20px 70px rgba(0,0,0,.3)}.aws-lang-card h3{margin:0 0 12px;font-size:30px}.aws-region-badge{display:inline-block;margin-bottom:12px;padding:7px 12px;border-radius:999px;background:#f1e4c5;color:#082746;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase}.aws-lang-card p{font-size:17px;line-height:1.5}.aws-lang-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.aws-lang-actions button{border:1px solid #082746;padding:12px 18px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer}.aws-lang-primary{background:#082746;color:#fff}.aws-lang-secondary{background:#fff;color:#082746}
       html[dir="rtl"] body{text-align:right}.goog-te-banner-frame.skiptranslate,.goog-te-banner-frame{display:none!important}body{top:0!important}.goog-logo-link,.goog-te-gadget span{display:none!important}
     `;document.head.appendChild(style);
   }
 
   async function detectRegion(){
-    // Detectamos la ubicación real de la IP en cada sesión.
-    // Primero usamos Cloudflare en el MISMO dominio, evitando bloqueos CORS,
-    // AdBlock o extensiones de privacidad que pueden bloquear APIs externas.
-    const cached=sessionStorage.getItem('awsDetectedCountry');
-    if(cached && /^[A-Z]{2}$/.test(cached)) return cached;
-
-    async function fromCloudflare(){
+    async function cloudflare(){
       try{
-        const r=await fetch('/cdn-cgi/trace?ts='+Date.now(),{
+        const r=await fetch('/cdn-cgi/trace?aws_region='+Date.now(),{
           cache:'no-store',
-          credentials:'same-origin'
+          credentials:'same-origin',
+          headers:{'Cache-Control':'no-cache','Pragma':'no-cache'}
         });
-        if(!r.ok)return '';
-        const body=await r.text();
-        const match=body.match(/^loc=([A-Z]{2})$/mi);
-        return match ? match[1].toUpperCase() : '';
-      }catch{
-        return '';
-      }
+        if(!r.ok) return '';
+        const t=await r.text();
+        const mm=t.match(/^loc=([A-Z]{2})$/mi);
+        return mm ? mm[1].toUpperCase() : '';
+      }catch{return '';}
     }
 
-    async function fromJsonApi(url){
+    async function jsonApi(url){
       try{
-        const controller=new AbortController();
-        const timer=setTimeout(()=>controller.abort(),4500);
-        const r=await fetch(url,{
+        const c=new AbortController();
+        const tm=setTimeout(()=>c.abort(),4000);
+        const sep=url.includes('?')?'&':'?';
+        const r=await fetch(url+sep+'aws_region='+Date.now(),{
           cache:'no-store',
-          signal:controller.signal
+          signal:c.signal
         });
-        clearTimeout(timer);
-        if(!r.ok)return '';
+        clearTimeout(tm);
+        if(!r.ok) return '';
         const d=await r.json();
         const code=String(
-          d.country_code ||
-          d.country_code2 ||
-          d.country ||
-          d.countryCode ||
-          ''
+          d.country_code || d.country_code2 || d.country ||
+          d.countryCode || ''
         ).toUpperCase();
         return /^[A-Z]{2}$/.test(code) ? code : '';
-      }catch{
-        return '';
-      }
+      }catch{return '';}
     }
 
-    let code=await fromCloudflare();
-
+    let code=await cloudflare();
     if(!code){
-      const sources=[
+      for(const url of [
         'https://ipwho.is/',
         'https://ipapi.co/json/',
         'https://api.country.is/'
-      ];
-      for(const url of sources){
-        code=await fromJsonApi(url);
-        if(code)break;
+      ]){
+        code=await jsonApi(url);
+        if(code) break;
       }
     }
 
-    if(code){
-      sessionStorage.setItem('awsDetectedCountry',code);
-      localStorage.setItem('awsLastDetectedCountry',code);
-      return code;
-    }
-
-    return '';
+    if(code) localStorage.setItem('awsLastDetectedCountry',code);
+    return code;
   }
 
   function showRegionOffer(country,lang){
-    if(!country||country==="AR")return;
-    const choice=sessionStorage.getItem('awsRegionChoice');
-    if(choice===`accepted:${country}`||choice===`declined:${country}`)return;
-    if(document.getElementById('aws-language-offer'))return;
+    if(!country || country==="AR") return;
+
+    // Si ya aceptó exactamente esta región y la tienda ya está configurada así,
+    // no volvemos a preguntar.
+    const accepted=localStorage.getItem('awsRegionAccepted');
+    if(accepted===country && localStorage.getItem('awsCountryCode')===country) return;
+
+    // Si rechazó esta región, no repetimos durante esta pestaña/sesión.
+    if(sessionStorage.getItem('awsRegionDeclined')===country) return;
+
+    // Evita que una selección vieja (o una traducción vieja) cambie la tienda
+    // antes de que el visitante responda al cartel.
+    localStorage.setItem('awsCountryCode','AR');
+    localStorage.setItem('awsLanguage','es');
+    localStorage.setItem('awsLang','es');
+    clearGoogleCookie();
+    document.documentElement.lang='es';
+    document.documentElement.dir='ltr';
+
+    const old=document.getElementById('aws-language-offer');
+    if(old) old.remove();
+
     const prompt=REGION_PROMPT[lang]||REGION_PROMPT.en;
-    const overlay=document.createElement('div');overlay.id='aws-language-offer';
+    const overlay=document.createElement('div');
+    overlay.id='aws-language-offer';
     overlay.dir=(lang==='ar'||lang==='he'||lang==='ur')?'rtl':'ltr';
     overlay.lang=lang;
+
     const msg=prompt.message.replace('{country}',regionName(country,lang));
-    overlay.innerHTML=`<div class="aws-lang-card" role="dialog" aria-modal="true" aria-labelledby="aws-region-title"><h3 id="aws-region-title">${prompt.title}</h3><p>${msg}</p><div class="aws-lang-actions"><button class="aws-lang-primary" type="button">${prompt.yes}</button><button class="aws-lang-secondary" type="button">${prompt.no}</button></div></div>`;
+    overlay.innerHTML=`
+      <div class="aws-lang-card" role="dialog" aria-modal="true" aria-labelledby="aws-region-title">
+        <div class="aws-region-badge">${regionName(country,lang)}</div>
+        <h3 id="aws-region-title">${prompt.title}</h3>
+        <p>${msg}</p>
+        <div class="aws-lang-actions">
+          <button class="aws-lang-primary" type="button">${prompt.yes}</button>
+          <button class="aws-lang-secondary" type="button">${prompt.no}</button>
+        </div>
+      </div>`;
+
     overlay.querySelector('.aws-lang-primary').onclick=()=>{
-      sessionStorage.setItem('awsRegionChoice',`accepted:${country}`);
+      localStorage.setItem('awsRegionAccepted',country);
+      sessionStorage.removeItem('awsRegionDeclined');
       localStorage.setItem('awsCountryCode',country);
       localStorage.setItem('awsLanguageChosen','1');
+      // Recién al aceptar se cambia idioma y se recarga toda la tienda.
       applyLanguage(lang,true);
     };
+
     overlay.querySelector('.aws-lang-secondary').onclick=()=>{
-      sessionStorage.setItem('awsRegionChoice',`declined:${country}`);
+      sessionStorage.setItem('awsRegionDeclined',country);
+      localStorage.removeItem('awsRegionAccepted');
       localStorage.setItem('awsCountryCode','AR');
+      localStorage.setItem('awsLanguage','es');
+      localStorage.setItem('awsLang','es');
+      clearGoogleCookie();
       location.reload();
     };
+
     document.body.appendChild(overlay);
   }
 
   async function initDetection(){
-    const country=await detectRegion();
+    let country='';
+
+    // Tres intentos automáticos al entrar.
+    for(let i=0;i<3 && !country;i++){
+      country=await detectRegion();
+      if(!country) await new Promise(r=>setTimeout(r,800));
+    }
+
+    if(!country) return;
+
     const browserLang=normalizedLanguage(navigator.languages?.[0]||navigator.language);
-    // El aviso usa el idioma principal asociado al país detectado.
-    // Si el país no está mapeado, usa el idioma del navegador y luego inglés.
     const detected=COUNTRY_LANGUAGE[country]||browserLang||'en';
     updateDetectedLabel(country,detected);
-    if(country&&country!=="AR")showRegionOffer(country,detected);
+
+    if(country==='AR'){
+      // En Argentina la tienda queda como siempre.
+      localStorage.setItem('awsCountryCode','AR');
+      localStorage.removeItem('awsRegionAccepted');
+      sessionStorage.removeItem('awsRegionDeclined');
+      return;
+    }
+
+    // Si cambió la IP/VPN, habilitamos el aviso para la nueva región.
+    if(localStorage.getItem('awsRegionAccepted')!==country){
+      localStorage.removeItem('awsRegionAccepted');
+    }
+    if(sessionStorage.getItem('awsRegionDeclined')!==country){
+      sessionStorage.removeItem('awsRegionDeclined');
+    }
+
+    // IMPORTANTE: solo mostramos el cartel. No cambiamos país ni idioma todavía.
+    showRegionOffer(country,detected);
   }
 
+  window.awsRegionDiagnostic=async function(){
+    const code=await detectRegion();
+    console.log('[AWS] Región detectada por IP:',code||'(sin detectar)');
+    console.log('[AWS] País guardado en la tienda:',localStorage.getItem('awsCountryCode')||'AR');
+    console.log('[AWS] Idioma navegador:',navigator.language);
+    return code;
+  };
+
   function init(){
-    fixHomeLinks();normalizeCart();addStyles();loadGoogleTranslate();rebuildLanguageSelector();initCountries();initDetection();
+    fixHomeLinks();
+    normalizeCart();
+    addStyles();
+    rebuildLanguageSelector();
+    initCountries();
+    initDetection().finally(()=>{
+      // Google Translate se carga después de iniciar la detección regional.
+      loadGoogleTranslate();
+      keepWholePageTranslated();
+    });
   }
 
   document.addEventListener('DOMContentLoaded',init);
@@ -396,20 +525,4 @@
  };
  document.addEventListener('DOMContentLoaded',clean);
  window.addEventListener('load',clean);
-
-  window.awsRegionDiagnostic=async function(){
-    try{
-      const r=await fetch('/cdn-cgi/trace?ts='+Date.now(),{cache:'no-store'});
-      const t=await r.text();
-      const loc=(t.match(/^loc=([A-Z]{2})$/mi)||[])[1]||'';
-      console.log('[AWS] Cloudflare detectó país:',loc||'(sin dato)');
-      console.log('[AWS] País seleccionado:',localStorage.getItem('selectedCountry')||localStorage.getItem('awsSelectedCountry')||'(sin guardar)');
-      console.log('[AWS] Idioma navegador:',navigator.language);
-      return loc;
-    }catch(e){
-      console.warn('[AWS] No se pudo consultar /cdn-cgi/trace',e);
-      return '';
-    }
-  };
-
 })();

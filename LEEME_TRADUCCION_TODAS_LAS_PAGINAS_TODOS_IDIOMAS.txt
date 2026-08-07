@@ -1,0 +1,35 @@
+ARGENTINA WORLD STORE - TRADUCCIÓN GLOBAL DE TODA LA TIENDA
+
+Esta versión aplica la traducción a TODAS las páginas HTML del sitio usando un
+sistema global compartido. No crea miles de copias HTML por idioma: cada página
+se traduce completa y dinámicamente según el idioma elegido/detectado.
+
+Incluye:
+- 275 páginas HTML conectadas al sistema global de idioma.
+- Traducción de páginas principales.
+- Traducción de todas las páginas de productos.
+- Traducción de todas las subcategorías.
+- Traducción del carrito.
+- Traducción de preguntas frecuentes, sobre nosotros, trabaja con nosotros,
+  resultados de pago y páginas auxiliares.
+- Traducción también para texto que aparece dinámicamente después de cargar:
+  productos, carrito, buscador, formularios y mensajes.
+- Oculta la barra visual de Google Translate para conservar el diseño de la tienda.
+- Detección regional automática y popup antes de cambiar país/idioma.
+- Si acepta el cambio de región, toda la tienda se abre en el idioma correspondiente.
+- Si Argentina es detectada, se mantiene español sin popup.
+
+Idiomas configurados actualmente:
+Español, Inglés, Portugués, Francés, Alemán, Italiano, Chino, Japonés,
+Coreano, Ruso, Árabe, Hindi, Neerlandés, Polaco, Griego, Turco,
+Indonesio, Criollo haitiano, Búlgaro, Croata, Danés, Eslovaco,
+Esloveno, Estonio, Finlandés, Húngaro, Islandés, Letón, Lituano,
+Maltés, Noruego, Checo, Rumano, Sueco, Ucraniano, Bengalí, Hebreo,
+Malayo, Urdu, Cingalés, Tailandés, Vietnamita, Amárico y Suajili.
+
+NOTA:
+Las traducciones completas de las páginas son dinámicas. Esto permite que una
+misma página de producto funcione en todos los idiomas sin mantener 44 copias
+separadas de cada HTML.
+
+Archivos backend y .env no fueron modificados por este cambio de traducción.
