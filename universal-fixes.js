@@ -1,47 +1,12 @@
 (function(){
   "use strict";
 
-  const ALL_LANGUAGES = {
-    es:"Español", en:"English", zh:"中文", pt:"Português", fr:"Français",
-    de:"Deutsch", it:"Italiano", ja:"日本語", ko:"한국어", ru:"Русский",
-    ar:"العربية", hi:"हिन्दी", nl:"Nederlands", pl:"Polski",
-    el:"Ελληνικά", tr:"Türkçe", id:"Bahasa Indonesia"
-  };
+  const ALL_LANGUAGES = {"es":"Español","en":"English","pt":"Português","fr":"Français","de":"Deutsch","it":"Italiano","zh":"中文","ja":"日本語","ko":"한국어","ru":"Русский","ar":"العربية","hi":"हिन्दी","nl":"Nederlands","pl":"Polski","el":"Ελληνικά","tr":"Türkçe","id":"Bahasa Indonesia","ht":"Kreyòl ayisyen","bg":"Български","hr":"Hrvatski","da":"Dansk","sk":"Slovenčina","sl":"Slovenščina","et":"Eesti","fi":"Suomi","hu":"Magyar","is":"Íslenska","lv":"Latviešu","lt":"Lietuvių","mt":"Malti","no":"Norsk","cs":"Čeština","ro":"Română","sv":"Svenska","uk":"Українська","bn":"বাংলা","he":"עברית","ms":"Bahasa Melayu","ur":"اردو","si":"සිංහල","th":"ไทย","vi":"Tiếng Việt","am":"አማርኛ","sw":"Kiswahili"};
 
-  const COUNTRY_LANGUAGE = {
-    AR:"es",BO:"es",CL:"es",CO:"es",CR:"es",CU:"es",DO:"es",EC:"es",SV:"es",GT:"es",HN:"es",MX:"es",NI:"es",PA:"es",PY:"es",PE:"es",PR:"es",UY:"es",VE:"es",ES:"es",
-    US:"en",GB:"en",CA:"en",AU:"en",NZ:"en",IE:"en",JM:"en",ZA:"en",SG:"en",PH:"en",
-    BR:"pt",PT:"pt",AO:"pt",MZ:"pt",
-    FR:"fr",BE:"fr",CH:"de",DE:"de",AT:"de",LI:"de",
-    IT:"it",SM:"it",VA:"it",
-    CN:"zh",TW:"zh",HK:"zh",MO:"zh",
-    JP:"ja",KR:"ko",KP:"ko",
-    RU:"ru",BY:"ru",KZ:"ru",
-    SA:"ar",AE:"ar",QA:"ar",KW:"ar",OM:"ar",BH:"ar",EG:"ar",JO:"ar",DZ:"ar",MA:"ar",TN:"ar",IQ:"ar",LB:"ar",
-    IN:"hi",NP:"hi",
-    NL:"nl",PL:"pl",GR:"el",CY:"el",TR:"tr",ID:"id"
-  };
+  const COUNTRY_LANGUAGE = {"AR":"es","BO":"es","BR":"pt","CA":"en","CL":"es","CO":"es","CR":"es","CU":"es","EC":"es","SV":"es","US":"en","GT":"es","HT":"ht","HN":"es","JM":"en","MX":"es","NI":"es","PA":"es","PY":"es","PE":"es","DO":"es","UY":"es","VE":"es","DE":"de","AT":"de","BE":"fr","BG":"bg","HR":"hr","DK":"da","SK":"sk","SI":"sl","ES":"es","EE":"et","FI":"fi","FR":"fr","GR":"el","HU":"hu","IE":"en","IS":"is","IT":"it","LV":"lv","LT":"lt","LU":"fr","MT":"mt","NO":"no","NL":"nl","PL":"pl","PT":"pt","GB":"en","CZ":"cs","RO":"ro","SE":"sv","CH":"de","UA":"uk","SA":"ar","BD":"bn","CN":"zh","KR":"ko","AE":"ar","PH":"en","IN":"hi","ID":"id","IL":"he","JP":"ja","JO":"ar","KZ":"ru","KW":"ar","MY":"ms","NP":"hi","OM":"ar","PK":"ur","QA":"ar","SG":"en","LK":"si","TH":"th","TR":"tr","VN":"vi","DZ":"ar","AO":"pt","CM":"fr","CI":"fr","EG":"ar","ET":"am","GH":"en","KE":"sw","MA":"ar","MZ":"pt","NA":"en","NG":"en","SN":"fr","ZA":"en","TZ":"sw","TN":"ar","UG":"en","ZM":"en","ZW":"en","AU":"en","FJ":"en","NZ":"en","PG":"en","WS":"en","TO":"en","VU":"fr"};
 
 
-  const REGION_PROMPT = {
-    es:{title:"Región detectada",message:"Detectamos que no estás en Argentina. ¿Querés cambiar la tienda a tu región: {country}?",yes:"Sí, cambiar a mi región",no:"No, mantener Argentina"},
-    en:{title:"Region detected",message:"We detected that you are not in Argentina. Would you like to switch the store to your region: {country}?",yes:"Yes, switch to my region",no:"No, keep Argentina"},
-    pt:{title:"Região detectada",message:"Detectamos que você não está na Argentina. Deseja mudar a loja para sua região: {country}?",yes:"Sim, mudar para minha região",no:"Não, manter Argentina"},
-    fr:{title:"Région détectée",message:"Nous avons détecté que vous n'êtes pas en Argentine. Voulez-vous passer la boutique à votre région : {country} ?",yes:"Oui, changer de région",no:"Non, garder l'Argentine"},
-    de:{title:"Region erkannt",message:"Wir haben erkannt, dass Sie sich nicht in Argentinien befinden. Möchten Sie den Shop auf Ihre Region {country} umstellen?",yes:"Ja, Region wechseln",no:"Nein, Argentinien behalten"},
-    it:{title:"Regione rilevata",message:"Abbiamo rilevato che non ti trovi in Argentina. Vuoi impostare il negozio sulla tua regione: {country}?",yes:"Sì, cambia regione",no:"No, mantieni Argentina"},
-    zh:{title:"检测到地区",message:"我们检测到您不在阿根廷。是否将商店切换到您所在的地区：{country}？",yes:"是，切换到我的地区",no:"否，保持阿根廷"},
-    ja:{title:"地域を検出しました",message:"アルゼンチン国外からのアクセスを検出しました。ストアをお住まいの地域（{country}）に切り替えますか？",yes:"はい、地域を変更",no:"いいえ、アルゼンチンのまま"},
-    ko:{title:"지역 감지됨",message:"아르헨티나 외 지역에서 접속한 것으로 감지되었습니다. 스토어를 현재 지역({country})으로 변경하시겠습니까?",yes:"예, 내 지역으로 변경",no:"아니요, 아르헨티나 유지"},
-    ru:{title:"Регион определён",message:"Мы определили, что вы находитесь не в Аргентине. Переключить магазин на ваш регион: {country}?",yes:"Да, сменить регион",no:"Нет, оставить Аргентину"},
-    ar:{title:"تم اكتشاف المنطقة",message:"اكتشفنا أنك لست في الأرجنتين. هل تريد تغيير المتجر إلى منطقتك: {country}؟",yes:"نعم، غيّر إلى منطقتي",no:"لا، أبقِ الأرجنتين"},
-    hi:{title:"क्षेत्र पहचाना गया",message:"हमने पाया कि आप अर्जेंटीना में नहीं हैं। क्या आप स्टोर को अपने क्षेत्र {country} पर बदलना चाहते हैं?",yes:"हाँ, मेरा क्षेत्र चुनें",no:"नहीं, अर्जेंटीना रखें"},
-    nl:{title:"Regio gedetecteerd",message:"We hebben gedetecteerd dat je niet in Argentinië bent. Wil je de winkel wijzigen naar jouw regio: {country}?",yes:"Ja, wijzig mijn regio",no:"Nee, behoud Argentinië"},
-    pl:{title:"Wykryto region",message:"Wykryliśmy, że nie jesteś w Argentynie. Czy chcesz przełączyć sklep na swój region: {country}?",yes:"Tak, zmień region",no:"Nie, pozostaw Argentynę"},
-    el:{title:"Εντοπίστηκε περιοχή",message:"Εντοπίσαμε ότι δεν βρίσκεστε στην Αργεντινή. Θέλετε να αλλάξετε το κατάστημα στην περιοχή σας: {country};",yes:"Ναι, αλλαγή περιοχής",no:"Όχι, διατήρηση Αργεντινής"},
-    tr:{title:"Bölge algılandı",message:"Arjantin'de olmadığınızı algıladık. Mağazayı bölgenize geçirmek ister misiniz: {country}?",yes:"Evet, bölgeme geç",no:"Hayır, Arjantin kalsın"},
-    id:{title:"Wilayah terdeteksi",message:"Kami mendeteksi bahwa Anda tidak berada di Argentina. Ingin mengganti toko ke wilayah Anda: {country}?",yes:"Ya, ganti ke wilayah saya",no:"Tidak, tetap Argentina"}
-  };
+  const REGION_PROMPT = {"es":{"title":"Región detectada","message":"Detectamos que no estás en Argentina. ¿Querés cambiar la tienda a tu región: {country}?","yes":"Sí, cambiar a mi región","no":"No, mantener Argentina"},"en":{"title":"Region detected","message":"We detected that you are not in Argentina. Would you like to switch the store to your region: {country}?","yes":"Yes, switch to my region","no":"No, keep Argentina"},"pt":{"title":"Região detectada","message":"Detectamos que você não está na Argentina. Deseja mudar a loja para sua região: {country}?","yes":"Sim, mudar para minha região","no":"Não, manter Argentina"},"fr":{"title":"Région détectée","message":"Nous avons détecté que vous n'êtes pas en Argentine. Voulez-vous passer la boutique à votre région : {country} ?","yes":"Oui, changer de région","no":"Non, garder l’Argentine"},"de":{"title":"Region erkannt","message":"Wir haben erkannt, dass Sie sich nicht in Argentinien befinden. Möchten Sie den Shop auf Ihre Region {country} umstellen?","yes":"Ja, Region wechseln","no":"Nein, Argentinien behalten"},"it":{"title":"Regione rilevata","message":"Abbiamo rilevato che non ti trovi in Argentina. Vuoi impostare il negozio sulla tua regione: {country}?","yes":"Sì, cambia regione","no":"No, mantieni Argentina"},"zh":{"title":"检测到地区","message":"我们检测到您不在阿根廷。是否将商店切换到您所在的地区：{country}？","yes":"是，切换到我的地区","no":"否，保持阿根廷"},"ja":{"title":"地域を検出しました","message":"アルゼンチン国外からのアクセスを検出しました。ストアをお住まいの地域（{country}）に切り替えますか？","yes":"はい、地域を変更","no":"いいえ、アルゼンチンのまま"},"ko":{"title":"지역 감지됨","message":"아르헨티나 외 지역에서 접속한 것으로 감지되었습니다. 스토어를 현재 지역({country})으로 변경하시겠습니까?","yes":"예, 내 지역으로 변경","no":"아니요, 아르헨티나 유지"},"ru":{"title":"Регион определён","message":"Мы определили, что вы находитесь не в Аргентине. Переключить магазин на ваш регион: {country}?","yes":"Да, сменить регион","no":"Нет, оставить Аргентину"},"ar":{"title":"تم اكتشاف المنطقة","message":"اكتشفنا أنك لست في الأرجنتين. هل تريد تغيير المتجر إلى منطقتك: {country}؟","yes":"نعم، غيّر إلى منطقتي","no":"لا، أبقِ الأرجنتين"},"hi":{"title":"क्षेत्र पहचाना गया","message":"हमने पाया कि आप अर्जेंटीना में नहीं हैं। क्या आप स्टोर को अपने क्षेत्र {country} पर बदलना चाहते हैं?","yes":"हाँ, मेरा क्षेत्र चुनें","no":"नहीं, अर्जेंटीना रखें"},"nl":{"title":"Regio gedetecteerd","message":"We hebben gedetecteerd dat je niet in Argentinië bent. Wil je de winkel wijzigen naar jouw regio: {country}?","yes":"Ja, wijzig mijn regio","no":"Nee, behoud Argentinië"},"pl":{"title":"Wykryto region","message":"Wykryliśmy, że nie jesteś w Argentynie. Czy chcesz przełączyć sklep na swój region: {country}?","yes":"Tak, zmień region","no":"Nie, pozostaw Argentynę"},"el":{"title":"Εντοπίστηκε περιοχή","message":"Εντοπίσαμε ότι δεν βρίσκεστε στην Αργεντινή. Θέλετε να αλλάξετε το κατάστημα στην περιοχή σας: {country};","yes":"Ναι, αλλαγή περιοχής","no":"Όχι, διατήρηση Αργεντινής"},"tr":{"title":"Bölge algılandı","message":"Arjantin'de olmadığınızı algıladık. Mağazayı bölgenize geçirmek ister misiniz: {country}?","yes":"Evet, bölgeme geç","no":"Hayır, Arjantin kalsın"},"id":{"title":"Wilayah terdeteksi","message":"Kami mendeteksi bahwa Anda tidak berada di Argentina. Ingin mengganti toko ke wilayah Anda: {country}?","yes":"Ya, ganti ke wilayah saya","no":"Tidak, tetap Argentina"},"ht":{"title":"Rejyon detekte","message":"Nou detekte ou pa nan Ajantin. Èske ou vle chanje magazen an pou rejyon ou a: {country}?","yes":"Wi, chanje pou rejyon mwen","no":"Non, kenbe Ajantin"},"bg":{"title":"Открит е регион","message":"Установихме, че не сте в Аржентина. Искате ли магазинът да се превключи към вашия регион: {country}?","yes":"Да, смени региона","no":"Не, остави Аржентина"},"hr":{"title":"Otkrivena regija","message":"Otkrili smo da niste u Argentini. Želite li prebaciti trgovinu na svoju regiju: {country}?","yes":"Da, prebaci na moju regiju","no":"Ne, zadrži Argentinu"},"da":{"title":"Region registreret","message":"Vi har registreret, at du ikke er i Argentina. Vil du skifte butikken til din region: {country}?","yes":"Ja, skift til min region","no":"Nej, behold Argentina"},"sk":{"title":"Zistený región","message":"Zistili sme, že nie ste v Argentíne. Chcete prepnúť obchod na váš región: {country}?","yes":"Áno, prepnúť región","no":"Nie, ponechať Argentínu"},"sl":{"title":"Zaznana regija","message":"Zaznali smo, da niste v Argentini. Želite trgovino preklopiti na svojo regijo: {country}?","yes":"Da, preklopi na mojo regijo","no":"Ne, obdrži Argentino"},"et":{"title":"Piirkond tuvastatud","message":"Tuvastasime, et te ei asu Argentinas. Kas soovite poe vahetada oma piirkonnale: {country}?","yes":"Jah, vaheta minu piirkonnale","no":"Ei, jäta Argentina"},"fi":{"title":"Alue havaittu","message":"Havaitsimme, ettet ole Argentiinassa. Haluatko vaihtaa kaupan alueellesi: {country}?","yes":"Kyllä, vaihda alueelleni","no":"Ei, pidä Argentiina"},"hu":{"title":"Régió észlelve","message":"Azt észleltük, hogy nem Argentínában tartózkodsz. Átváltod az áruházat a régiódra: {country}?","yes":"Igen, váltás a régiómra","no":"Nem, maradjon Argentína"},"is":{"title":"Svæði greint","message":"Við greindum að þú ert ekki í Argentínu. Viltu skipta versluninni yfir á þitt svæði: {country}?","yes":"Já, skipta yfir á mitt svæði","no":"Nei, halda Argentínu"},"lv":{"title":"Reģions noteikts","message":"Mēs noteicām, ka neatrodaties Argentīnā. Vai vēlaties pārslēgt veikalu uz savu reģionu: {country}?","yes":"Jā, pārslēgt uz manu reģionu","no":"Nē, paturēt Argentīnu"},"lt":{"title":"Aptiktas regionas","message":"Nustatėme, kad nesate Argentinoje. Ar norite perjungti parduotuvę į savo regioną: {country}?","yes":"Taip, perjungti į mano regioną","no":"Ne, palikti Argentiną"},"mt":{"title":"Reġjun misjub","message":"Sibna li m'intix fl-Arġentina. Trid tibdel il-ħanut għar-reġjun tiegħek: {country}?","yes":"Iva, ibdel għar-reġjun tiegħi","no":"Le, żomm l-Arġentina"},"no":{"title":"Region oppdaget","message":"Vi oppdaget at du ikke er i Argentina. Vil du bytte butikken til din region: {country}?","yes":"Ja, bytt til min region","no":"Nei, behold Argentina"},"cs":{"title":"Zjištěn region","message":"Zjistili jsme, že nejste v Argentině. Chcete přepnout obchod na svůj region: {country}?","yes":"Ano, přepnout na můj region","no":"Ne, ponechat Argentinu"},"ro":{"title":"Regiune detectată","message":"Am detectat că nu ești în Argentina. Vrei să schimbi magazinul pe regiunea ta: {country}?","yes":"Da, schimbă pe regiunea mea","no":"Nu, păstrează Argentina"},"sv":{"title":"Region upptäckt","message":"Vi upptäckte att du inte är i Argentina. Vill du byta butiken till din region: {country}?","yes":"Ja, byt till min region","no":"Nej, behåll Argentina"},"uk":{"title":"Регіон визначено","message":"Ми визначили, що ви перебуваєте не в Аргентині. Переключити магазин на ваш регіон: {country}?","yes":"Так, змінити регіон","no":"Ні, залишити Аргентину"},"bn":{"title":"অঞ্চল শনাক্ত হয়েছে","message":"আমরা শনাক্ত করেছি যে আপনি আর্জেন্টিনায় নেই। দোকানটি কি আপনার অঞ্চল {country}-এ পরিবর্তন করতে চান?","yes":"হ্যাঁ, আমার অঞ্চলে পরিবর্তন করুন","no":"না, আর্জেন্টিনা রাখুন"},"he":{"title":"זוהה אזור","message":"זיהינו שאינך בארגנטינה. האם ברצונך להעביר את החנות לאזור שלך: {country}?","yes":"כן, עבור לאזור שלי","no":"לא, השאר את ארגנטינה"},"ms":{"title":"Wilayah dikesan","message":"Kami mengesan bahawa anda bukan berada di Argentina. Mahu tukar kedai ke wilayah anda: {country}?","yes":"Ya, tukar ke wilayah saya","no":"Tidak, kekalkan Argentina"},"ur":{"title":"علاقہ شناخت ہوا","message":"ہم نے شناخت کیا کہ آپ ارجنٹینا میں نہیں ہیں۔ کیا آپ اسٹور کو اپنے علاقے {country} میں تبدیل کرنا چاہتے ہیں؟","yes":"ہاں، میرے علاقے میں تبدیل کریں","no":"نہیں، ارجنٹینا رکھیں"},"si":{"title":"කලාපය හඳුනාගෙන ඇත","message":"ඔබ ආර්ජන්ටිනාවේ නොසිටින බව අපි හඳුනාගත්තෙමු. වෙළඳසැල ඔබේ කලාපයට ({country}) මාරු කිරීමට අවශ්‍යද?","yes":"ඔව්, මගේ කලාපයට මාරු කරන්න","no":"නැහැ, ආර්ජන්ටිනාව තබන්න"},"th":{"title":"ตรวจพบภูมิภาค","message":"เราตรวจพบว่าคุณไม่ได้อยู่ในอาร์เจนตินา ต้องการเปลี่ยนร้านค้าเป็นภูมิภาคของคุณ: {country} หรือไม่?","yes":"ใช่ เปลี่ยนเป็นภูมิภาคของฉัน","no":"ไม่ คงอาร์เจนตินาไว้"},"vi":{"title":"Đã phát hiện khu vực","message":"Chúng tôi phát hiện bạn không ở Argentina. Bạn có muốn chuyển cửa hàng sang khu vực của mình: {country}?","yes":"Có, chuyển sang khu vực của tôi","no":"Không, giữ Argentina"},"am":{"title":"ክልል ተገኝቷል","message":"በአርጀንቲና ውስጥ እንዳልሆኑ አግኝተናል። መደብሩን ወደ ክልልዎ {country} መቀየር ይፈልጋሉ?","yes":"አዎ፣ ወደ ክልሌ ቀይር","no":"አይ፣ አርጀንቲናን አቆይ"},"sw":{"title":"Eneo limegunduliwa","message":"Tumegundua kuwa hauko Argentina. Je, ungependa kubadilisha duka liwe katika eneo lako: {country}?","yes":"Ndiyo, badili kwenda eneo langu","no":"Hapana, baki Argentina"}};
   const ALL_COUNTRIES = {"América":[["Argentina","AR"],["Bolivia","BO"],["Brasil","BR"],["Canadá","CA"],["Chile","CL"],["Colombia","CO"],["Costa Rica","CR"],["Cuba","CU"],["Ecuador","EC"],["El Salvador","SV"],["Estados Unidos","US"],["Guatemala","GT"],["Haití","HT"],["Honduras","HN"],["Jamaica","JM"],["México","MX"],["Nicaragua","NI"],["Panamá","PA"],["Paraguay","PY"],["Perú","PE"],["República Dominicana","DO"],["Uruguay","UY"],["Venezuela","VE"]],"Europa":[["Alemania","DE"],["Austria","AT"],["Bélgica","BE"],["Bulgaria","BG"],["Croacia","HR"],["Dinamarca","DK"],["Eslovaquia","SK"],["Eslovenia","SI"],["España","ES"],["Estonia","EE"],["Finlandia","FI"],["Francia","FR"],["Grecia","GR"],["Hungría","HU"],["Irlanda","IE"],["Islandia","IS"],["Italia","IT"],["Letonia","LV"],["Lituania","LT"],["Luxemburgo","LU"],["Malta","MT"],["Noruega","NO"],["Países Bajos","NL"],["Polonia","PL"],["Portugal","PT"],["Reino Unido","GB"],["República Checa","CZ"],["Rumania","RO"],["Suecia","SE"],["Suiza","CH"],["Ucrania","UA"]],"Asia":[["Arabia Saudita","SA"],["Bangladés","BD"],["China","CN"],["Corea del Sur","KR"],["Emiratos Árabes Unidos","AE"],["Filipinas","PH"],["India","IN"],["Indonesia","ID"],["Israel","IL"],["Japón","JP"],["Jordania","JO"],["Kazajistán","KZ"],["Kuwait","KW"],["Malasia","MY"],["Nepal","NP"],["Omán","OM"],["Pakistán","PK"],["Qatar","QA"],["Singapur","SG"],["Sri Lanka","LK"],["Tailandia","TH"],["Turquía","TR"],["Vietnam","VN"]],"África":[["Argelia","DZ"],["Angola","AO"],["Camerún","CM"],["Costa de Marfil","CI"],["Egipto","EG"],["Etiopía","ET"],["Ghana","GH"],["Kenia","KE"],["Marruecos","MA"],["Mozambique","MZ"],["Namibia","NA"],["Nigeria","NG"],["Senegal","SN"],["Sudáfrica","ZA"],["Tanzania","TZ"],["Túnez","TN"],["Uganda","UG"],["Zambia","ZM"],["Zimbabue","ZW"]],"Oceanía":[["Australia","AU"],["Fiyi","FJ"],["Nueva Zelanda","NZ"],["Papúa Nueva Guinea","PG"],["Samoa","WS"],["Tonga","TO"],["Vanuatu","VU"]]};
 
   const UI = {
@@ -158,36 +123,64 @@
   }
 
   async function detectRegion(){
-    const cached=localStorage.getItem('awsDetectedCountry');
-    if(cached)return cached;
-    const sources=['https://ipapi.co/json/','https://ipwho.is/'];
+    // No usamos un país guardado permanentemente: una VPN puede cambiar la IP
+    // y queremos volver a detectar la región en cada nueva sesión/pestaña.
+    const cached=sessionStorage.getItem('awsDetectedCountry');
+    if(cached && /^[A-Z]{2}$/.test(cached)) return cached;
+
+    const sources=[
+      'https://ipwho.is/',
+      'https://ipapi.co/json/',
+      'https://api.country.is/'
+    ];
+
     for(const url of sources){
       try{
-        const r=await fetch(url,{cache:'no-store'});if(!r.ok)continue;const d=await r.json();
-        const code=String(d.country_code||d.country_code2||'').toUpperCase();
-        if(/^[A-Z]{2}$/.test(code)){localStorage.setItem('awsDetectedCountry',code);return code;}
+        const controller=new AbortController();
+        const timer=setTimeout(()=>controller.abort(),4500);
+        const r=await fetch(url,{cache:'no-store',signal:controller.signal});
+        clearTimeout(timer);
+        if(!r.ok)continue;
+        const d=await r.json();
+        const code=String(
+          d.country_code ||
+          d.country_code2 ||
+          d.country ||
+          d.countryCode ||
+          ''
+        ).toUpperCase();
+        if(/^[A-Z]{2}$/.test(code)){
+          sessionStorage.setItem('awsDetectedCountry',code);
+          localStorage.setItem('awsLastDetectedCountry',code);
+          return code;
+        }
       }catch{}
     }
+
+    // Si todas las APIs fallan, no forzamos Argentina: simplemente no mostramos
+    // el aviso hasta poder detectar una región real.
     return '';
   }
 
   function showRegionOffer(country,lang){
     if(!country||country==="AR")return;
-    const choice=localStorage.getItem('awsRegionChoice');
+    const choice=sessionStorage.getItem('awsRegionChoice');
     if(choice===`accepted:${country}`||choice===`declined:${country}`)return;
     if(document.getElementById('aws-language-offer'))return;
     const prompt=REGION_PROMPT[lang]||REGION_PROMPT.en;
     const overlay=document.createElement('div');overlay.id='aws-language-offer';
+    overlay.dir=(lang==='ar'||lang==='he'||lang==='ur')?'rtl':'ltr';
+    overlay.lang=lang;
     const msg=prompt.message.replace('{country}',regionName(country,lang));
     overlay.innerHTML=`<div class="aws-lang-card" role="dialog" aria-modal="true" aria-labelledby="aws-region-title"><h3 id="aws-region-title">${prompt.title}</h3><p>${msg}</p><div class="aws-lang-actions"><button class="aws-lang-primary" type="button">${prompt.yes}</button><button class="aws-lang-secondary" type="button">${prompt.no}</button></div></div>`;
     overlay.querySelector('.aws-lang-primary').onclick=()=>{
-      localStorage.setItem('awsRegionChoice',`accepted:${country}`);
+      sessionStorage.setItem('awsRegionChoice',`accepted:${country}`);
       localStorage.setItem('awsCountryCode',country);
       localStorage.setItem('awsLanguageChosen','1');
       applyLanguage(lang,true);
     };
     overlay.querySelector('.aws-lang-secondary').onclick=()=>{
-      localStorage.setItem('awsRegionChoice',`declined:${country}`);
+      sessionStorage.setItem('awsRegionChoice',`declined:${country}`);
       localStorage.setItem('awsCountryCode','AR');
       location.reload();
     };
@@ -196,8 +189,10 @@
 
   async function initDetection(){
     const country=await detectRegion();
-    let browserLang=normalizedLanguage(navigator.languages?.[0]||navigator.language);
-    const detected=ALL_LANGUAGES[browserLang]?browserLang:(COUNTRY_LANGUAGE[country]||'en');
+    const browserLang=normalizedLanguage(navigator.languages?.[0]||navigator.language);
+    // El aviso usa el idioma principal asociado al país detectado.
+    // Si el país no está mapeado, usa el idioma del navegador y luego inglés.
+    const detected=COUNTRY_LANGUAGE[country]||browserLang||'en';
     updateDetectedLabel(country,detected);
     if(country&&country!=="AR")showRegionOffer(country,detected);
   }
