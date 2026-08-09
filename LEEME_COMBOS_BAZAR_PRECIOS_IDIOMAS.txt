@@ -1,0 +1,33 @@
+ACTUALIZACIÓN COMBOS - BAZAR Y ACCESORIOS
+
+Se agregó una nueva subcategoría llamada "Combos" dentro de Bazar y Accesorios.
+
+Productos agregados:
+1. Combo Unitario
+   Argentina: ARS 167.050
+   Exterior base de conversión: ARS 196.950
+2. Combo Doble
+   Argentina: ARS 291.200
+   Exterior base de conversión: ARS 321.100
+3. Combo Mixto
+   Argentina: ARS 244.400
+   Exterior base de conversión: ARS 274.300
+
+Los precios internacionales se convierten automáticamente a la moneda del país seleccionado
+(USD, BRL, MXN, EUR, GBP, CLP, PEN, etc.) usando el mismo sistema de conversión de la tienda.
+
+La traducción global se aplica a:
+- Página principal
+- Todas las subcategorías
+- Todas las páginas de productos
+- Las tres páginas nuevas de combos
+- Carrito y páginas auxiliares
+
+Todas las páginas cargan la versión nueva de los scripts para evitar caché anterior.
+
+Imágenes:
+- Fotos/Combos/Combo Unitario.png
+- Fotos/Combos/Combo Doble.png
+- Fotos/Combos/Combo Mixto.png
+
+No se incluyen .env, backend, node_modules ni .git.

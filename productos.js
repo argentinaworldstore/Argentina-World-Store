@@ -6486,4 +6486,59 @@ window.PRODUCTOS = [
     "description": "Conjunto de vestir tradicional con prendas y accesorios combinados.",
     "weightGrams": 2200
   }
+,
+{
+  "id": "combos-1",
+  "name": "Combo Unitario",
+  "images": [
+    "Combo Unitario.png"
+  ],
+  "subcategory": "Combos",
+  "basePriceARS": 167050,
+  "foreignPriceARS": 196950,
+  "costARS": 99500,
+  "page": "productos/combos-1.html",
+  "saleType": "mayorista",
+  "minPurchaseQuantity": 1,
+  "available": true,
+  "status": "Disponible",
+  "description": "Combo emprendedor con 2 canastas materas símil cuero, 1 termo media manija negro, 1 termo media manija plateado, 1 azucarero yerbero de lata, 1 yerbero en estuche, 1 mate imperial con virola de acero, 1 mate camionero con virola de acero, 1 mate torpedo con virola de acero, 1 mate camionero de madera con virola de acero, 3 bombillas PDL mini y 1 bombilla chata.",
+  "weightGrams": 4500
+},
+{
+  "id": "combos-2",
+  "name": "Combo Doble",
+  "images": [
+    "Combo Doble.png"
+  ],
+  "subcategory": "Combos",
+  "basePriceARS": 291200,
+  "foreignPriceARS": 321100,
+  "costARS": 195000,
+  "page": "productos/combos-2.html",
+  "saleType": "mayorista",
+  "minPurchaseQuantity": 1,
+  "available": true,
+  "status": "Disponible",
+  "description": "Combo emprendedor doble con 4 canastas materas símil cuero, 2 termos media manija negros, 2 termos media manija plateados, 2 azucareros yerberos de lata, 2 yerberos en estuche, 2 mates imperiales con virola de acero, 2 mates camioneros con virola de acero, 2 mates torpedo con virola de acero, 2 mates camioneros de madera con virola de acero, 6 bombillas PDL mini y 2 bombillas chatas.",
+  "weightGrams": 8500
+},
+{
+  "id": "combos-3",
+  "name": "Combo Mixto",
+  "images": [
+    "Combo Mixto.png"
+  ],
+  "subcategory": "Combos",
+  "basePriceARS": 244400,
+  "foreignPriceARS": 274300,
+  "costARS": 159000,
+  "page": "productos/combos-3.html",
+  "saleType": "mayorista",
+  "minPurchaseQuantity": 1,
+  "available": true,
+  "status": "Disponible",
+  "description": "Combo emprendedor mixto con 1 termo media manija plateado, 1 termo bala de 500 ml, 1 canasta símil cuero marrón, 1 canasta símil cuero negra, 1 porta termo morral negro, 1 porta termo morral marrón, 1 mate ranchero blanco, 1 mate ranchero negro, 1 mate imperial con virola de acero, 1 mate camionero con virola de acero, 1 mate imperial de algarrobo, 1 mate camionero de algarrobo, 2 porta mate símil cuero, 1 porta mate de cuero y 6 bombillas PDL mini.",
+  "weightGrams": 6500
+}
 ];
